@@ -38,12 +38,8 @@
     b_3 = - \flatfrac{2}{3 r_0} (\alpha + 2 \beta), \quad
     b_4 = \flatfrac{1}{12 r_0^2} (7 \alpha + 20 \beta), \quad
     b_5 = \flatfrac{1}{60 r_0^3} (-41 \alpha + 8 (15 + r_0^2) \beta), \\
-    b_n = \frac{(1-3n)b_{n-1}}{2n(n-2)r_0}
-        - \frac{(4-7n)b_{n-2}}{4n(n-2)r_0^2}
-        + \frac{(43-15n-16r_1^2)b_{n-3}}{8n(n-2)r_0^3}
-        - \frac{(122-31n-48r_1^2)b_{n-4}}{16n(n-2)r_0^4} \\
-        + \frac{(313-63n-128r_1^2)b_{n-5}}{32n(n-2)r_0^5}
-        + \frac{(1+160r_1^2)b_{n-6}}{32n(n-2)r_0^6} ,
+    b_n = - \frac{1}{2(n-2)n r_0^3} \\ (b_{n-5} + 4 r_0 b_{n-4}
+          + (4-7n+n^2+4r_1^2) b_{n-3} \\ + 4r_0(n-3)(n-2) b_{n-2} + r_0^2(5n-7)(n-2) b_{n-1}),
 \end{gathered}\end{equation}
 %
 где $r_0 = \sqrt{(l-1)(l+2)}$, $r_1 = \sqrt{l(l+1)}$, $\alpha$, $\beta$~--- параметры.
