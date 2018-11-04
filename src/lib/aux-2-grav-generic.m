@@ -41,7 +41,7 @@ tmd=HoldForm[Evaluate[Sqrt[TensorSymbol[tm]]]];
 
 Val[tE[i_,j_]]:=\[Eth]t[th[i,j]]+\[Eth][tV[i],Cov[j]]+\[Eth][tV[j],Cov[i]];
 Val[td[i_,j_]]:=TensorDeltaValue[i,j];
-Val[tlc[i_,j_,k_]]:=TensorLeviCivita3Value[i,j,k]/tmd;
+Val[tlc[i_,j_,k_]]:=TensorLeviCivita3Value[i,j,k];
 Val[tq[i_]]:=USum[\[Eth][th[i,j],Cov[j]]-\[Eth][th[j,j],Cov[i]],j];
 Val[tB[i_,j_]]:=sr[th][i,j];
 
