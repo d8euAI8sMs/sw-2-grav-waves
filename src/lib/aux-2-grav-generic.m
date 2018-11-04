@@ -47,7 +47,7 @@ Val[tB[i_,j_]]:=sr[th][i,j];
 
 Val[tm[i_,j_]]:=gg[i,j];
 Val[TensorContr[tm][i_,j_]]:=hh[i,j];
-Val[tmd]:= -I gd;
+Val[tmd]:= gd;
 
 Sym[x:th[i_,j_]]:=th[j,i]/;i>j;
 Sym[x:th[__]]:=x;
