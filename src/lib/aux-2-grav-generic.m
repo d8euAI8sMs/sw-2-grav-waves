@@ -44,6 +44,7 @@ Val[td[i_,j_]]:=TensorDeltaValue[i,j];
 Val[tlc[i_,j_,k_]]:=TensorLeviCivita3Value[i,j,k];
 Val[tq[i_]]:=USum[\[Eth][th[i,j],Cov[j]]-\[Eth][th[j,j],Cov[i]],j];
 Val[tB[i_,j_]]:=sr[th][i,j];
+Val[tB[i_,j_],Symbol]:=TensorSr[th][i,j];
 
 Val[tm[i_,j_]]:=gg[i,j];
 Val[TensorContr[tm][i_,j_]]:=hh[i,j];
@@ -66,7 +67,10 @@ lap[v_][k_]:=USum[TensorContr[tm][i,j]\[Eth][v[k],Cov[i],Cov[j]],i,j];
 (*\:041e\:043f\:0440\:0435\:0434\:0435\:043b\:0435\:043d\:0438\:044f, \:0437\:0430\:0432\:0438\:0441\:044f\:0449\:0438\:0435 \:043e\:0442 \:0441\:0438\:0441\:0442\:0435\:043c\:044b \:043a\:043e\:043e\:0440\:0434\:0438\:043d\:0430\:0442*)
 
 
-RecalculateGrav[]:=Module[{},
+RecalculateGrav[]:=Module[{tv,drvrules,svar,var,tbl},
+	lagrc2s=1/2 tmd SSum[TensorContr[((tm[i,l]tm[j,m]tm[k,n]-tm[i,j]tm[l,m]tm[k,n])/2-(tm[i,n]tm[j,m]tm[k,l]-tm[i,n]tm[j,k]tm[l,m]))]\[Eth][th[i,j],Cov[k]]\[Eth][th[l,m],Cov[n]],i,j,k,l,m,n]//Tensorify//TensorBeautify;
+	lagrc2n=lagrc2s//.SSum2SumRules[{#,0,3}&]//.{x:TensorContr[tm][__]|tB[__]|tE[__]:>Val[x]}//.{y:th[a__]:>Sym[y]}//.{th[0,0]:>0,th[i_,0]|th[0,i_]:>-tV[i]}//Tensorify//TensorBeautify;
+	
 	lagr2s=USum[tmd TensorContr[tm][i,j]TensorContr[tm][k,l](tE[i,k]tE[j,l]-tE[i,j]tE[k,l]),i,j,k,l]/4-USum[tB[i,j]tB[j,i]/tmd,i,j]/4//Tensorify//TensorBeautify;
 	lagr2n=lagr2s//.SSum2SumRules[{#,3}&]//.{x:TensorContr[tm][__]:>Val[x],x:tE[__]:>Sym[x]}//Simplify;
 	lagr2n=lagr2n//.{x:tB[__]|tE[__]:>Val[x]}//.{y:th[a__]:>Sym[y]}//ExpandAll;
@@ -83,12 +87,31 @@ RecalculateGrav[]:=Module[{},
 
 	Uin=Table[Uis//.SSum2SumRules[{#,1,3}&]//.{x:td[__]|tE[__]|tB[__]|TensorContr[tm][__]|tq[__]|tlc[ijk__]:>Val[x]}/.{tV[_]:>0}//.SSum2SumRules[{#,1,3}&]//.{y:th[a__]:>Sym[y]}//Simplify//ExpandAll,{\[Iota],3}]/.{tV[_]:>0}//ExpandAll;
 	
-	lagr2n=(lagr2n//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0};
-	epsn=(epsn//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0};
-	Uin=(Uin//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0};
-	Un=(Un//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0};
+	lagrc2ne=(lagrc2n//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]}),y:th[a__]:>Sym[y]}//ExpandAll//PowerExpand;
+	lagr2ne=(lagr2n//CovExpand)//.SSum2SumRules[{#,1,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
+	epsne=(epsn//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
+	Uine=(Uin//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
+	Une=(Un//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
 	
-	{lagr2s,Us,epss,Uis}
+	tv[a_]:=Tensor[a,0,2];
+	drvrules={
+		\[Eth][tv[a_][i_,j_],v1___,tv[a_][k_,l_],v2___]:>If[{v1}!={}||{v2}!={},0,td[k,i]td[l,j]],
+		\[Eth][tv[a_][i_,j_],v1___,\[Eth][tv[a_][k_,l_],v2__],v3___]:>If[Length[{v1}]!=Length[{v2}],0,If[{v3}!={},0,td[k,i]td[l,j]Product[td[Uncov[{v1}[[vi]]],Uncov[{v2}[[vi]]]],{vi,Length[{v1}]}]]],
+		\[Eth][_?(!MatchQ[#,Tensor[a__][b__]]&),c__]:>0,
+		\[Eth][TensorContr[tm][a__],Cov[b_]|th[__]|\[Eth][th[o__],v__],c___]:>0
+	};
+	svar[L_,gij_]:=\[Eth][L,gij]-Module[{k},USum[\[Eth][\[Eth][L,\[Eth][gij,Cov[k]]],Cov[k]],k]];
+	var=svar[lagrc2s,th[\[Alpha],\[Beta]]]//Tensorify//TensorBeautify;
+	var=TensorMap[TensorSimplify[var//.drvrules]//Tensorify//TensorBeautify,TensorTopoSortMapperExt[Automatic,{\[Alpha],\[Beta]}]];
+	lagrc2svar=var;
+	lagrc2nvar=Table[lagrc2svar//.SSum2SumRules[{#,0,3}&]//.{x:TensorContr[tm][__]:>Val[x],th[0,0]:>0,th[0,i_]|th[i_,0]:>tV[i]},{\[Alpha],0,3},{\[Beta],0,3}];
+	lagrc2nvare=(lagrc2nvar//CovExpand)//.{x:TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd]}//.SSum2SumRules[{#,0,3}&]//.DD2DRules[coords,!MatchQ[#,\[Eth][Tensor[a__][b__],c__]]&]//ExpandAll;
+
+	svar[L_,gij_]:=Module[{k},Sum[\[Eth][D[L,\[Eth][gij,Cov[k]]],Cov[k]],{k,0,3}]];
+	lagr2nvar=Table[svar[lagr2n/.{tV[__]:>0},th[\[Alpha],\[Beta]]],{\[Alpha],3},{\[Beta],3}]//.DD2DRules[coords,!MatchQ[#,\[Eth][Tensor[a__][b__],c__]]&];
+	lagr2nvare=(lagr2nvar//CovExpand)//.SSum2SumRules[{#,1,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd]}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]}),y:th[a__]:>Sym[y]}//ExpandAll;
+
+	{{lagrc2s,lagr2s},Us,epss,Uis,lagrc2svar}
 ];
 
 
