@@ -5,4 +5,149 @@
 
 \onlyinsubfile{\tableofcontents}
 
+\subsection{Симтензорный анализ}
+
+    Здесь мы введем необходимый для дальнейшего изложения набор операций над симметричными тензорами второго ранга (\textit{симтензорами}).
+
+    Определим операцию \textit{полуротора} так:
+    %
+    \begin{equation}\label{eq:sr}
+        \Opsr(h)^i_m = \varepsilon^{ikl} h_{mk;l} .
+    \end{equation}
+    %
+    Здесь тензор $\varepsilon_{ikl}$ определяется с учетом метрики (множителя $\sqrt{g}$).
+
+    \textit{Биротор} получается двухкратным применением полуротора:
+    %
+    \begin{equation}\label{eq:br}
+        \Opbr(h) = \Opsr(\Opsr(h)) .
+    \end{equation}
+
+    Операция \textit{симдивергенции} переводит симтензор в вектор:
+    %
+    \begin{equation}\label{eq:sdiv}
+        \Opsdiv(h)_i = h^j_{i;j} .
+    \end{equation}
+
+    Операция \textit{биградиента} переводит векторное поле в симтензор:
+    %
+    \begin{equation}\label{eq:bigr}
+        \Opbigr(\xi)_{ij} = \xi_{i;j} + \xi_{j;i}.
+    \end{equation}
+
+    Для введенных операций сохраняются тождества, справедливые для аналогичных векторных операций, например, симдивергенция биротора и биротор биградиента равны нулю тождественно:
+    %
+    \begin{equation}\label{eq:br-of-bigr}
+        \Opbr(\Opbigr(\xi)) = 0,
+    \end{equation}
+    %
+    \begin{equation}\label{eq:sdiv-of-br}
+        \Opsdiv(\Opbr(h)) = 0.
+    \end{equation}
+
+\subsection{Квадратичный лагранжиан}
+
+    Поскольку гравитационные волны очень слабы, фактически достаточно рассматривать лишь малые отклонения метрики пространства от метрики Минковского. Как предложил еще Эйнштейн\todo{источник}, запишем метрику в виде
+    %
+    \begin{equation}\label{eq:gab}
+        g_{ab} = \gamma_{ab} + h_{ab} .
+    \end{equation}
+    %
+    Здесь $\gamma_{ab}$~--- фоновая метрика Минковского, $h_{ab}$~--- малые поправки к ней.
+
+    Для описания слабых гравитационных волн достаточно линеаризованных уравнений. Эти уравнения можно получить из квадратичного лагранжиана Гильберта. В работе \todo{гравитационные волны} показывается, что лагранжиан Гильберта в квадратичном приближении в планковской системе единиц имеет вид:
+    %
+    \begin{equation}\label{eq:lagrc2}
+        \begin{gathered}
+            \mathcal{L}^{(2)} = \frac{1}{8} \qty(
+                \frac{S_1 - S_2}{2} - (S_3 - S_4)
+            ) \sqrt{\gamma}, \\
+            \begin{aligned}
+                S_1 &= \gamma^{il}\gamma^{jm}\gamma^{kn} h_{ij;k} h_{lm;n} \\
+                S_2 &= \gamma^{ij}\gamma^{lm}\gamma^{kn} h_{ij;k} h_{lm;n} \\
+                S_3 &= \gamma^{in}\gamma^{jm}\gamma^{kl} h_{ij;k} h_{lm;n} \\
+                S_4 &= \gamma^{in}\gamma^{jk}\gamma^{lm} h_{ij;k} h_{lm;n} .
+            \end{aligned}
+        \end{gathered}
+    \end{equation}
+    %
+    С точки зрения ТГВ с ним не очень удобно работать, т.к. время не выделено явно, поэтому \autoref{eq:lagrc2} приводится к виду:
+    %
+    \begin{equation}\label{eq:lagr2}
+        \begin{gathered}
+            \mathcal{L}^{(2)} = \frac{1}{8} \qty(
+                \gamma^{ij} \gamma^{kl} \qty(
+                    E_{ik} E_{jl} - E_{ij} E_{kl}
+                ) - B^i_j B^j_i
+            ) \sqrt{\gamma}, \\
+            E_{ij} = \dot{h}_{ij} + V_{i;j} + V_{j;i}, \quad
+            B^i_j = \Opsr(h)^i_j .
+        \end{gathered}
+    \end{equation}
+    %
+    Несложно убедиться, что $\dot{h}_{ij} \equiv h_{ij;0}$. Второй член здесь не зависит от времени, потому является потенциальной энергией.
+
+    Замечательным свойством лагранжиана в форме \autoref{eq:lagr2} является то, что уравнения динамики имеют простой бироторный вид:
+    %
+    \begin{equation}\begin{aligned}\label{eq:lagr2var}
+        4\fdv{\mathcal{L}^{(2)}}{h_{ij}} &= \Opbr(h)^{ij} -
+        \qty(\gamma^{ki}\gamma^{lj} - \gamma^{kl}\gamma^{ij}) \dot{E}_{kl} \\
+                   &= \Opbr(h)^{ij} - \qty(\dot{E}^{ij} - \gamma^{ij} \trace{\dot{E}}) = 0.
+    \end{aligned}\end{equation}
+
+    Дальнейшие соотношения рассмотрим в глобальной калибровке.
+
+    Бироторный вид уравнений (\autoref{eq:lagr2var}) удобен, однако в глобальной калибровке удобнее ввести пространственно-временной оператор
+    %
+    \begin{equation}\label{eq:brtr}
+        \Opbrstar(h)^{ij} = \Opbr(h)^{ij} + \gamma^{ij} \trace{\ddot{h}} .
+    \end{equation}
+    %
+    Тогда \autoref{eq:lagr2var} перепишется в виде
+    %
+    \begin{equation}\label{eq:lagr2var-brstar}
+        \Opbrstar(h) = \ddot{h} .
+    \end{equation}
+    %
+    Соотношение \ref{eq:lagr2var-brstar} назовем \textit{основным вариационным уравнением}.
+
+    Плотность энергии отличается от квадратичного лагранжиана знаком перед потенциальной энергией:
+    %
+    \begin{equation}\label{eq:eps}
+        \varepsilon = \pdv{\mathcal{L}^{(2)}}{\dot{h}_{ij}} \dot{h}_{ij} - \mathcal{L}^{(2)}
+                    = \frac{1}{8} \qty(
+            \gamma^{ij} \gamma^{kl} \qty(
+                E_{ik} E_{jl} - E_{ij} E_{kl}
+            ) + B^i_j B^j_i
+        ) \sqrt{\gamma}
+    \end{equation}
+
+    Поток энергии (вектор Умова-Пойнтинга) описывается выражением:
+    %
+    \begin{equation}\label{eq:Uil}
+        U^i = \pdv{\mathcal{L}^{(2)}}{h_{kl;i}} \dot{h}_{kl}
+            = -\frac{1}{4}\varepsilon^{ijk} E_{lk} B^l_j
+    \end{equation}
+
+\subsection{Калибровочная инвариантность}
+
+    Тождество \ref{eq:br-of-bigr} определяет калибровочную инвариантность уравнений \ref{eq:lagr2var}: добавление биградиента произвольного поля $\xi$ к метрике $h$ при соответствующем изменении поля скоростей не меняет уравнений динамики:
+    %
+    \begin{equation}\begin{aligned}\label{eq:calibr-inv}
+        \tilde{h}_{ij} &= h_{ij} + \xi_{i;j} + \xi_{j;i}, \\
+        \tilde{V}_i    &= V_i - \dot{\xi}_i, \\
+        \tilde{E}_{ij} &= E_{ij} + \dot{\xi}_{i;j} + \dot{\xi}_{j;i} \\
+                       &= \dot{h}_{ij} + \qty(\tilde{V}_{i;j} + \dot{\xi}_{i;j}) + \qty(\tilde{V}_{j;i} +  \dot{\xi}_{j;i}), \\
+                       &= \dot{h}_{ij} + V_{i;j} + V_{j;i} \\
+                       &= E_{ij} .
+    \end{aligned}\end{equation}
+    %
+    Правая часть \autoref{eq:lagr2var} не меняется в силу \autoref{eq:br-of-bigr}, а левая~--- в силу инвариантности $E_{ij}$ (\autoref{eq:calibr-inv}) относительно калибровочных преобразований.
+
+    Наиболее простой является калибровка $\tilde{V}_i = 0$. Будем называть ее \textit{глобальной}. При этом:
+    %
+    \begin{equation}\label{eq:calibr-glob}
+        \dot{\xi}_i = V_i, \quad \tilde{E}_{ij} = \dot{h}_{ij} + V_{i;j} + V_{j;i} = \dot{\tilde{h}}_{ij} .
+    \end{equation}
+
 \end{document}

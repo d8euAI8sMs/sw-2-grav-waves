@@ -5,4 +5,173 @@
 
 \onlyinsubfile{\tableofcontents}
 
+\subsection{Инструменты вращений}
+
+    В работах \todo{ТМФ, гравитационные волны} описывается метод Ли-генерации сферических мод для полей произвольной тензорной размерности. Метод строится на основе теорем о коммутации операторов вращений и полей Киллинга. Он необходим для дальнейшего изложения, поэтому кратко изложим здесь его суть.
+
+    \textit{Ли-вариация} $\underaccent{\xi}{\delta} F$ скалярного (векторного, тензорного) поля $F$ показывает его изменение при бесконечно малом преобразовании координат вдоль некоторого другого (векторного) поля $\xi$. Для скаляра, контравариантного вектора и дважды ковариантного тензора Ли-вариация дается выражениями:
+    %
+    \begin{align}\label{eq:lie-t00}
+        \underaccent{\xi}{\delta} A &= - \xi^c A_{,c}, \\
+        \label{eq:lie-t10}
+        \underaccent{\xi}{\delta} \eta^a &=
+            - \xi^c \eta^{a}_{,c} + \xi^a_{,c} \eta^c =
+                - \underaccent{\eta}{\delta} \xi^a \equiv \qty[\xi,\eta]^a, \\
+        \label{eq:lie-t02}
+        \underaccent{\xi}{\delta} g_{ab} &=
+            - \xi^c g_{ab,c} - \xi^c_{,a} g_{cb} - \xi^c_{,b} g_{ac}.
+    \end{align}
+    %
+    Выр. \ref{eq:lie-t10} определяет коммутатор двух векторных полей.
+    %
+    \begin{theorem}
+        Коммутатор операторов, порожденных векторными полями, является оператором, порожденным коммутатором этих полей:
+        %
+        \begin{equation*}
+            [\underaccent{\xi}{\delta},\underaccent{\eta}{\delta}] =
+                \underaccent{[\xi,\eta]}{\delta}.
+        \end{equation*}
+    \end{theorem}
+    %
+    \begin{theorem}
+        Операторы коммутируют, если коммутируют порождающие их векторные поля:
+        %
+        \begin{equation*}
+            [\underaccent{\xi}{\delta},\underaccent{\eta}{\delta}]\tau = 0
+                \quad\Leftrightarrow\quad
+            [\xi,\eta] = 0 .
+        \end{equation*}
+    \end{theorem}
+
+    Применительно к метрическому тензору $\gamma_{ab}$ Ли-вариация имеет вид:
+    %
+    \begin{equation}\label{eq:lie-tm}
+        \underaccent{\xi}{\delta} \gamma_{ab}
+            = - \qty(\xi_{b,a} + \xi_{a,b})
+            = - \qty(\xi_{b;a} + \xi_{a;b}).
+    \end{equation}
+
+    Векторные поля, Ли-вариация по которым не меняет метрики, называются \textit{движениями пространства}, или \textit{полями Киллинга}. Ли-вариации по полям Киллинга называются \textit{операторами Киллинга}.
+
+    В евклидовом пространстве имеется шесть полей Киллинга: группа трансляций ($\vb{n}_x,\vb{n}_y,\vb{n}_z$) и группа вращений ($\vb{l}_x,\vb{l}_y,\vb{l}_z$). Из группы вращений собирается другая тройка векторов:
+    %
+    \begin{equation}\label{eq:killv-lpmz}
+        \vb{l}_{+} = \vb{l}_x - i \vb{l}_y, \quad
+        \vb{l}_{-} = \vb{l}_x + i \vb{l}_y, \quad
+        \vb{l}_z,
+    \end{equation}
+    %
+    а также оператор
+    %
+    \begin{equation}\begin{aligned}\label{eq:killv-l2}
+        \Op{L}^2 &= \Op{L}_x\Op{L}_x + \Op{L}_y\Op{L}_y + \Op{L}_z\Op{L}_z \\
+                 &= \Op{L}_{+}\Op{L}_{-} + \Op{L}_z\Op{L}_z + i \Op{L}_z.
+    \end{aligned}\end{equation}
+    %
+    Показывается, что $\Op{L}^2$ коммутирует со всеми операторами вращений. Операторы $\Op{L}_{+}$ и $\Op{L}_{-}$, построенные на векторах $\vb{l}_{+}$ и $\vb{l}_{-}$, называются соответственно операторами повышения и понижения.
+    %
+    В сферических координатах:
+    %
+    \begin{equation}\label{eq:killv-lpmz-coord}
+        (\vb{l}_{+}^i) = e^{i\varphi}\ \qty(0,-i,\cot\theta), \quad
+        (\vb{l}_{-}^i) = e^{-i\varphi}\ \qty(0,i,\cot\theta), \quad
+        (\vb{l}_z^i)   = \qty(0,0,1).
+    \end{equation}
+
+    В силу \autoref{eq:killv-lpmz-coord} $\Op{L}_z = -\pdv*{\varphi}$. Несложно показать, что для поля $h$ любой тензорной размерности $h_{lm}(\theta,\varphi) = u_l(\theta) \exp(im\varphi)$ является собственным вектором оператора $\Op{L}_z$ с собственным значением $m$. Эта же мода относительно $\Op{L}^2$ определена с собственным значением $-l(l+1)$. Действие оператора $\Op{L}_{+}$ заключается в увеличении $m$ на единицу, а $\Op{L}_{-}$~--- в уменьшении $m$ на единицу. При этом $m$ по модулю ограничено сверху значением $l$, именно: $-l \le m \le l$.
+
+    Назовем \textit{базовой} моду $h_{l0}$ с $m = 0$. Для базовой моды
+    %
+    \begin{equation*}
+        \Op{L}^2 h_{l0} = - l(l+1) h_{l0} = \Op{L}_{-}\Op{L}_{-} h_{l0},
+    \end{equation*}
+    %
+    откуда
+    %
+    \begin{equation}\label{eq:killeq-hl0}
+        \Op{L}_{-}\Op{L}_{-} u_l(\theta) + l(l+1) u_l(\theta) = 0.
+    \end{equation}
+
+    Для базовой моды при зависимости от времени $\sim\exp(-i\omega t)$ основное вариационное уравнение (\autoref{eq:lagr2var-brstar}) примет вид:
+    %
+    \begin{equation}\label{eq:lagr2var-brstar-hl0}
+        \Opbrstar(h_{l0}) = - \omega^2 h_{l0}, \quad
+        \Opbrstar(h)_{ij} = \Opbr(h)_{ij} - \omega^2 \gamma_{ij} \trace{h} .
+    \end{equation}
+
+    Центральной теоремой, обеспечивающей применение метода Ли-генерации к сферическим гармоникам гравитационного поля, является
+    %
+    \begin{theorem}
+        Операторы Киллинга коммутируют с оператором биротор $\Opbr$, а также с модифицированным оператором $\Opbrstar$.
+    \end{theorem}
+
+    Таким образом, нахождение полного решения сводится к получению угловой зависимости для базовой моды из \autoref{eq:killeq-hl0}, радиальной зависимости из \autoref{eq:lagr2var-brstar-hl0} и применению необходимое количество раз операторов повышения и понижения. Временн\'{а}я зависимость дается множителем $\exp(-i \omega t)$.
+
+\subsection{Операторы повышения и понижения}
+
+    Можно показать, что тензор $h_{ij}$ в конечном итоге составляется из скалярных, векторных и тензорных компонент, т.е. компонент, ведущих себя при преобразованиях координат как скаляр, вектор или тензор. Обозначим их части, зависящие от $\theta$, следующим образом:
+    %
+    \begin{equation}
+        f^S_m = f^0_m, \quad
+        f^V_m = (f^1_m,f^2_m), \quad
+        f^T_m = (f^3_m,f^4_m) ,
+    \end{equation}
+    %
+    где $f^i_m(\theta)$~--- скалярные функции.
+
+    Если ввести матрицу перестановки
+    %
+    \begin{equation}
+        R = \begin{pmatrix}0&1\\1&0\end{pmatrix} ,
+    \end{equation}
+    %
+    то действие операторов повышения и понижения на скалярную, векторную и тензорную функции запишется в виде:
+    %
+    \begin{equation}\begin{aligned}
+        \Op{L}_{+} f^S_m &= f^S_{m+1} =
+            f^{'S}_m(\theta) - m \cot\theta f^S_m(\theta), \\
+        \Op{L}_{+} f^V_m &= f^V_{m+1} =
+            f^{'V}_m(\theta) - m \cot\theta f^V_m(\theta) + \cosec\theta R f^V_m, \\
+        \Op{L}_{+} f^T_m &= f^T_{m+1} =
+            f^{'T}_m(\theta) - m \cot\theta f^T_m(\theta) + 2\cosec\theta R f^T_m,
+    \end{aligned}\end{equation}
+    %
+    \begin{equation}\begin{aligned}
+        \Op{L}_{-} f^S_m &= f^S_{m+1} =
+            f^{'S}_m(\theta) + m \cot\theta f^S_m(\theta), \\
+        \Op{L}_{-} f^V_m &= f^V_{m+1} =
+            f^{'V}_m(\theta) + m \cot\theta f^V_m(\theta) - \cosec\theta R f^V_m, \\
+        \Op{L}_{-} f^T_m &= f^T_{m+1} =
+            f^{'T}_m(\theta) + m \cot\theta f^T_m(\theta) - 2\cosec\theta R f^T_m.
+    \end{aligned}\end{equation}
+
+\subsection{Поляризации сферических мод}
+
+    Можно показать, что вариационные уравнения в конечном итоге распадаются на две независимые группы уравнений, определяющих две поляризации тензорных мод:
+    %
+    \begin{equation}
+        h^{(o)} = \begin{pmatrix}0&0&h_{13}\\0&0&h_{23}\\h_{13}&h_{23}&0\end{pmatrix} \quad\text{и}\quad
+        h^{(e)} = \begin{pmatrix}h_{11}&h_{12}&0\\h_{12}&h_{22}&0\\0&0&h_{33}\end{pmatrix} .
+    \end{equation}
+
+    Будем называть $h^{(o)}$ \textit{нечетными}, а $h^{(e)}$~--- \textit{четными} модами.
+
+    Отсутствие следа у нечетной моды очевидно. Оказывается, для четной моды это также является следствием вариационных уравнений. Доказательство этого утверждения выходит за рамки данной работы, однако в работе \todo{гравитационные волны} это неявно показывается. Следствием этого является упрощение основного вариационного уравнения для базовой моды (\autoref{eq:lagr2var-brstar-hl0}) до
+    %
+    \begin{equation}\label{eq:lagr2var-br-hl0}
+        \Opbr(h_{l0}) = \Opsr(\Opsr(h_{l0})) = - \omega^2 h_{l0} .
+    \end{equation}
+    %
+    Оператор полуротора формально переводит моды одной поляризации в моды другой поляризации:
+    %
+    \begin{equation}\label{eq:sr-he-ho}
+        \Opsr(h_{l0}^{(e)}) = k h_{l0}^{(o)}, \quad \Opsr(h_{l0}^{(o)}) = k^{-1} h_{l0}^{(e)}, \quad k = (l-1)(l+2) ,
+    \end{equation}
+    %
+    так что получив из \autoref{eq:lagr2var-br-hl0} решение для одной (более простой) поляризации вторую можно получить применением полуротора.
+
+    Предметом изучения данной работы являются нечетные моды. Далее мы приступим к их подробному исследованию.
+
+\subfile{\docroot/fragments/grav-spher-odd.tex}
+
 \end{document}
