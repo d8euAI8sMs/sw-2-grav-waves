@@ -12,4 +12,5 @@
 *.upa
 *.upb
 *.pyg
+*.tdo
 .vscode
