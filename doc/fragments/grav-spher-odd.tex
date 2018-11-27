@@ -7,4 +7,71 @@
 
 \subsection{Аналитический вид нечетных мод}
 
+    Для удобства представим базовую нечетную моду в однородном виде и явно выделим множители, зависящие от одной переменной:
+    %
+    \begin{equation}\label{eq:hl0e}
+        (h_{l0}^{(o)})_{ij} = \begin{pmatrix}
+            0&0&f^l_{13}(r)u^l_{13}(\theta)\sin\theta\\
+            0&0&r f^l_{23}(r)u^l_{23}(\theta)\sin\theta\\
+            f^l_{13}(r)u^l_{13}(\theta)\sin\theta &
+                r f^l_{23}(r)u^l_{23}(\theta)\sin\theta & 0
+        \end{pmatrix} \exp(-i \omega t).
+    \end{equation}
+
+    Угловое уравнение \autoref{eq:killeq-hl0} определяет функции $u^l_{13}(\theta)$ и $u^l_{13}(\theta)$:
+    %
+    \begin{equation*}\begin{aligned}
+        u''_{13} + \cot\theta u'_{13} + (l(l+1) - \cosec^2\theta) u_{13} &= 0, \\
+        u''_{23} + \cot\theta u'_{23} + (l(l+1) - 4 \cosec^2\theta) u_{23} &= 0,
+    \end{aligned}\end{equation*}
+    %
+    откуда
+    %
+    \begin{equation}\label{hl0o-u}
+        u^l_{13} = P_l^1(\cos\theta), \quad u^l_{23} = P_l^2(\cos\theta),
+    \end{equation}
+    %
+    где $P_l^m$~--- $m$-й присоединенный полином Лежандра первого рода.
+
+    Подстановка метрики в виде \autoref{eq:hl0e} в основное вариационное уравнение в форме \autoref{eq:lagr2var-br-hl0} определит систему дифференциальных уравнений на функции $f^l_{13}(r)$ и $f^l_{23}(r)$:
+    %
+    \begin{equation*}\begin{gathered}
+        (\omega^2 r^2 - L_2) f_{13} + L_2 (r f'_{23} - f_{23}) = 0, \\
+        r (\omega^2 f_{23} + f''_{23}) - f'_{13} = 0,
+    \end{gathered}\end{equation*}
+    %
+    где $L_2 = (l-1)(l+2)$. Ее можно привести к виду
+    %
+    \begin{equation*}\begin{gathered}
+        r (r f''_{13} + 2 f'_{13}) - (l(l+1) - \omega^2 r^2) f_{13} = 0, \\
+        f_{23} = \frac{2 f_{13} + r f'_{13}}{L_2}.
+    \end{gathered}\end{equation*}
+    %
+    Первое уравнение является уравнением на функции Бесселя полуцелого порядка:
+    %
+    \begin{equation*}\begin{gathered}
+        f^l_{13}(r) = C_1 j_l(\omega r) + C_2 y_l(\omega r), \\
+        j_l(r) = \flatfrac{J_{l+1/2}(r)}{\sqrt{r}}, \quad
+        y_l(r) = \flatfrac{Y_{l+1/2}(r)}{\sqrt{r}},
+    \end{gathered}\end{equation*}
+    %
+    где $J_l(r)$ и $Y_l(r)$~--- функции Бесселя первого и второго рода, $j_l(r)$ и $j_l(r)$~--- их сферические эквиваленты.
+
+    Очевидно, что на бесконечном удалении от источника любые волны должны переходить в плоские, пропорциональные сдвинутому синусу. При стремлении $r$ к бесконечности компонента $f^l_{13}(r)$ исчезает. Остается только компонента $f^l_{23}(r)$, переходящая в линейную комбинацию сдвинутого синуса и косинуса. При изучении волн удобно использовать их комплексное представление. Если выбрать $C_1 = 1$ и $C_2 = i$, $f^l_{23}(r)$ закономерно перейдет в комплексную экспоненту. Поэтому полагаем
+    %
+    \begin{equation*}
+        f^l_{13}(r) = h_l(\omega r).
+    \end{equation*}
+    %
+    Здесь $h_l(\omega r) = j_l(\omega r) + i y_l(\omega r)$~--- сферическая функция Ганкеля первого рода.
+
+    Таким образом, окончательно
+    %
+    \begin{equation}\begin{aligned}\label{hl0o-f}
+        f^l_{13}(r) &= h_l(\omega r), \\
+        f^l_{23}(r) &= \flatfrac{(2 f^l_{13}(r) + r f^{l{'}}_{13}(r))}{(l-1)(l+2)}.
+    \end{aligned}\end{equation}
+
+    Этим полностью определяется базовая нечетная мода $h^{(o)}_{l0}$. Угловая зависимость дается \autoref{hl0o-u}, радиальная~--- \autoref{hl0o-f}, временн\'{а}я~--- множителем $\exp(-i \omega t)$.
+
 \end{document}
