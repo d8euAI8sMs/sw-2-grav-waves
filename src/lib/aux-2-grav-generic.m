@@ -63,7 +63,7 @@ div[v_]:=USum[\[Eth][TensorContr[tm][i,j]v[j],Cov[i]],i,j];
 lap[v_][k_]:=USum[TensorContr[tm][i,j]\[Eth][v[k],Cov[i],Cov[j]],i,j];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*\:041e\:043f\:0440\:0435\:0434\:0435\:043b\:0435\:043d\:0438\:044f, \:0437\:0430\:0432\:0438\:0441\:044f\:0449\:0438\:0435 \:043e\:0442 \:0441\:0438\:0441\:0442\:0435\:043c\:044b \:043a\:043e\:043e\:0440\:0434\:0438\:043d\:0430\:0442*)
 
 
@@ -92,6 +92,8 @@ RecalculateGrav[]:=Module[{tv,drvrules,svar,var,tbl},
 	epsne=(epsn//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
 	Uine=(Uin//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
 	Une=(Un//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
+	
+	{epsnem,Uinem}={epsne,Uine}/.{(x:th[a__]|\[Eth][th[a__],b__])(y:th[c__]|\[Eth][th[c__],d__]):>Re[x Conjugate[y]] / 2, Power[(x:th[a__]|\[Eth][th[a__],b__]),2]:>Re[x Conjugate[x]] / 2};
 	
 	tv[a_]:=Tensor[a,0,2];
 	drvrules={
