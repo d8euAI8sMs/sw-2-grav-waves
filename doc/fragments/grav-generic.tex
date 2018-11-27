@@ -129,6 +129,26 @@
             = -\frac{1}{4}\varepsilon^{ijk} E_{lk} B^l_j
     \end{equation}
 
+    Если нас интересуют средние по времени величины плотности энергии и потока энергии, а метрика $h_{ij}$ представлена в виде
+    %
+    \begin{equation*}
+        h_{ij}(t,r,\theta,\varphi) = \Re{h_{ij}(r,\theta,\varphi)\exp(-i \omega t)},
+    \end{equation*}
+    %
+    где $h_{ij}(r,\theta,\varphi)$~--- не зависящая от времени комплексная величина (комплексная амплитуда), их можно вычислить из следующих соображений. Каждое произведение двух комплексных амплитуд $h_{ij} h_{kl}$ заменяется на $\flatfrac{1}{2} \Re{h_{ij} h^*_{kl}}$. Выражения для средней плотности энергии и среднего потока энергии примут вид:
+    %
+    \begin{equation}\label{eq:epsm}
+        \overline{\varepsilon} = \frac{1}{16} \Re{
+            \omega^2 \gamma^{ij} \gamma^{kl} \qty(
+                h_{ij} h^*_{kl} - h_{ik} h^*_{jl}
+            ) + B^i_j \qty(B^j_i)^*
+        } \sqrt{\gamma},
+    \end{equation}
+    %
+    \begin{equation}\label{eq:Uilm}
+        \overline{U}^i = \frac{1}{8} \omega \Im{\varepsilon^{ijk} h_{lk} (B^l_j)^*} .
+    \end{equation}
+
 \subsection{Калибровочная инвариантность}
 
     Тождество \ref{eq:br-of-bigr} определяет калибровочную инвариантность уравнений \ref{eq:lagr2var}: добавление биградиента произвольного поля $\xi$ к метрике $h$ при соответствующем изменении поля скоростей не меняет уравнений динамики:
