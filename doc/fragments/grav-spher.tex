@@ -122,7 +122,7 @@
     Если ввести матрицу перестановки
     %
     \begin{equation}
-        R = \begin{pmatrix}0&1\\1&0\end{pmatrix} ,
+        R = \begin{pmatrix}0&-i\\i&0\end{pmatrix} ,
     \end{equation}
     %
     то действие операторов повышения и понижения на скалярную, векторную и тензорную функции запишется в виде:
@@ -144,6 +144,8 @@
         \Op{L}_{-} f^T_m &= f^T_{m+1} =
             f^{'T}_m(\theta) + m \cot\theta f^T_m(\theta) - 2\cosec\theta R f^T_m.
     \end{aligned}\end{equation}
+    %
+    При этом весь тензор умножается на $i \exp(i\varphi)$ или $-i \exp(-i\varphi)$ каждый раз после применения оператора повышения или понижения соответственно.
 
 \subsection{Поляризации сферических мод}
 
