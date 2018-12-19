@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper,final]{article}
+
+\providecommand{\docroot}{../..}
+
+\input{\docroot/../lib/doc/pkg/common}
+\input{\docroot/../lib/doc/math/operators}
+
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage[obeyFinal]{todonotes}
+
+\titlelabel{\thetitle. }
+\patchcmd{\appendices}{\quad}{. }{}{}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+    \makedocroot
+
+    \input{title}
+    \tableofcontents
+
+    \newpage
+
+    \section{Введение}
+    \subfile{\docroot/fragments/intro.tex}
+
+    \section{Постановка проблемы}
+    \subfile{\docroot/fragments/problem.tex}
+
+    \section{Математические инструменты описания гравитационных волн}
+    \subfile{\docroot/fragments/grav-generic.tex}
+
+    \section{Сферические гравитационные волны}
+    \subfile{\docroot/fragments/grav-spher.tex}
+
+    \section{Заключение}
+    \subfile{\docroot/fragments/outro.tex}
+
+    \clearpage
+
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+
+\end{document}
