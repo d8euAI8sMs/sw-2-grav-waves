@@ -93,7 +93,11 @@ RecalculateGrav[]:=Module[{tv,drvrules,svar,var,tbl},
 	Uine=(Uin//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
 	Une=(Un//CovExpand)//.SSum2SumRules[{#,0,3}&]//.{TensorChristoffel[][a__]:>cs2[a],tmd:>Val[tmd],tV[__]:>0}//.{x:\[Eth][__]:>(Sym[x]//.{y:th[a__]:>Sym[y]})}//ExpandAll//PowerExpand;
 	
+	epscne=Sum[D[lagrc2ne,\[Eth][th[\[Alpha],\[Beta]],0]]\[Eth][th[\[Alpha],\[Beta]],0],{\[Alpha],3},{\[Beta],3}]-lagrc2ne//ExpandAll;
+	Uicne=Table[Sum[D[lagrc2ne,\[Eth][th[\[Alpha],\[Beta]],\[Gamma]]]\[Eth][th[\[Alpha],\[Beta]],0],{\[Alpha],3},{\[Beta],3}],{\[Gamma],3}]//ExpandAll;
+	
 	{epsnem,Uinem}={epsne,Uine}/.{(x:th[a__]|\[Eth][th[a__],b__])(y:th[c__]|\[Eth][th[c__],d__]):>Re[x Conjugate[y]] / 2, Power[(x:th[a__]|\[Eth][th[a__],b__]),2]:>Re[x Conjugate[x]] / 2};
+	{epscnem,Uicnem}={epscne,Uicne}/.{(x:th[a__]|\[Eth][th[a__],b__])(y:th[c__]|\[Eth][th[c__],d__]):>Re[x Conjugate[y]] / 2, Power[(x:th[a__]|\[Eth][th[a__],b__]),2]:>Re[x Conjugate[x]] / 2};
 	
 	tv[a_]:=Tensor[a,0,2];
 	drvrules={
