@@ -1,0 +1,96 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Традиционное уравнение Эйлера-Лагранжа}
+
+    Имеем действие вида
+    %
+    \begin{equation}
+        S = \int_\Omega \mathcal{L}(\hat{x}_n, \hat{f}_m(\hat{x}_n), \hat{f}'_m(\hat{x}_n)) \dd[n]{x} ,
+    \end{equation}
+    %
+    где через $\hat{x}_n$ обозначен набор $n$ переменных.
+
+    Минимум действия достигается на функциях $\hat{f}_m(\hat{x}_n)$, определяемых из уравнения Эйлера-Лагранжа:
+    %
+    \begin{equation}
+        \pdv{\mathcal{L}}{f_m} - \sum\limits_n \partial_n{\pdv{\mathcal{L}}{(\partial_n{f_m})}} = 0 .
+    \end{equation}
+
+    Применительно к тензорным полям $h_{ij}(t,r,\theta,\varphi)$ действие будет иметь вид
+    %
+    \begin{equation}
+        S = \int_\Omega \mathcal{L}(x^i, h_{ij}, h_{ij,k}) \sqrt{-\gamma} \dd[n]{x} ,
+    \end{equation}
+    %
+    где $\gamma$~--- метрика пространства.
+
+    Уравнения переписываются:
+    %
+    \begin{equation}
+        \fdv{S}{h_{ij}} = T^{ij} = \pdv{\sqrt{-\gamma}\mathcal{L}}{h_{ij}} - \qty(\pdv{\sqrt{-\gamma}\mathcal{L}}{h_{ij,k}})_{,k} = 0 .
+    \end{equation}
+
+    Возникает естественный вопрос, \textit{возможно ли заменить частные производные на ковариантные?}. Если ответ положительный, многие выкладки общего характера можно будет упростить.
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Euler-Lagrange equation}~--- \url{https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation}
+    \end{enumerate}
+
+\subsection{\foreignlanguage{english}{Gauge-invarient Euler-Lagrange equation}}
+
+    Оказывается, ответ положительный. Преобразуем последнее уравнение к виду, имея в виду, что операторы $\pdv*{h_{ij}}$ и $\pdv*{h_{ij,k}}$ коммутируют с $\sqrt{-\gamma}$:
+    %
+    \begin{equation}
+        \sqrt{-\gamma}\pdv{\mathcal{L}}{h_{ij}} - \qty(\sqrt{-\gamma}\pdv{\mathcal{L}}{h_{ij,k}})_{,k} = 0 .
+    \end{equation}
+    %
+    Теперь поделим все на детерминант метрики:
+    %
+    \begin{equation}
+        \pdv{\mathcal{L}}{h_{ij}} - \frac{1}{\sqrt{-\gamma}}\qty(\sqrt{-\gamma}\pdv{\mathcal{L}}{h_{ij,k}})_{,k} = 0 .
+    \end{equation}
+
+    Известно, что $\nabla_\mu = {\sqrt{-\gamma}}^{-1}(\sqrt{-\gamma}\ \partial_\mu)$, поэтому уравнение упрощается до
+    %
+    \begin{equation}
+        \pdv{\mathcal{L}}{h_{ij}} - \qty(\pdv{\mathcal{L}}{h_{ij,k}})_{;k} = 0 .
+    \end{equation}
+
+    Осталось \enquote{разделаться} с частной производной $h_{ij,k}$. Здесь следует отметить, что поскольку $h_{ij;k} = h_{ij,k} + f(\Gamma, h)$, а $f$ не зависит от $h_{ij,k}$, в предыдущем выражении можно заменить $h_{ij,k}$ на $h_{ij;k}$.
+
+    Окончательно,
+    %
+    \begin{equation}
+        \pdv{\mathcal{L}}{h_{ij}} - \qty(\pdv{\mathcal{L}}{h_{ij;k}})_{;k} = 0 .
+    \end{equation}
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Euler-Lagrange equation}~--- \url{https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation}
+        \item Wikipedia: \enquote{Gauge covariant derivative}~--- \url{https://en.wikipedia.org/wiki/Gauge_covariant_derivative}
+        \item Wikipedia: \enquote{Covariant derivatives of tensors}~--- \url{https://en.wikipedia.org/wiki/Christoffel_symbols}
+        \item Clinton L. Lewis. \enquote{Explicit gauge covariant Euler–Lagrange equation}~--- \url{http://www.stat.physik.uni-potsdam.de/~pikovsky/teaching/stud_seminar/eulerlagrange.pdf}
+    \end{enumerate}
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
