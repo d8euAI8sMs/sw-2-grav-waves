@@ -1,0 +1,126 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Лагранжиан и тензор энергии-импульса идеальной жидкости}
+
+    Действие жидкости в форме, предложенной Шютцем, имеет вид
+
+    \begin{equation}
+        S_f = \int \mathcal{L}_f \sqrt{-g} \dd[4]{x} , \quad
+        \mathcal{L} = p(\mu) , \quad
+        \mu = \sqrt{-g^{ab} v_a v_b} ,
+    \end{equation}
+    %
+    где $p$~--- давление, $\mu$~--- энтальпия, $v_a$~--- некоторое векторное поле.
+
+    Вариация лагранжиана по компонентам метрики $g^{ab}$ дает тензор энергии-импульса жидкости:
+
+    \begin{equation}\begin{aligned}
+        T^f_{ab} = \frac{-2}{\sqrt{-g}} \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} &=
+            \frac{-2}{\sqrt{-g}} \pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} \\ &=
+            \frac{-2}{\sqrt{-g}} \qty(
+                - \frac{1}{2 \mu} \sqrt{-g} p'(\mu) v_a v_b - \frac{1}{2} g_{ab} \sqrt{-g} p(\mu)
+            ) \\ &=
+            \frac{1}{\mu} p'(\mu) v_a v_b + p(\mu) g_{ab} .
+    \end{aligned}\end{equation}
+    %
+    Здесь использовано равенство
+    %
+    \begin{equation*}
+        \fdv{\sqrt{-g}}{g^{ab}} = - \frac{1}{2} g_{ab} \sqrt{-g} .
+    \end{equation*}
+
+    Принимая обозначения
+    %
+    \begin{equation*}\begin{gathered}
+        v^a = \mu u^a , \\
+        \rho = p' , \\
+        \varepsilon = \mu \rho - p ,
+    \end{gathered}\end{equation*}
+    %
+    где $u^a$~--- четырехвектор скорости потока жидкости в данной точке, можно прийти к следующему виду тензора энергии-импульса:
+    %
+    \begin{equation}
+        \qty(T^f)^a_b = (p + \varepsilon) u^a u_b + p \delta^a_b .
+    \end{equation}
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Stress–energy tensor}~--- \url{https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor}
+        \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
+    \end{enumerate}
+
+\subsection{Уравнения состояния идеальной жидкости}
+
+    Уравнения состояния можно получить исходя из тождества Гильберта:
+    %
+    \begin{equation}
+        T^a_{b;a} = 0 ,
+    \end{equation}
+    %
+    которое применительно к $T^f$ записывается в виде:
+    %
+    \begin{equation*}
+        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t (u^a_{;a} u^b + u^a u_{b;a}) + p_{,a} \delta^a_b = 0,
+    \end{equation*}
+    %
+    где для краткости введено $t = p + \varepsilon$. Можно показать, что $u^a u_{b;a} = 0$ всегда, так что остается
+    %
+    \begin{equation}
+        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t u^a_{;a} u^b + p_{,a} \delta^a_b = 0.
+    \end{equation}
+
+    Данное выражение выглядит проще в проекции на $u^b$ (пользуемся тождеством $u^b u_b = -1$):
+    %
+    \begin{equation*}\begin{aligned}
+        u^b \qty(T^f)^a_{b;a} &= - t_{,a} u^a - t u^a_{;a} + p_{,a} u^a \\
+                              &= - \varepsilon_{,a} u^a - t u^a_{;a} = 0 .
+    \end{aligned}\end{equation*}
+    %
+    Отсюда заключаем, что имеет место равенство
+    %
+    \begin{equation}
+        \nabla_u \varepsilon + t\ \nabla \cdot u = 0 ,
+    \end{equation}
+    %
+    подставляя которое в тождество Гильберта получаем
+    %
+    \begin{equation*}\begin{aligned}
+        \qty(T^f)^a_{b;a} &= t_{,a} u^a u_b - \varepsilon_{,a} u^a u^b + p_{,a} \delta^a_b \\
+                          &= p_{,a} u^a u_b + p_{,b} = 0 ,
+    \end{aligned}\end{equation*}
+    %
+    или,
+    %
+    \begin{equation}
+        \vb{u} \nabla_u p + \nabla p = 0 .
+    \end{equation}
+
+    Решение последнего выражения для невозмущенной метрики ($g_{ab} = \gamma_{ab}$) даст поле $u^a$ как функцию $p$.
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Stress–energy tensor}~--- \url{https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor}
+        \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
+    \end{enumerate}
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
