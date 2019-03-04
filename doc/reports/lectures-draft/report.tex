@@ -1,0 +1,36 @@
+\documentclass[12pt,a5paper]{article}
+
+\providecommand{\docroot}{../..}
+
+\input{\docroot/../lib/doc/pkg/common}
+\input{\docroot/../lib/doc/math/operators}
+
+\title{Сферические гармоники гравитационных волн\\ Конспект лекций\\ Введение}
+\author{Василевский А.В.}
+
+\begin{document}
+
+    \makedocroot
+
+    \maketitle
+    \tableofcontents
+
+    \section{Введение}
+    \subfile{\docroot/lecture-fragments/intro.tex}
+
+    \section{Электромагнитные волны}
+    \subfile{\docroot/lecture-fragments/elmag-waves.tex}
+
+    \begin{appendix}
+
+    \end{appendix}
+
+    \clearpage
+
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \nocite{sivuhin_elect}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+
+\end{document}
