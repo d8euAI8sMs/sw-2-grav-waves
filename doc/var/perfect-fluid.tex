@@ -42,7 +42,7 @@
         \varepsilon = \mu \rho - p ,
     \end{gathered}\end{equation*}
     %
-    где $u^a$~--- четырехвектор скорости потока жидкости в данной точке, можно прийти к следующему виду тензора энергии-импульса:
+    где $u^a$~--- четырехвектор скорости потока жидкости в данной точке, $\rho$~--- плотность вещества, $\varepsilon$~--- плотность энергии жидкости, можно прийти к следующему виду тензора энергии-импульса:
     %
     \begin{equation}
         \qty(T^f)^a_b = (p + \varepsilon) u^a u_b + p \delta^a_b .
@@ -57,9 +57,9 @@
         \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
     \end{enumerate}
 
-\subsection{Уравнения состояния идеальной жидкости}
+\subsection{Уравнения динамики идеальной жидкости}
 
-    Уравнения состояния можно получить исходя из тождества Гильберта:
+    Уравнения динамики можно получить исходя из тождества Гильберта:
     %
     \begin{equation}
         T^a_{b;a} = 0 ,
@@ -87,7 +87,7 @@
     Отсюда заключаем, что имеет место равенство
     %
     \begin{equation}
-        \nabla_u \varepsilon + t\ \nabla \cdot u = 0 ,
+        \nabla_u \varepsilon + t\ \nabla \cdot \vb{u} = 0 ,
     \end{equation}
     %
     подставляя которое в тождество Гильберта получаем
@@ -112,6 +112,190 @@
     \begin{enumerate}
         \item Wikipedia: \enquote{Stress–energy tensor}~--- \url{https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor}
         \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
+    \end{enumerate}
+
+\subsection{Уравнения состояния идеальной жидкости}
+
+    Локальная скорость звука $a$ определяется зависимостью $p(\varepsilon)$:
+    %
+    \begin{equation*}
+        \frac{a^2}{c^2} \equiv q^{-1} = \dv{p}{\varepsilon} .
+    \end{equation*}
+    %
+    Отсюда при $q = const$
+    %
+    \begin{equation*}
+        \varepsilon = q p .
+    \end{equation*}
+    %
+    Из общей теории известно, что для ультрарелятивистской жидкости $q = 3$.
+
+    Полагая $q = const$, из выражения $\varepsilon = \mu\rho - p$ можно получить соотношение, связывающее $p$, $\mu$ и $\rho$:
+    %
+    \begin{equation}
+        p = \frac{\mu\rho}{q + 1} .
+    \end{equation}
+
+    Ранее вариацией действия жидкости были получены четыре уравнения движения, а также пятое уравнение, являющееся следствием первых четырех. Данные уравнения могут служить для определения четырех компонент векторного поля $u^\alpha$. Возможно получение еще одного уравнения состояния жидкости вариацией по некоторой скалярной функции $\sigma$, порождающей поле $v_\alpha$,
+    %
+    \begin{equation*}
+        v_\alpha = \sigma_{,\alpha} , \quad\text{или}\quad \vb{v} = \nabla \sigma ,
+    \end{equation*}
+    %
+    именно,
+    %
+    \begin{equation*}
+        0 = \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{\sigma} =
+            \pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{\sigma} -
+            \qty(\pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{v_k})_{,k} .
+    \end{equation*}
+    %
+    Первое слагаемое обращается в нуль. Второе дает:
+    %
+    \begin{equation*}\begin{aligned}
+        \qty(\pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{v_k})_{,k} &=
+        \qty(\sqrt{-g} \pdv{\mathcal{L}_f}{v_k})_{,k} =
+        \qty(\sqrt{-g} \pdv{p(\mu)}{v_k})_{,k} =
+        \sqrt{-g}^{-1} \qty(\pdv{p(\mu)}{v_k})_{;k} = 0
+    \end{aligned}\end{equation*}
+    %
+    Производная $p$ по $v_k$ дает
+    %
+    \begin{equation*}
+        \pdv{p(\mu)}{v_k} = p' \frac{1}{2 \mu} \qty(- 2 g^{k\alpha} v_\alpha) = - \rho u^k ,
+    \end{equation*}
+    %
+    где использовано $\dv*{p}{\mu} = \rho$ и $v^k = \mu u^k$. Окончательно имеем
+    %
+    \begin{equation*}
+        \qty(\rho u^k)_{;k} = 0 ,
+    \end{equation*}
+    %
+    или
+    %
+    \begin{equation*}
+        \rho_{,k} u^k + \rho u^k_{;k} = 0 .
+    \end{equation*}
+    %
+    В ранее принятой векторной нотации
+    %
+    \begin{equation}
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 .
+    \end{equation}
+
+\subsection{Собираем все вместе}
+
+    Выпишем все уравнения для жидкости, которые мы имеем на данный момент:
+    %
+    \begin{gather}
+        \rho = \dv{p}{\mu} \\
+        p = \frac{\mu\rho}{q + 1} , \quad q = const \\
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \\
+        \vb{u} \nabla_u p + \nabla p = 0 \\
+        \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 .
+    \end{gather}
+    %
+    Покомпонентно это восемь уравнений, которые должны однозначно определить шесть переменных: четыре компоненты $u^\alpha$ и две скалярные функции, $\rho$ и $\mu$. Таким образом, два из этих уравнений являются \enquote{лишними}. Давление $p$ остается неопределенной независимой величиной. Приступим к формулировке окончательных уравнений.
+
+    Из первых двух уравнений можно выразить $\rho$ и $\mu$ как функции $p$. Действительно:
+    %
+    \begin{equation*}
+        \dv{p}{\mu} = \rho = (q + 1) \frac{p}{\mu} \quad\Longleftrightarrow\quad
+        \frac{1}{q + 1} \frac{\dd{p}}{p} = \frac{\dd{\mu}}{\mu} ,
+    \end{equation*}
+    %
+    откуда
+    %
+    \begin{equation*}
+        \mu = p^{\frac{1}{q + 1}} , \quad \rho = (q + 1) p^{\chi} , \quad \chi = \frac{q}{q + 1} .
+    \end{equation*}
+
+    Остальные уравнения переформулируем относительно $p$:
+    %
+    \begin{align*}
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
+        \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0 \\
+        \vb{u} \nabla_u p + \nabla p = 0 \quad&\Longleftrightarrow\quad
+        \vb{u} \nabla_u p + \nabla p = 0 \\
+        \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
+        \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0
+    \end{align*}
+    %
+    Отсюда видно, что два из оставшихся уравнений совпадают.
+
+    Мы помним, что осталось неопределенным лишь 4-векторное поле $u^\alpha$. Векторное уравнение позволяет определить его, однако переменные $u^\alpha$ сильно завязаны с $p$. Оставшееся вспомогательное уравнение решает эту проблему. Выразим $\nabla_u p$ из скалярного уравнения и подставим в векторное. После некоторых преобразований получим:
+    %
+    \begin{equation}
+        \vb{u} \nabla \cdot \vb{u} = \nabla \ln p^{-\chi} .
+    \end{equation}
+    %
+    Следует решать лишь уравнение
+    %
+    \begin{equation}\label{eq:u-of-p}
+        \vb{u} \nabla \cdot \vb{u} = \nabla f , \quad f = \ln p^{-\chi} .
+    \end{equation}
+
+\subsection{Решение уравнения \autoref{eq:u-of-p}}
+
+    Рассмотрим частный случай решения для несжимаемой жидкости. Такая жидкость характеризуется постоянной плотностью $\rho = const$, откуда следует также постоянство давления $p = const$, а также бесконечной скоростью звука $a = \infty$, откуда следует $q = 0$, $\chi = 0$. Тогда в \autoref{eq:u-of-p} правая часть также обращается в нуль и мы приходим к уравнению
+    %
+    \begin{equation*}
+        \vb{u} \nabla \cdot \vb{u} = 0 \quad\Longleftrightarrow\quad
+        \vb{u} = 0 \quad\text{или}\quad \nabla \cdot \vb{u} = 0 .
+    \end{equation*}
+    %
+    Первое решение тривиально. Второе в более привычной форме:
+    %
+    \begin{equation}\label{eq:u-of-p-incompressible}
+        \Div\vb{u} = 0 ,
+    \end{equation}
+    %
+    решение которого может быть получено заменой $\vb{u} = \nabla \varphi$. Уравнение, определяемое \autoref{eq:u-of-p-incompressible}, тогда сводится к уравнению Лапласа:
+    %
+    \begin{equation}\label{eq:phi-of-p-incompressible}
+        \Delta^{(4)} \varphi = 0 .
+    \end{equation}
+    %
+    Если метрика пространства $g^{\alpha\beta}$ удовлетворяет соотношениям $g^{00} = 1$, $g^{0i} = 0$, \autoref{eq:phi-of-p-incompressible} переходит в трехмерное скалярное волновое уравнение.
+
+    (Ранее мы полагали $\vb{v} = \nabla \sigma$. Принимая во внимание $\mu \vb{u} = \vb{v}$ и $\mu = const$, получаем $\vb{u} = \mu^{-1} \Grad \sigma = \Grad \qty(\mu^{-1} \sigma)$, откуда $\varphi = \mu^{-1} \sigma$.)
+
+    В обсуждаемых уравнениях метрика $g^{\alpha\beta}$ вообще говоря должна определяться из вариационного принципа:
+    %
+    \begin{equation*}
+        \fdv{(S_f + S_g)}{g^{\alpha\beta}} = 0 .
+    \end{equation*}
+    %
+    Уравнение, определяемое \autoref{eq:phi-of-p-incompressible}, является дополнительным к уравнениям Эйнштейна и должно решаться в совокупности с ними. Можно, однако, положить, что жидкость и гравитационное поле не взаимодействуют, и решить уравнение в рамках СТО, взяв в качестве метрики пространства метрику Минковского.
+
+    В сферических координатах при фиксированном радиусе $R$ сферической капли жидкости общее решение \autoref{eq:phi-of-p-incompressible} записывается через $\{l,m,n\}$-гармоники:
+    %
+    \begin{equation*}
+        \varphi_{lmn}(r,\theta,\phi) =
+            j_l(\omega_{ln} r) Y_{lm}(\theta,\phi) \exp(-i \omega_{ln} t) , \quad
+        \omega_{ln} = \text{$n$-й корень}\ \{\ j_l(\omega R) = 0\ \} .
+    \end{equation*}
+
+\subsection{Комментарии}
+
+    \begin{enumerate}
+        \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}.
+
+        Описывается сам лагранжиан, вывод вариационных уравнений (тензора энергии-импульса). Не подводится глубокого смысла под сам лагранжиан и под процесс вывода окончательных уравнений.
+
+        \item J. David Brown. \enquote{Action functionals for relativistic perfect fluids}~--- \url{https://arxiv.org/abs/gr-qc/9304026v1}~--- P.31--33, Sec.6 \enquote{Other action functionals}.
+
+        Рассматриваются действия в разных формах (разных зависимых/независимых переменных). Демонстрируются связи между различными формами действия. Упоминаются авторы, ответственные за эти формы. Используемое здесь действие приводится в разделе прочих форм и не рассматривается подробно.
+
+        Из статьи видно, что существует множество форм действия жидкости. Выбор той или иной формы~--- дело удобства.
+
+        \item Bernard F. Schutz, Jr. \enquote{Hamiltonian Theory of a Relativistic Perfect Fluid}~--- \url{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.4.3559}.
+
+        Данная статья должна была стать основой работы, однако у автора к ней отсутствует доступ. Она цитируется почти всеми упомянутыми авторами и, по-видимому, является одной из пионерских работ в исследовании лагранжева/гамильтонова подхода к описанию динамики жидкости.
+
+        \item Бурланков Д.Е., Самочадин А.М. \enquote{Гравитационные волны в жидкой сфере}.
+
+        Статья, на которой базируется данная работа. Содержит выжимку информации по динамике жидкости. Используется действие в форме Шютца.
     \end{enumerate}
 
 \onlyinsubfile{
