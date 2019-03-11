@@ -1,0 +1,88 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Решения Шварцшильда для свободного пространства}
+
+    Шварцшильдом было найдено статическое решение уравнений Эйнштейна для сферически симметричного пространства.
+
+    Основные предположения следующие:
+    %
+    \begin{enumerate}
+        \item Стационарность метрики: $\pdv*{g_{\mu\nu}}{t} = 0$. Инвариантность метрики относительно обращения времени.
+        \item Свободное пространство (вакуум, отсутствие материи).
+        \item Сферическая симметрия пространства. Инвариантность метрики относительно поворотов и отражений.
+    \end{enumerate}
+    %
+    Эти положения приводят [\ref{bib:wiki-schwarzschild}] к следующему виду метрики (соглашение $({}-{}+{}+{}+{})$, индексация с нуля):
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\ B(r),\ A(r),\ r^2,\ r^2 \sin\theta \ \}
+    \end{equation*}
+    %
+    Компоненты $g_{\theta\theta}$ и $g_{\phi\phi}$ являются компонентами обычной двумерной сферической метрики.
+
+    Уравнения Эйнштейна в сделанных предположениях принимают вид:
+    %
+    \begin{equation*}
+        G_{\mu\nu} \equiv R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 0 ,
+    \end{equation*}
+    %
+    где
+    %
+    \begin{equation*}
+        R = g^{\mu\nu} R_{\mu\nu} , \quad
+        R_{\mu\nu} = R^\rho_{\mu\rho\nu} , \quad
+        R^\rho_{\mu\sigma\nu} = \Gamma^\rho_{\nu\sigma,\mu} - \Gamma^\rho_{\mu\sigma,\nu} + \Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma} - \Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma} .
+    \end{equation*}
+    %
+    Процесс решения основывается на вычислении $\Gamma^\rho_{\mu\nu}$ по заданному $g_{\mu\nu}$ и подстановке результата в уравнение Эйнштейна. Результат данной подстановки~--- три нетривиальных дифференциальных уравнения на две неизвестные компоненты метрики.
+
+    После алгебраических преобразований, разделения переменных и решения несложных дифференциальных уравнений можно заключить, что
+    %
+    \begin{equation*}
+        B(r) = \frac{K}{A(r)} , \quad A(r) = \qty(1 + \frac{1}{r S})^{-1} ,
+    \end{equation*}
+    %
+    где $K$ и $S$~--- некие константы. Они определяются из приближения слабого гравитационного поля (линеаризованной теории). [TODO: соответствующий вывод]. Их значения:
+    %
+    \begin{equation*}
+        K = -c^2, \quad \frac{1}{S} = - \frac{2 G m}{c^2} .
+    \end{equation*}
+    %
+    Здесь $G$~--- гравитационная постоянная, $m$~--- масса источника излучения. Величина $r_s = - S^{-1}$ называется Шварцшильдовским радиусом объекта массы $m$.
+
+    Метрика принимает вид:
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
+            -c^2 \qty(1 - \frac{r_s}{r}),\
+            \qty(1 - \frac{r_s}{r})^{-1},\
+            r^2,\
+            r^2 \sin\theta
+        \ \}
+    \end{equation*}
+    %
+    Особенность при $r = r_s$ не является физической, а является лишь следствием выбора системы координат [\ref{bib:wiki-schwarzschild}].
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item \label{bib:wiki-schwarzschild} Wikipedia: \enquote{Deriving the Schwarzschild solution}~--- \url{https://en.wikipedia.org/wiki/Deriving_the_Schwarzschild_solution}
+    \end{enumerate}
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
