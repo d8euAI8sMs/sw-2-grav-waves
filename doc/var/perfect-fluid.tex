@@ -196,7 +196,7 @@
         \rho = \dv{p}{\mu} \\
         p = \frac{\mu\rho}{q + 1} , \quad q = const \\
         \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \\
-        \vb{u} \nabla_u p + \nabla p = 0 \\
+        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \\
         \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 .
     \end{gather}
     %
@@ -220,8 +220,8 @@
     \begin{align*}
         \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
         \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0 \\
-        \vb{u} \nabla_u p + \nabla p = 0 \quad&\Longleftrightarrow\quad
-        \vb{u} \nabla_u p + \nabla p = 0 \\
+        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \quad&\Longleftrightarrow\quad
+        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \\
         \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
         \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0
     \end{align*}
@@ -231,18 +231,18 @@
     Мы помним, что осталось неопределенным лишь 4-векторное поле $u^\alpha$. Векторное уравнение позволяет определить его, однако переменные $u^\alpha$ сильно завязаны с $p$. Оставшееся вспомогательное уравнение решает эту проблему. Выразим $\nabla_u p$ из скалярного уравнения и подставим в векторное. После некоторых преобразований получим:
     %
     \begin{equation}
-        \vb{u} \nabla \cdot \vb{u} = \nabla \ln p^{-\chi} .
+        \vb{u} \nabla \cdot \vb{u} - \frac{\chi}{1 - \chi} \nabla_u \vb{u} = \nabla \ln p^{\chi} .
     \end{equation}
     %
     Следует решать лишь уравнение
     %
     \begin{equation}\label{eq:u-of-p}
-        \vb{u} \nabla \cdot \vb{u} = \nabla f , \quad f = \ln p^{-\chi} .
+        \vb{u} \nabla \cdot \vb{u} - \frac{\chi}{1 - \chi} \nabla_u \vb{u} = \nabla f , \quad f = \ln p^{\chi} .
     \end{equation}
 
 \subsection{Решение уравнения \autoref{eq:u-of-p}}
 
-    Рассмотрим частный случай решения для несжимаемой жидкости. Такая жидкость характеризуется постоянной плотностью $\rho = const$, откуда следует также постоянство давления $p = const$, а также бесконечной скоростью звука $a = \infty$, откуда следует $q = 0$, $\chi = 0$. Тогда в \autoref{eq:u-of-p} правая часть также обращается в нуль и мы приходим к уравнению
+    Рассмотрим частный случай решения для несжимаемой жидкости. Такая жидкость характеризуется постоянной плотностью $\rho = const$, постоянной плотностью энергии $\varepsilon = const$, а также бесконечной скоростью звука $a = \infty$, откуда следует $q = 0$, $\chi = 0$. Тогда из \autoref{eq:u-of-p} остается лишь
     %
     \begin{equation*}
         \vb{u} \nabla \cdot \vb{u} = 0 \quad\Longleftrightarrow\quad
