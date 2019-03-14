@@ -76,6 +76,155 @@
         \item \label{bib:wiki-schwarzschild} Wikipedia: \enquote{Deriving the Schwarzschild solution}~--- \url{https://en.wikipedia.org/wiki/Deriving_the_Schwarzschild_solution}
     \end{enumerate}
 
+\subsection{Метрика в экспонентах}
+
+    Более элегантный вид метрики получается, если записать ее через экспоненты:
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\ -e^{B(r)},\ e^{A(r)},\ r^2,\ r^2 \sin\theta \ \} .
+    \end{equation*}
+    %
+    В таком варианте записи явно виден тип используемого соглашения (space-positive).
+
+\subsection{Решения Шварцшильда для несжимаемой жидкости}
+
+    Второе решение, которое удалось получить Шварцшильду~--- статическое сферически симметричное решение (внутреннее и внешнее) для жидкой сферы. Жидкость предполагается несжимаемой.
+
+    Метрика $g_{\mu\nu}$ выбирается в том же виде, что и в вакуумной задаче:
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\ -e^{A(r)},\ e^{B(r)},\ r^2,\ r^2 \sin\theta \ \} .
+    \end{equation*}
+    %
+    Уравнения Эйнштейна записываются в полном виде:
+    %
+    \begin{equation*}
+        G_{\mu\nu} \equiv R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = \kappa T^f_{\mu\nu} ,
+    \end{equation*}
+    %
+    где $T^f_{\mu\nu}$~--- тензор энергии-импульса жидкости:
+    %
+    \begin{equation*}
+        T^f_{\mu\nu} = (\varepsilon + p) u_\mu u_\nu + p g_{\mu\nu} .
+    \end{equation*}
+    %
+    Здесь $\varepsilon = const$~--- плотность энергии жидкости, $p(r)$~--- давление жидкости, $u^\mu$~--- 4-вектор скорости.
+
+    Получим выражение для 4-вектора скорости, учитывая сферическую симметрию и статичность задачи.
+    %
+    \begin{equation*}
+        x^\mu = \{\ ct,\ r,\ \theta,\ \phi \ \}^\mu , \quad
+        u^\mu = \dv{x^\mu}{s} , \quad
+        \dd{s} = \sqrt{ g_{\alpha\beta} \dd{x^\alpha} \dd{x^\beta} }
+               = \sqrt{ g_{\alpha\beta} \pdv{x^\alpha}{x^0} \pdv{x^\beta}{x^0} } \dd{x^0} .
+    \end{equation*}
+    %
+    В силу сферической симметрии задачи от $t$ может зависеть только $r$. Однако, поскольку задача статическая, $\pdv*{r}{t}$ также обращается в нуль. Получаем
+    %
+    \begin{equation*}
+        \dd{s} = \sqrt{ g_{00} } \dd{x^0} , \quad
+        u^\mu = \dv{x^\mu}{s}
+              = \frac{\dd{x^\mu}}{\sqrt{g_{00}} \dd{x^0}}
+              = \frac{1}{\sqrt{g_{00}}} \delta^\mu_0 .
+    \end{equation*}
+    %
+    Отсюда
+    %
+    \begin{equation*}
+        u_\nu = g_{\mu\nu} u^\mu = \frac{1}{\sqrt{g_{00}}} g_{\nu 0}
+    \end{equation*}
+    %
+    и
+    %
+    \begin{equation*}
+        T^f_{\mu\nu} = - (\varepsilon + p) \frac{g_{\mu 0} g_{\nu 0}}{g_{00}} + p g_{\mu\nu}
+                     = - (\varepsilon + p) g_{00} \delta^0_\mu \delta^0_\nu + p g_{\mu\nu} .
+    \end{equation*}
+    %
+    Минус перед первым слагаемым является следствием того, что $g_{00} < 0$, следовательно $\sqrt{g_{00}} = i \sqrt{-g_{00}}$.
+
+    Первое уравнение получается из тождества $T^{\mu\nu}_{;\nu} = 0$:
+    %
+    \begin{equation}
+        (\varepsilon + p) A' + 2 p' = 0 ,
+    \end{equation}
+    %
+    решение которого:
+    %
+    \begin{equation}
+        e^{A} = \frac{\gamma}{(\varepsilon + p)^2} , \quad \gamma = const .
+    \end{equation}
+
+    \begin{footnotesize}
+        Следует быть внимательным при вычислении $T^{\mu\nu}_{;\nu}$. Если сразу брать тензор энергии-импульса в его окончательной форме, применяя обычные правила дифференцирования для ковариантной производной, можно прийти к неверному результату. Действительно, в соотношении $u^\mu = \qty(\sqrt{g_{00}})^{-1} \delta^\mu_0$ величина слева является вектором, в то время как справа стоит тензор. Дифференцируя таким образом тензор энергии-импульса, получим нулевой вектор.
+
+        Правильный подход заключается в том, чтобы сначала раскрыть ковариантную производную в форме, когда тензор $T^{\mu\nu}$ записан через $u^\mu$, а только потом подставить окончательный вид тензора энергии-импульса в получившееся выражение.
+    \end{footnotesize}
+
+    Из уравнений Эйнштейна нетривиальными являются три. Первое записывается в виде:
+    %
+    \begin{equation}
+        e^B (1 - \kappa \varepsilon r^2) + r B' - 1 = 0 ,
+    \end{equation}
+    %
+    решение которого,
+    %
+    \begin{equation*}
+        e^{B} = \frac{r - \flatfrac{1}{3} \kappa \varepsilon r^3 - const}{r} ,
+    \end{equation*}
+    %
+    не является сингулярным в точке $r = 0$ только при $const = 0$. Итак,
+    %
+    \begin{equation*}
+        e^{B} = 1 - \flatfrac{1}{3} \kappa \varepsilon r^2 .
+    \end{equation*}
+    %
+    Второе уравнение при подстановке ранее полученных функций принимает вид:
+    %
+    \begin{equation}
+        \frac{\kappa r (\varepsilon + 3 p)}{\kappa \varepsilon r^2 - 3} - \frac{2 p'}{\varepsilon + p} = 0 .
+    \end{equation}
+    %
+    Его решение:
+    %
+    \begin{equation}
+        p = \frac{\varepsilon - \varepsilon e^{2 \varepsilon C} \sqrt{\kappa \varepsilon r^2 - 3}}{e^{2 \varepsilon C} \sqrt{\kappa \varepsilon r^2 - 3} - 3} .
+    \end{equation}
+    %
+    Последнее (третье) уравнение Эйнштейна после подстановки $A$, $B$, $p$ выполняется автоматически.
+
+    Константа $C$ в последнем уравнении определяется из условия $p(R) = 0$. Окончательно,
+    %
+    \begin{equation}
+        p = \frac{\varepsilon \sqrt{\kappa \varepsilon R^2 - 3} - \sqrt{\kappa \varepsilon r^2 - 3}}{
+            \sqrt{\kappa \varepsilon r^2 - 3} - 3 \sqrt{\kappa \varepsilon R^2 - 3}} .
+    \end{equation}
+
+    Константа $\gamma$ должна определиться из условий сшивки с метрикой свободного пространства на границе сферы (т.е. при $r = R$). Масса сферы определяется интегралом
+    %
+    \begin{equation*}
+        m = \int\limits_0^R 4 \pi r^2 \rho \dd{r} = \qty( \rho = const ) = \frac{4}{3} \pi R^3 \rho .
+    \end{equation*}
+    %
+    Сама же плотность жидкости $\rho = \flatfrac{\varepsilon}{c^2}$. [TODO: описать, почему так предполагаем].
+
+    Отсюда заключаем, что
+    %
+    \begin{equation}
+        \gamma = \frac{1}{3} c^2 \varepsilon^2 (3 - \kappa \varepsilon R^2) .
+    \end{equation}
+
+    Окончательно имеем:
+    %
+    \begin{equation}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
+            \frac{c^2}{12} \qty(\sqrt{\kappa \varepsilon r^2 - 3} - 3 \sqrt{\kappa \varepsilon R^2 - 3})^2,\
+            \frac{3}{3 - \kappa \varepsilon r^2},\
+            r^2,\
+            r^2 \sin\theta
+        \ \}
+    \end{equation}
+
 \onlyinsubfile{
     \nocite{*}
     \clearpage
