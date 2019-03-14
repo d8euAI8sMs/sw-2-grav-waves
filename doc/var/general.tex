@@ -1,0 +1,140 @@
+
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{4-интервал и 4-метрика}
+
+    Четырехмерный интервал $\dd{s}$ определяется в виде
+    %
+    \begin{equation*}
+        \dd{s}^2 = g_{\mu\nu} \dd{x^\mu} \dd{x^\nu} .
+    \end{equation*}
+
+    Из принципа эквивалентности следует, что в локальной системе отсчета (в собственных координатах рассматриваемой точки) метрика $g_{\mu\nu}$ должна переходить в метрику Минковского $\eta_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\ 1,\ -1,\ -1,\ -1\ \}$, а $\dd{s}$~--- в 4-интервал СТО:
+    %
+    \begin{equation*}
+        \dd{s}^2 = \eta_{\mu\nu} \dd{x^\mu} \dd{x^\nu} = c^2 \dd{t}^2 - \dd{x}^2 - \dd{y}^2 - \dd{z}^2 .
+    \end{equation*}
+
+    Величина
+    %
+    \begin{equation*}
+        \dd{\tau} = c^{-1} \dd{s}
+    \end{equation*}
+    %
+    называется собственным временем (proper time). Действительно:
+    %
+    \begin{equation*}
+        \dd{\tau}^2 = c^{-2} \dd{s}^2 = \dd{t}^2 \qty(
+            1 - \frac{1}{c^2} \qty[\qty(\dv{x}{t})^2 + \qty(\dv{y}{t})^2 + \qty(\dv{z}{t})^2]
+        ) = \dd{t}^2 \qty(1 - \frac{v^2}{c^2}) ,
+    \end{equation*}
+    %
+    где введено
+    %
+    \begin{equation*}
+        \vb{v} = \dv{\vb{x}}{t} \text{ -- }
+    \end{equation*}
+    %
+    обычная трехмерная скорость. Тогда
+    %
+    \begin{equation*}
+        \dd{\tau} = \sqrt{1 - \frac{v^2}{c^2}} \dd{t} = \gamma \dd{t}.
+    \end{equation*}
+    %
+    Поскольку всегда $v \leq c$, величина под корнем неотрицательна: $\gamma$ чисто действительная величина. Более того, при $v \ll c$ релятивистские эффекты пропадают ($\gamma \to 1$) и $\dd{\tau} \approx \dd{t}$.
+
+    В виду того, что определено понятие собственного времени, понятие 4-скорости ввести не сложно:
+    %
+    \begin{equation*}
+        u^\mu = \dv{x^\mu}{\tau} = \frac{1}{\gamma} \dv{x^\mu}{t}
+              = \frac{1}{\gamma} \qty(c, \vb{v})^\mu .
+    \end{equation*}
+    %
+    Несложно также показать, что
+    %
+    \begin{equation*}
+        u^\mu u_\mu = \eta_{\mu\nu} u^\mu u^\mu
+                    = \frac{\eta_{\mu\nu} \dd{x^\mu}\dd{x^\nu}}{\dd{\tau}^2}
+                    = \frac{\dd{s}^2}{\dd{\tau}^2}
+                    = c^2 .
+    \end{equation*}
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Four-velocity}~--- \url{https://en.wikipedia.org/wiki/Four-velocity}
+        \item Wikipedia: \enquote{Proper time}~--- \url{https://en.wikipedia.org/wiki/Proper_time}
+    \end{enumerate}
+
+\subsection{Сигнатура метрики}
+
+    Метрика Минковского $\eta_{\mu\nu}$ в форме $\{\ 1,\ -1,\ -1,\ -1\ \}$ удобна, однако иногда применяется $\eta^-_{\mu\nu} = -\eta_{\mu\nu}$ с той целью, чтобы пространственная часть метрики была положительной. Последняя форма называется преимущественно-положительной (mostly positive), пространственно-положительной (space-positive) или просто $(-{}+{}+{}+{})$. Первая~--- преимущественно-отрицательной (mostly negative), времене-положительной (time-positive) или просто $(+{}-{}-{}-{})$.
+
+    То, какая из двух метрик используется, определяется т.н. сигнатурой. Сигнатура определяется знаком $\eta_{00}$: положительная при $\eta_{00} = +1$ и отрицательная при $\eta_{00} = -1$.
+
+    Поскольку $\eta^-_{\mu\nu} = - \eta^+_{\mu\nu}$, в четырехмерном интервале $\dd{s}$ инвертируются все знаки:
+    %
+    \begin{equation*}
+        \dd{s_-}^2 = \eta^-_{\mu\nu} \dd{x^\mu} \dd{x^\nu}
+                 = - \eta^+_{\mu\nu} \dd{x^\mu} \dd{x^\nu}
+                 = - \dd{s_+}^2 .
+    \end{equation*}
+    %
+    Отсюда
+    %
+    \begin{equation*}
+        \dd{s_-} = i \dd{s_+} .
+    \end{equation*}
+
+    Величина $\dd{\tau_-}$ оказывается чисто мнимой:
+    %
+    \begin{equation*}
+        \dd{\tau_-} = c^{-1} \dd{s_-} = i c^{-1} \dd{s_+} = i \dd{\tau_+} .
+    \end{equation*}
+
+    С мнимым собственным временем, однако, неудобно работать: оно также остается мнимым при предельном переходе $v \ll c$. Поэтому собственное время $\dd{\tau}$ определяют как $\dd{\tau_+} = - i \dd{\tau_-}$, а не как собственно $\dd{\tau_-}$. Итак,
+    %
+    \begin{equation*}
+        \dd{\tau}^2 = c^{-2} \dd{s_+}^2 = - c^{-2} \dd{s_-}^2 .
+    \end{equation*}
+
+    Такой выбор отражается на многих практических вопросах. В частности, норма скорости меняет знак с плюса на минус:
+    %
+    \begin{equation*}
+        u^\mu u_\mu = \eta^-_{\mu\nu} u^\mu u^\mu
+                    = \frac{\eta^-_{\mu\nu} \dd{x^\mu}\dd{x^\nu}}{\dd{\tau}^2}
+                    = \frac{\dd{s_-}^2}{\dd{\tau_+}^2}
+                    = \frac{- \dd{s_+}^2}{\dd{\tau_+}^2}
+                    = - c^2 .
+    \end{equation*}
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item Wikipedia: \enquote{Four-velocity}~--- \url{https://en.wikipedia.org/wiki/Four-velocity}
+        \item Wikipedia: \enquote{Proper time}~--- \url{https://en.wikipedia.org/wiki/Proper_time}
+    \end{enumerate}
+
+\subsection{Сигнатура метрики и ОТО}
+
+    В ОТО глядя на метрику порой сложно указать, какая из сигнатур используется. Поэтому указание сигнатуры часто предшествует дальнейшим теоретическим выкладкам.
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
