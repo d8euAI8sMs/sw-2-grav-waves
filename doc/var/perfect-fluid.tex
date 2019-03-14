@@ -68,16 +68,23 @@
     которое применительно к $T^f$ записывается в виде:
     %
     \begin{equation*}
-        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t (u^a_{;a} u^b + u^a u_{b;a}) + p_{,a} \delta^a_b = 0,
+        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t (u^a_{;a} u_b + u^a u_{b;a}) + p_{,a} \delta^a_b = 0,
     \end{equation*}
     %
-    где для краткости введено $t = p + \varepsilon$. Можно показать, что $u^a u_{b;a} = 0$ всегда, так что остается
-    %
-    \begin{equation}
-        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t u^a_{;a} u^b + p_{,a} \delta^a_b = 0.
-    \end{equation}
+    где для краткости введено $t = p + \varepsilon$.
 
-    Данное выражение выглядит проще в проекции на $u^b$ (пользуемся тождеством $u^b u_b = -1$):
+    Возьмем проекцию полученного выражения на $u^b$. Для чего следует иметь в виду тождества:
+    %
+    \begin{gather*}
+        u_b u^b = -1 , \\
+        0 = \qty(u_b u^b)_{;a} = u_{b;a} u^b + u_b u^b_{;a}
+          = u_{b;a} u_s g^{sb} + u_b u^b_{;a}
+          = u^s_{;a} u_s + u_b u^b_{;a}
+          = 2 u_b u^b_{;a}
+          = 0 .
+    \end{gather*}
+    %
+    Получаем
     %
     \begin{equation*}\begin{aligned}
         u^b \qty(T^f)^a_{b;a} &= - t_{,a} u^a - t u^a_{;a} + p_{,a} u^a \\
@@ -90,20 +97,18 @@
         \nabla_u \varepsilon + t\ \nabla \cdot \vb{u} = 0 ,
     \end{equation}
     %
-    подставляя которое в тождество Гильберта получаем
+    подставляя которое (в одной из предыдущих форм) в тождество Гильберта получаем
     %
     \begin{equation*}\begin{aligned}
-        \qty(T^f)^a_{b;a} &= t_{,a} u^a u_b - \varepsilon_{,a} u^a u^b + p_{,a} \delta^a_b \\
-                          &= p_{,a} u^a u_b + p_{,b} = 0 ,
+        \qty(T^f)^a_{b;a} &= t_{,a} u^a u_b - t_{,a} u^a u_b + p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} \\
+                          &= p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} = 0 ,
     \end{aligned}\end{equation*}
     %
     или,
     %
     \begin{equation}
-        \vb{u} \nabla_u p + \nabla p = 0 .
+        \vb{u} \nabla_u p + t \nabla_u \vb{u} + \nabla p = 0 .
     \end{equation}
-
-    Решение последнего выражения для невозмущенной метрики ($g_{ab} = \gamma_{ab}$) даст поле $u^a$ как функцию $p$.
 
     \vspace{1cm}
 
