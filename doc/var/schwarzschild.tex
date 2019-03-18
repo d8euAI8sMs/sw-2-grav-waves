@@ -231,6 +231,23 @@
         \ \}
     \end{equation}
 
+    В таком виде решение не является, однако, математически однородным. Вынося $i$ из под корня, пользуясь определением Шварцшильдовского радиуса $r_s$, массы $m$, плотности жидкости $\rho$ и вводя параметр
+    %
+    \begin{equation*}
+        \mathcal{R} = \frac{R^3}{r_s} ,
+    \end{equation*}
+    %
+    можно придти к более компактному результату:
+    %
+    \begin{equation}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
+            - \frac{c^2}{4} \qty(\sqrt{1 - \frac{r^2}{\mathcal{R}^2}} - 3 \sqrt{1 - \frac{R^2}{\mathcal{R}^2}})^2,\
+            \qty(1 - \frac{r^2}{\mathcal{R}^2})^{-1},\
+            r^2,\
+            r^2 \sin\theta
+        \ \}
+    \end{equation}
+
 \onlyinsubfile{
     \nocite{*}
     \clearpage
