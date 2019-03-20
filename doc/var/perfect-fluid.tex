@@ -7,25 +7,57 @@
 
 \subsection{Лагранжиан и тензор энергии-импульса идеальной жидкости}
 
-    Действие жидкости в форме, предложенной Шютцем, имеет вид
+    Классический подход к изучению термодинамики идеальной жидкости в СТО и ОТО связан с тензором энергии-импульса жидкости:
+    %
+    \begin{equation*}
+        T^f_{ab} = (\varepsilon + p) u_a u_b + p g_{ab} .
+    \end{equation*}
+    %
+    Здесь $\varepsilon$~--- плотность энергии жидкости, $p$~--- ее давление, $u^a$~--- 4-вектор скорости. В работе [\ref{bib:schutz-velocity}] представлен лагранжев подход. Работа базируется на представлении четырехмерной скорости $u^a$ шестью скалярными потенциалами: $(\mu,\phi,\alpha,\beta,\theta,S)$. Уравнения динамики жидкости получаются вариацией лагранжиана по этим потенциалам.
 
+    Не все потенциалы, однако, являются существенными при изучении простейших моделей жидких сфер~--- потенциалы, связанные с тепловыми явлениями ($\theta$, $S$), а также потенциалы, описывающие вихри поля скоростей ($\alpha$, $\beta$), могут быть исключены из рассмотрения. Так, из оригинальных шести потенциалов следует оставить два: энтальпию $\mu$ и скалярный потенциал $\phi$ (который далее мы обозначаем как $\sigma$). В итоге 4-скорость $u^a$ в своих ковариантных компонентах представляется в виде
+    %
+    \begin{equation*}
+        u_a = \mu^{-1} \sigma_{,a} = \mu^{-1} v_a .
+    \end{equation*}
+    %
+    Векторное поле $v^a$, следуя Шютцу [\ref{bib:schutz-velocity}] и цитированным там работам будем называть потоком.
+
+    Согласно [\ref{bib:schutz-velocity}], основой действия жидкости является ее давление в параметрах $(\mu,S)$. Имея в виду введенные ранее границы модели, запишем:
+    %
     \begin{equation}
         S_f = \int \mathcal{L}_f \sqrt{-g} \dd[4]{x} , \quad
-        \mathcal{L} = p(\mu) , \quad
-        \mu = \sqrt{-g^{ab} v_a v_b} ,
+        \mathcal{L} = p(\mu) .
     \end{equation}
+
+    Энтальпия $\mu$ задается соотношением
     %
-    где $p$~--- давление, $\mu$~--- энтальпия, $v_a$~--- некоторое векторное поле.
+    \begin{equation*}
+        \mu\rho = \varepsilon + p ,
+    \end{equation*}
+    %
+    где $\rho$~--- плотность вещества жидкости. Показывается, что
+    %
+    \begin{equation*}
+        \rho = p' \equiv \dv{p}{\mu} .
+    \end{equation*}
 
-    Вариация лагранжиана по компонентам метрики $g^{ab}$ дает тензор энергии-импульса жидкости:
+    Из соотношения $u^a u_a = -1$ следует выражение для $\mu$:
+    %
+    \begin{equation*}
+        \mu = \sqrt{-g^{ab} v_a v_b} .
+    \end{equation*}
 
+    Вариация лагранжиана по компонентам метрики $g^{ab}$ действительно дает тензор энергии-импульса жидкости:
+    %
     \begin{equation}\begin{aligned}
         T^f_{ab} = \frac{-2}{\sqrt{-g}} \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} &=
             \frac{-2}{\sqrt{-g}} \pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} \\ &=
             \frac{-2}{\sqrt{-g}} \qty(
                 - \frac{1}{2 \mu} \sqrt{-g} p'(\mu) v_a v_b - \frac{1}{2} g_{ab} \sqrt{-g} p(\mu)
             ) \\ &=
-            \frac{1}{\mu} p'(\mu) v_a v_b + p(\mu) g_{ab} .
+            \frac{1}{\mu} p'(\mu) v_a v_b + p(\mu) g_{ab} \\ &=
+            (p + \varepsilon) u_a u_b + p g_{ab} .
     \end{aligned}\end{equation}
     %
     Здесь использовано равенство
@@ -34,20 +66,6 @@
         \fdv{\sqrt{-g}}{g^{ab}} = - \frac{1}{2} g_{ab} \sqrt{-g} .
     \end{equation*}
 
-    Принимая обозначения
-    %
-    \begin{equation*}\begin{gathered}
-        v^a = \mu u^a , \\
-        \rho = p' , \\
-        \varepsilon = \mu \rho - p ,
-    \end{gathered}\end{equation*}
-    %
-    где $u^a$~--- четырехвектор скорости потока жидкости в данной точке, $\rho$~--- плотность вещества, $\varepsilon$~--- плотность энергии жидкости, можно прийти к следующему виду тензора энергии-импульса:
-    %
-    \begin{equation}
-        \qty(T^f)^a_b = (p + \varepsilon) u^a u_b + p \delta^a_b .
-    \end{equation}
-
     \vspace{1cm}
 
     \textbf{\Large{References}}:
@@ -55,6 +73,7 @@
     \begin{enumerate}
         \item Wikipedia: \enquote{Stress–energy tensor}~--- \url{https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor}
         \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
+        \item \label{bib:schutz-velocity} Bernard F. Schutz, Jr. \enquote{Perfect Fluids in General Relativity: Velocity Potentials and a Variational Principle}~--- \url{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.2.2762}.
     \end{enumerate}
 
 \subsection{Уравнения динамики идеальной жидкости}
@@ -117,6 +136,7 @@
     \begin{enumerate}
         \item Wikipedia: \enquote{Stress–energy tensor}~--- \url{https://en.wikipedia.org/wiki/Stress%E2%80%93energy_tensor}
         \item E. Minguzzi. \enquote{Inclusion of a perfect fluid term into the Einstein-Hilbert action}~--- \url{https://arxiv.org/abs/1606.00082}
+        \item \label{bib:schutz-velocity} Bernard F. Schutz, Jr. \enquote{Perfect Fluids in General Relativity: Velocity Potentials and a Variational Principle}~--- \url{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.2.2762}.
     \end{enumerate}
 
 \subsection{Уравнения состояния идеальной жидкости}
@@ -141,13 +161,7 @@
         p = \frac{\mu\rho}{q + 1} .
     \end{equation}
 
-    Ранее вариацией действия жидкости были получены четыре уравнения движения, а также пятое уравнение, являющееся следствием первых четырех. Данные уравнения могут служить для определения четырех компонент векторного поля $u^\alpha$. Возможно получение еще одного уравнения состояния жидкости вариацией по некоторой скалярной функции $\sigma$, порождающей поле $v_\alpha$,
-    %
-    \begin{equation*}
-        v_\alpha = \sigma_{,\alpha} , \quad\text{или}\quad \vb{v} = \nabla \sigma ,
-    \end{equation*}
-    %
-    именно,
+    Ранее вариацией действия жидкости были получены четыре уравнения движения, а также пятое уравнение, являющееся следствием первых четырех. Данные уравнения могут служить для определения четырех компонент векторного поля $u^\alpha$. Еще одно уравнение получим вариацией действия по потенциалу $\sigma$:
     %
     \begin{equation*}
         0 = \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{\sigma} =
@@ -294,13 +308,15 @@
 
         Из статьи видно, что существует множество форм действия жидкости. Выбор той или иной формы~--- дело удобства.
 
+        \item Bernard F. Schutz, Jr. \enquote{Perfect Fluids in General Relativity: Velocity Potentials and a Variational Principle}~--- \url{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.2.2762}.
+
         \item Bernard F. Schutz, Jr. \enquote{Hamiltonian Theory of a Relativistic Perfect Fluid}~--- \url{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.4.3559}.
 
-        Данная статья должна была стать основой работы, однако у автора к ней отсутствует доступ. Она цитируется почти всеми упомянутыми авторами и, по-видимому, является одной из пионерских работ в исследовании лагранжева/гамильтонова подхода к описанию динамики жидкости.
+        Эти две статьи формулируют динамические уравнения жидкости в лагранжевой и гамильтоновой форме через т.н. потенциалы скоростей. Формализм потенциалов скоростей в термодинамике не является новым. Статьи обобщают классический формализм на случай общей теории относительности. Для формулировки гамильтонова подхода к описанию динамики жидкости используется (3+1)-разложение пространства-времени.
 
         \item Бурланков Д.Е., Самочадин А.М. \enquote{Гравитационные волны в жидкой сфере}.
 
-        Статья, на которой базируется данная работа. Содержит выжимку информации по динамике жидкости. Используется действие в форме Шютца.
+        Статья, на которой базируется данная работа. Содержит выжимку информации по динамике жидкости. Используется действие в форме Шютца. Рассмотрен простейший случай~--- из шести потенциалов скоростей оставлен единственный.
     \end{enumerate}
 
 \onlyinsubfile{
