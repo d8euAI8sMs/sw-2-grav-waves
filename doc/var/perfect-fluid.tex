@@ -234,7 +234,7 @@
         \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
         \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0 \\
         \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \quad&\Longleftrightarrow\quad
-        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \\
+        \vb{u} \nabla_u p + \frac{1}{1-\chi} p\ \nabla_u \vb{u} + \nabla p = 0 \\
         \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
         \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0
     \end{align*}
@@ -293,6 +293,12 @@
             j_l(\omega_{ln} r) Y_{lm}(\theta,\phi) \exp(-i \omega_{ln} t) , \quad
         \omega_{ln} = \text{$n$-й корень}\ \{\ j_l(\omega R) = 0\ \} .
     \end{equation*}
+
+\subsection{Учет резкой границы сферы}
+
+    Уравнение связи в форме $\varepsilon = q p$ означает, что на границе жидкой сферы, где обязательно $p = 0$, $\varepsilon$ также необходимо обращается в нуль. Если при интегрировании исходного дифференциального уравнения связи учесть константу, т.е. считать $\varepsilon = q p + \varepsilon_0$, требование равенства нулю плотность энергии на границе сферы можно исключить.
+
+    Проследим, к чему приведет учет $\varepsilon_0 \neq 0$. Во все уравнения давление входит либо в виде суммы $(\varepsilon + p)$, либо под знаком дифференциала (производной). Распишем $\varepsilon + p = (q + 1) p + \varepsilon_0 = (q + 1) (p + \epsilon) = (q + 1) \hat{p}$. Формальная замена переменных $p \mapsto \hat{p}$ (и, соответственно, $\dd{p} \mapsto \dd{\hat{p}}$) в исходных уравнениях переформулирует их относительно $\hat{p}$.
 
 \subsection{Комментарии}
 
