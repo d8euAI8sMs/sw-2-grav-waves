@@ -92,7 +92,7 @@
     %
     где для краткости введено $t = p + \varepsilon$.
 
-    Возьмем проекцию полученного выражения на $u^b$. Для чего следует иметь в виду тождества:
+    Возьмем параллельную и перпендикулярную проекции полученного выражения на $u^b$. Для чего следует иметь в виду тождества:
     %
     \begin{gather*}
         u_b u^b = -1 , \\
@@ -103,7 +103,7 @@
           = 0 .
     \end{gather*}
     %
-    Получаем
+    Для параллельной получаем
     %
     \begin{equation*}\begin{aligned}
         u^b \qty(T^f)^a_{b;a} &= - t_{,a} u^a - t u^a_{;a} + p_{,a} u^a \\
@@ -113,14 +113,13 @@
     Отсюда заключаем, что имеет место равенство
     %
     \begin{equation}
-        \nabla_u \varepsilon + t\ \nabla \cdot \vb{u} = 0 ,
+        \nabla_u \varepsilon + t\ \nabla \cdot \vb{u} = 0 .
     \end{equation}
     %
-    подставляя которое (в одной из предыдущих форм) в тождество Гильберта получаем
+    Перпендикулярная строится с помощью тензора проектирования $P^a_b = \delta^a_b + u^a u_b$ (несложно убедиться, что $u^b P^a_b = 0$):
     %
     \begin{equation*}\begin{aligned}
-        \qty(T^f)^a_{b;a} &= t_{,a} u^a u_b - t_{,a} u^a u_b + p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} \\
-                          &= p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} = 0 ,
+        P^s_b \qty(T^f)^a_{s;a} = p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} = 0 ,
     \end{aligned}\end{equation*}
     %
     или,
