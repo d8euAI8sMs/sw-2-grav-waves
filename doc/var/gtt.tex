@@ -1,0 +1,103 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Общий вид метрики в ТГВ}
+
+    Общий вид метрики $g_{\mu\nu}$ в ТГВ схож с видом метрики в АДМ-представлении:
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \begin{pmatrix}
+            1 - g_{ij} V^i V^j   &   g_{ij} V^i \\
+            g_{ij} V^j           &   - g_{ij}   \\
+        \end{pmatrix} , \quad
+        g^{\mu\nu} = \begin{pmatrix}
+            1   & V^j                \\
+            V^i & V^i V^j - g^{ij}   \\
+        \end{pmatrix} .
+    \end{equation*}
+    %
+    Отличием является равенство единице функции хода. Выражение для 4-интервала:
+    %
+    \begin{equation*}
+        \dd{s}^2 = \qty(1 - g_{ij} V^i V^j) \dd{t}^2 + 2 g_{ij} V^i \dd{x^j} \dd{t} - g_{ij} \dd{x^i}\dd{x^j} .
+    \end{equation*}
+
+\subsection{Решение ТГВ для свободного сферически симметричного пространства}
+
+    Наиболее общий вид статической сферически симметричной метрики в ТГВ:
+    %
+    \begin{equation*}
+        g_{ij} = \text{diag} \begin{pmatrix}B^{-1}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
+        V^i = \begin{pmatrix}V(r), & 0, & 0\end{pmatrix} .
+    \end{equation*}
+    %
+    При этом 4-интервал имеет вид
+    %
+    \begin{equation*}
+        \dd{s}^2 = \qty(1 - \frac{V^2}{B}) \dd{t}^2 + 2 \frac{V}{B} \dd{t} \dd{r} - \frac{1}{B^2} \dd{r}^2 - r^2 \dd{\Omega}^2 , \quad \dd{\Omega} = \dd{\theta}^2 + \sin^2{\theta} \dd{\phi}^2 .
+    \end{equation*}
+
+    Вид интервала математически существенно неоднороден. Также усложняется вид лагранжиана и вариационных уравнений. Можно привести интервал к симметричному виду
+    %
+    \begin{equation*}
+        \dd{s}^2 = \qty(1 - V^2) \dd{t}^2 + 2 \frac{V}{B} \dd{t} \dd{r} - \frac{1}{B^2} \dd{r}^2 - r^2 \dd{\Omega}^2 , \quad \dd{\Omega} = \dd{\theta}^2 + \sin^2{\theta} \dd{\phi}^2
+    \end{equation*}
+    %
+    с метрикой в виде
+    %
+    \begin{equation*}
+        g_{ij} = \text{diag} \begin{pmatrix}B^{-2}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
+        V^i = \begin{pmatrix}B(r)V(r), & 0, & 0\end{pmatrix} , V(r) = \sqrt{U(r) + 1}.
+    \end{equation*}
+
+    Лагранжиан пространства $\mathcal{L} = R^{(4)} \sqrt{-g}$ после прямого вычисления оказывается довольно громоздким. Его можно упростить, устранив члены, не влияющие на уравнения динамики.
+
+    Вариации лагранжиана по $B$ и $U$ дают уравнения:
+    %
+    \begin{equation*}
+        B' = 0 , \quad 1 + B^2 (U + r U') = 0 .
+    \end{equation*}
+    %
+    Из первого уравнения следует, что $B = const$. Второе дает:
+    %
+    \begin{equation*}
+        U = \frac{C}{r} - \frac{1}{B^2} .
+    \end{equation*}
+
+    Константы $B$ и $C$ определятся из условий на бесконечности и условий сшивки с классической теорией. Первое заключается в том, что при $r \to \infty$ должно выполняться $g \to \gamma$, где $\gamma$~--- метрика Минковского. Отсюда получаем, что $B = 1$. Второе можно получить, усматривая эквивалентность движения тела в поле скоростей и его свободного падения в гравитационном потенциале. В обоих случаях движение тела будет одинаково, поэтому можно записать равенство кинетической и потенциальной энергий:
+    %
+    \begin{equation*}
+        \frac{\qty|V|^2}{2} = \frac{\kappa M}{r} ,
+    \end{equation*}
+    %
+    $M$~--- масса источника поля. Отсюда $C = \sqrt{2 M \kappa}$.
+
+    Окончательно имеем:
+    %
+    \begin{equation*}
+        B = 1, \quad V^2 = \frac{2 M \kappa}{r}
+    \end{equation*}
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \begin{pmatrix}
+            1 - \frac{2 M \kappa}{r} & \sqrt{\frac{2 M \kappa}{r}} & 0 & 0 \\
+            \sqrt{\frac{2 M \kappa}{r}} & -1 & 0 & 0 \\
+            0 & 0 & -r^2 & 0 \\
+            0 & 0 & 0 & r^2 \sin\theta \\
+        \end{pmatrix} .
+    \end{equation*}
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}

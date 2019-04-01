@@ -1,0 +1,56 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Достаточная часть действия Гильберта}
+
+    Известно, что действие Гильберта~--- четырехмерная скалярная кривизна $R$:
+    %
+    \begin{equation*}
+        S = \int_\Omega R \sqrt{-g} \dd[4]{x} , \quad R \sqrt{-g} \equiv L
+    \end{equation*}
+    %
+    Можно показать [\ref{bib:se-r-decomposition}, TODO: более конкретные источники], что плотность действия $L$ раскладывается на две части, одна из которых~--- полная дивергенция:
+    %
+    \begin{equation*}
+        R = g^{\mu\nu} \qty(
+            \Gamma^\lambda_{\lambda k}\Gamma^k_{\mu\nu} -
+            \Gamma^\lambda_{\mu k}\Gamma^k_{\lambda\nu}
+            ) + \frac{1}{\sqrt{-g}} \qty(
+                \sqrt{-g} \qty(g^{\mu\nu}g^{\lambda k} - g^{\mu\lambda}g^{\nu k}) g_{\lambda k, \nu}
+            )_{,\mu} = R_\text{quad} + \qty(\sqrt{-g})^{-1} \mathfrak{R}_\text{surf}.
+    \end{equation*}
+    %
+    Отсюда
+    %
+    \begin{equation*}
+        L = \sqrt{-g} R_\text{quad} + \mathfrak{R}_\text{surf} = L_\text{quad} + L_\text{surf} .
+    \end{equation*}
+
+    Нерешенный вопрос, \textit{исчезает ли $L_\text{surf}$ при интегрировании в действии}. Наивные попытки выяснить это \enquote{на пальцах} завершились неудачей\footnotemark{}~--- ответ отрицательный. В [\ref{bib:se-r-decomposition}] автор также тщетно ищет ответ на этот вопрос.
+
+    \footnotetext{
+        Численно автором было показано, что соотношение $R = R_\text{quad} + \qty(\sqrt{-g})^{-1} \mathfrak{R}_\text{surf}$ верно, однако в реальных задачах вариации $L_\text{surf}$ не нулевые, а вариации $L_\text{quad}$ не дают решения задачи.
+    }
+
+    \vspace{1cm}
+
+    \textbf{\Large{References}}:
+    %
+    \begin{enumerate}
+        \item \label{bib:se-r-decomposition} StackExchange: \enquote{Variation of the Einstein-Hilbert action in D dimensions without the Gibbons-Hawking-York term}~--- \url{https://physics.stackexchange.com/questions/218060}
+    \end{enumerate}
+
+\onlyinsubfile{
+    \nocite{*}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
