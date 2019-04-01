@@ -51,10 +51,26 @@
     %
     \begin{equation*}
         g_{ij} = \text{diag} \begin{pmatrix}B^{-2}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
-        V^i = \begin{pmatrix}B(r)V(r), & 0, & 0\end{pmatrix} , V(r) = \sqrt{U(r) + 1}.
+        V^i = \begin{pmatrix}B(r)V(r), & 0, & 0\end{pmatrix} .
     \end{equation*}
 
-    Лагранжиан пространства $\mathcal{L} = R^{(4)} \sqrt{-g}$ после прямого вычисления оказывается довольно громоздким. Его можно упростить, устранив члены, не влияющие на уравнения динамики.
+    Лагранжиан пространства $\mathcal{L} = R^{(4)} \sqrt{-g}$ после прямого вычисления оказывается довольно громоздким. Его можно упростить, устранив члены, не влияющие на уравнения динамики. Введем замену переменных
+    %
+    \begin{equation*}
+        \qty(V^2(r) - 1) \mapsto U(r) , \quad U(r) \mapsto r^{-2} u(r) .
+    \end{equation*}
+    %
+    После соответствующей замены лагранжиан примет вид
+    %
+    \begin{equation*}
+        - \mathcal{L} = \frac{2}{B} + \frac{B' \qty(2 u + r u')}{r} + B u'' .
+    \end{equation*}
+    %
+    Пользуясь тем, что к лагранжиану можно добавить полную производную, заменим последнее слагаемое на $\qty(B u')' - B'u'$. Применяя обратную замену $r^{-2} u \mapsto U$ и опуская член $\qty(B u')'$, получим окончательно
+    %
+    \begin{equation*}
+        - \frac{1}{2} \mathcal{L} = \frac{1}{B} + r U B' .
+    \end{equation*}
 
     Вариации лагранжиана по $B$ и $U$ дают уравнения:
     %
@@ -90,6 +106,10 @@
             0 & 0 & 0 & r^2 \sin\theta \\
         \end{pmatrix} .
     \end{equation*}
+
+\subsection{Решение ТГВ для идеальной жидкой самогравитирующей сферы}
+
+
 
 \onlyinsubfile{
     \nocite{*}
