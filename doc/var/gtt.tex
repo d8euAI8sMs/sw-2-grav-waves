@@ -109,7 +109,79 @@
 
 \subsection{Решение ТГВ для идеальной жидкой самогравитирующей сферы}
 
+    Будем рассматривать метрику в той же форме (но в этот раз противоположной сигнатуры). При этом будем учитывать взаимодействие гравитационного поля с идеальной жидкостью. Внешним решением будет выступать ранее полученное решение для свободного пространства. Внутреннее нам предстоит получить.
 
+    Выражение для коэффициентов метрики:
+    %
+    \begin{equation*}
+        g_{ij} = \text{diag} \begin{pmatrix}B^{-2}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
+        V^i = \begin{pmatrix}B(r)V(r), & 0, & 0\end{pmatrix} , \quad
+        V(r) = \sqrt{1 - U(r)} .
+    \end{equation*}
+
+    Суммарный лагранжиан системы $\mathcal{L}$ будет складываться из ранее полученного лагранжиана пространства-времени $\mathcal{L}_g$ и лагранжиана идеальной жидкости $\mathcal{L}_f = p(\mu)$, где $p$~--- давление жидкости, $\mu$~--- энтальпия.
+
+    Из уравнения состояния жидкости,
+    %
+    \begin{equation*}
+        \vb{u} \nabla \cdot \vb{u} - \frac{\chi}{1 - \chi} \nabla_u \vb{u} = \nabla f , \quad f = \ln p^{\chi} ,
+    \end{equation*}
+    %
+    где $\vb{u}$~--- 4-вектор скорости, $\chi = \flatfrac{q}{(q+1)}$, $q = \flatfrac{v^2}{c^2}$~--- скоростной фактор жидкости, можно получить выражение для $p$ через коэффициенты метрики.
+
+    В силу статичности задачи и ее сферической симметрии $\vb{u} = \begin{pmatrix}u^0,&0,&0,&0\end{pmatrix}$:
+    %
+    \begin{gather*}
+        \dd{\tau}^2 = - g_{\mu\nu} \dd{x^\mu}\dd{x^\nu} = - g_{\mu\nu} \dv{x^\mu}{t} \dv{x^\nu}{t} \dd{t}^2 = - g_{\mu\nu} \delta^\mu_0 \delta^\nu_0 \dd{t}^2 = - g_{00} \dd{t}^2 , \\
+        u^\alpha = \dv{x^\alpha}{\tau} = \dv{x^\alpha}{t} \dv{t}{\tau} = \delta^\alpha_0 \dv{t}{\tau} = \frac{1}{\sqrt{- g_{00}}} \delta^\alpha_0 , \qquad - g_{00} = U .
+    \end{gather*}
+
+    Учитывая вышесказанное, получаем из уравнения состояния дифференциальное уравнение на $p$:
+    %
+    \begin{equation*}
+        \frac{1}{2 (1 - \chi)} \frac{\dd{U}}{U} + \frac{\dd{p}}{p} = 0 ,
+    \end{equation*}
+    %
+    решение которого при $q = 3$, что соответствует случаю ультрарелятивистского предела, имеет вид:
+    %
+    \begin{equation*}
+        p = \frac{c_0}{U^2} .
+    \end{equation*}
+    %
+    Ранее обсуждалось, что для учета ненулевой плотности энергии $\epsilon$ границы сферы достаточно заменить $p \mapsto P \equiv (p + \epsilon)$ в уравнении состояния, поэтому окончательно имеем
+    %
+    \begin{equation*}
+        \mathcal{L}_f \equiv p = \frac{c_0}{U^2} - \epsilon .
+    \end{equation*}
+
+    Неизвестные функции $U(r)$ и $B(r)$ определяются из вариационных уравнений:
+    %
+    \begin{align*}
+        \fdv{(\mathcal{L}\sqrt{-g})}{B} = 0 \quad\Longrightarrow\quad&
+            r \epsilon - \frac{2}{r} - \frac{r c_0}{U^2} + \frac{2 B^2 U}{r} + 2 B^2 U' = 0 \\
+        \fdv{(\mathcal{L}\sqrt{-g})}{U} = 0 \quad\Longrightarrow\quad&
+            \frac{r c_0}{B U^3} + B' = 0
+    \end{align*}
+
+    Введением функций
+    %
+    \begin{equation*}
+        m = r (1 - B^2 U) , \quad w = r^2 U^2
+    \end{equation*}
+    %
+    полученные уравнения можно переформулировать:
+    %
+    \begin{align*}
+        m'(r) &= \frac{r^2 \epsilon}{2} + \frac{3 r^4 c_0}{2 w(r)} , \\
+        w'(r) &= \frac{r^4 c_0 + (2 - r^2 \epsilon) w(r)}{r - m(r)} .
+    \end{align*}
+    %
+    Для ультрарелятивистского газа ($\epsilon = 0$) они существенно упрощаются:
+    %
+    \begin{align*}
+        m'(r) &= \frac{3 r^4 c_0}{2 w(r)} , \\
+        w'(r) &= \frac{r^4 c_0 + 2 w(r)}{r - m(r)} .
+    \end{align*}
 
 \onlyinsubfile{
     \nocite{*}
