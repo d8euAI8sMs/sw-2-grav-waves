@@ -1,0 +1,242 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Лагранжиан идеальной жидкости}
+
+    Классический подход к изучению термодинамики идеальной жидкости связан с тензором энергии-импульса жидкости \cite{tolman}:
+    %
+    \begin{equation*}
+        T^f_{ab} = (\varepsilon + p) u_a u_b + p g_{ab} .
+    \end{equation*}
+    %
+    Здесь $\varepsilon$~--- плотность энергии жидкости, $p$~--- ее давление, $u^a$~--- 4-вектор скорости. В данной работе при формулировке динамики пространства мы исходим из действия Гильберта, потому не можем в явном виде применить полученный результат. Лагранжев аппарат описания динамики жидкости построен Б.~Шютцем в работе \cite{schutz_vel_pot}, которая базируется на представлении четырехмерной скорости $u^a$ шестью скалярными потенциалами: $(\mu,\phi,\alpha,\beta,\theta,S)$. Уравнения динамики жидкости получаются вариацией лагранжиана по этим потенциалам.
+
+    Не все потенциалы, однако, являются существенными при изучении простейших моделей жидких сфер~--- потенциалы, связанные с тепловыми явлениями ($\theta$, $S$), а также потенциалы, описывающие вихри поля скоростей ($\alpha$, $\beta$), могут быть исключены из рассмотрения. Так, из оригинальных шести потенциалов следует оставить два: энтальпию $\mu$ и скалярный потенциал $\phi$. В итоге 4-скорость $u^a$ в своих ковариантных компонентах представляется в виде
+    %
+    \begin{equation*}
+        u_a = \mu^{-1} \phi_{,a} = \mu^{-1} v_a .
+    \end{equation*}
+    %
+    Векторное поле $v^a$ введенно для удобства. Шютц \cite{schutz_vel_pot} и цитированные там работы дают этому вектору также и физическую интерпретацию.
+
+    Согласно Шютцу, основой действия жидкости является ее давление в параметрах $(\mu,S)$. Имея в виду введенные ранее границы модели, запишем:
+    %
+    \begin{equation}
+        S_f = \int \mathcal{L}_f \sqrt{-g} \dd[4]{x} , \quad
+        \mathcal{L} = p(\mu) .
+    \end{equation}
+
+    Энтальпия $\mu$ задается соотношением
+    %
+    \begin{equation*}
+        \mu\rho = \varepsilon + p ,
+    \end{equation*}
+    %
+    где $\rho$~--- плотность вещества жидкости. Показывается, что
+    %
+    \begin{equation*}
+        \rho = p' \equiv \dv{p}{\mu} .
+    \end{equation*}
+
+    Из соотношения $u^a u_a = -1$ следует выражение для $\mu$:
+    %
+    \begin{equation*}
+        \mu = \sqrt{-g^{ab} v_a v_b} .
+    \end{equation*}
+
+    Вариация лагранжиана по компонентам метрики $g^{ab}$ действительно дает тензор энергии-импульса жидкости:
+    %
+    \begin{equation}\begin{aligned}
+        T^f_{ab} = \frac{-2}{\sqrt{-g}} \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} &=
+            \frac{-2}{\sqrt{-g}} \pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{g^{ab}} \\ &=
+            \frac{-2}{\sqrt{-g}} \qty(
+                - \frac{1}{2 \mu} \sqrt{-g} p'(\mu) v_a v_b - \frac{1}{2} g_{ab} \sqrt{-g} p(\mu)
+            ) \\ &=
+            \frac{1}{\mu} p'(\mu) v_a v_b + p(\mu) g_{ab} \\ &=
+            (p + \varepsilon) u_a u_b + p g_{ab} .
+    \end{aligned}\end{equation}
+    %
+    Здесь использовано равенство
+    %
+    \begin{equation*}
+        \fdv{\sqrt{-g}}{g^{ab}} = - \frac{1}{2} g_{ab} \sqrt{-g} .
+    \end{equation*}
+
+\subsection{Уравнения динамики идеальной жидкости}
+
+    Уравнения динамики можно получить исходя из тождества Гильберта:
+    %
+    \begin{equation}
+        T^a_{b;a} = 0 ,
+    \end{equation}
+    %
+    которое применительно к $T^f$ записывается в виде:
+    %
+    \begin{equation*}
+        \qty(T^f)^a_{b;a} = t_{,a} u^a u_b + t (u^a_{;a} u_b + u^a u_{b;a}) + p_{,a} \delta^a_b = 0,
+    \end{equation*}
+    %
+    где для краткости введено $t = p + \varepsilon$.
+
+    Возьмем параллельную и перпендикулярную проекции полученного выражения на $u^b$, имея в виду тождества:
+    %
+    \begin{gather*}
+        u_b u^b = -1 , \\
+        0 = \qty(u_b u^b)_{;a} = u_{b;a} u^b + u_b u^b_{;a}
+          = u_{b;a} u_s g^{sb} + u_b u^b_{;a}
+          = u^s_{;a} u_s + u_b u^b_{;a}
+          = 2 u_b u^b_{;a}
+          = 0 .
+    \end{gather*}
+    %
+    Для параллельной получаем
+    %
+    \begin{equation*}\begin{aligned}
+        u^b \qty(T^f)^a_{b;a} &= - t_{,a} u^a - t u^a_{;a} + p_{,a} u^a \\
+                              &= - \varepsilon_{,a} u^a - t u^a_{;a} = 0 .
+    \end{aligned}\end{equation*}
+    %
+    Отсюда заключаем, что имеет место равенство
+    %
+    \begin{equation}
+        \nabla_u \varepsilon + t\ \nabla \cdot \vb{u} = 0 .
+    \end{equation}
+    %
+    Перпендикулярная строится с помощью тензора проектирования $P^a_b = \delta^a_b + u^a u_b$ (несложно убедиться, что $u^b P^a_b = 0$):
+    %
+    \begin{equation*}\begin{aligned}
+        P^s_b \qty(T^f)^a_{s;a} = p_{,a} u^a u_b + t u^a u_{b;a} + p_{,b} = 0 ,
+    \end{aligned}\end{equation*}
+    %
+    или,
+    %
+    \begin{equation}
+        \vb{u} \nabla_u p + t \nabla_u \vb{u} + \nabla p = 0 .
+    \end{equation}
+
+\subsection{Уравнения состояния идеальной жидкости}
+
+    Локальная скорость звука $a$ определяется зависимостью $p(\varepsilon)$:
+    %
+    \begin{equation*}
+        \frac{a^2}{c^2} \equiv q^{-1} = \dv{p}{\varepsilon} .
+    \end{equation*}
+    %
+    Отсюда при $q = const$
+    %
+    \begin{equation*}
+        \varepsilon = q p + \varepsilon_0 ,
+    \end{equation*}
+    %
+    где за $\varepsilon_0$ обозначена плотность энергии на границе жидкой сферы (сказанное справедливо в виду того, что на границе $p = 0$). Из общей теории известно (см. напр. \cite{landau_v5}), что для ультрарелятивистской жидкости $q = 3$. Случай $\varepsilon_0 = 0$ в общем случае соответствует газу~--- резкая граница между газовой сферой и внешним пространством, таким образом, отсутствует.
+
+    Дальнейший вывод серьезно упрощается, если полностью пренебречь $\varepsilon_0$. Полагая $q = const$, из выражения $\varepsilon = \mu\rho - p$ можно получить соотношение, связывающее $p$, $\mu$ и $\rho$:
+    %
+    \begin{equation}
+        p = \frac{\mu\rho}{q + 1} .
+    \end{equation}
+
+    Ранее вариацией действия жидкости были получены четыре уравнения движения, а также пятое уравнение, являющееся следствием первых четырех. Еще одно уравнение получим вариацией действия по потенциалу $\sigma$:
+    %
+    \begin{equation*}
+        0 = \fdv{\qty(\sqrt{-g} \mathcal{L}_f)}{\sigma} =
+            \pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{\sigma} -
+            \qty(\pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{v_k})_{,k} .
+    \end{equation*}
+    %
+    Первое слагаемое обращается в нуль. Второе дает:
+    %
+    \begin{equation*}\begin{aligned}
+        \qty(\pdv{\qty(\sqrt{-g} \mathcal{L}_f)}{v_k})_{,k} &=
+        \qty(\sqrt{-g} \pdv{\mathcal{L}_f}{v_k})_{,k} =
+        \qty(\sqrt{-g} \pdv{p(\mu)}{v_k})_{,k} =
+        \sqrt{-g}^{-1} \qty(\pdv{p(\mu)}{v_k})_{;k} = 0
+    \end{aligned}\end{equation*}
+    %
+    Производная $p$ по $v_k$ дает
+    %
+    \begin{equation*}
+        \pdv{p(\mu)}{v_k} = p' \frac{1}{2 \mu} \qty(- 2 g^{k\alpha} v_\alpha) = - \rho u^k ,
+    \end{equation*}
+    %
+    где использовано $\dv*{p}{\mu} = \rho$ и $v^k = \mu u^k$. Окончательно имеем
+    %
+    \begin{equation*}
+        \qty(\rho u^k)_{;k} = 0 ,
+    \end{equation*}
+    %
+    или
+    %
+    \begin{equation*}
+        \rho_{,k} u^k + \rho u^k_{;k} = 0 .
+    \end{equation*}
+    %
+    В ранее принятой векторной нотации
+    %
+    \begin{equation}
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 .
+    \end{equation}
+
+\subsection{Общее уравнение состояния}
+
+    Выпишем все уравнения для жидкости, которые мы имеем на данный момент:
+    %
+    \begin{gather}
+        \rho = \dv{p}{\mu} \\
+        p = \frac{\mu\rho}{q + 1} , \quad q = const \\
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \\
+        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \\
+        \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 .
+    \end{gather}
+
+    Из первых двух уравнений можно выразить $\rho$ и $\mu$ как функции $p$. Действительно:
+    %
+    \begin{equation*}
+        \dv{p}{\mu} = \rho = (q + 1) \frac{p}{\mu} \quad\Longleftrightarrow\quad
+        \frac{1}{q + 1} \frac{\dd{p}}{p} = \frac{\dd{\mu}}{\mu} ,
+    \end{equation*}
+    %
+    откуда
+    %
+    \begin{equation*}
+        \mu = p^{\frac{1}{q + 1}} , \quad \rho = (q + 1) p^{\chi} , \quad \chi = \frac{q}{q + 1} .
+    \end{equation*}
+
+    Остальные уравнения переформулируем относительно $p$:
+    %
+    \begin{align*}
+        \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
+        \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0 \\
+        \vb{u} \nabla_u p + (p + \varepsilon)\ \nabla_u \vb{u} + \nabla p = 0 \quad&\Longleftrightarrow\quad
+        \vb{u} \nabla_u p + \frac{1}{1-\chi} p\ \nabla_u \vb{u} + \nabla p = 0 \\
+        \nabla_u \varepsilon + (p + \varepsilon)\ \nabla \cdot \vb{u} = 0 \quad&\Longleftrightarrow\quad
+        \frac{\nabla_u p}{p} + \frac{1}{\chi} \nabla \cdot \vb{u} = 0
+    \end{align*}
+    %
+    Отсюда видно, что два из оставшихся уравнений совпадают.
+
+    Выразим $\nabla_u p$ из скалярного уравнения и подставим в векторное. После некоторых преобразований получим окончательно:
+    %
+    \begin{equation}
+        \vb{u} \nabla \cdot \vb{u} - \frac{\chi}{1 - \chi} \nabla_u \vb{u} = \nabla \ln p^{\chi} .
+    \end{equation}
+
+\subsection{Учет резкой границы сферы}
+
+    Уравнение связи в форме $\varepsilon = q p$ означает, что на границе жидкой сферы, где обязательно $p = 0$, $\varepsilon$ также необходимо обращается в нуль. Если при интегрировании исходного дифференциального уравнения связи учесть константу, т.е. считать $\varepsilon = q p + \varepsilon_0$, требование равенства нулю плотность энергии на границе сферы можно исключить.
+
+    Проследим, к чему приведет учет $\varepsilon_0 \neq 0$. Во все уравнения давление входит либо в виде суммы $(\varepsilon + p)$, либо под знаком дифференциала (производной). Распишем $\varepsilon + p = (q + 1) p + \varepsilon_0 = (q + 1) (p + \epsilon) = (q + 1) \hat{p}$. Формальная замена переменных $p \mapsto \hat{p}$ (и, соответственно, $\dd{p} \mapsto \dd{\hat{p}}$) в исходных уравнениях переформулирует их относительно $\hat{p}$.
+
+\onlyinsubfile{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
