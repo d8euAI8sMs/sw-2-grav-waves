@@ -248,6 +248,126 @@
         \ \}
     \end{equation}
 
+\subsection{Решение Шварцшильда для свободного пространства через лагранжиан Гильберта}
+
+    Выберем метрику в той же форме, что и ранее. В этой метрике плотность действия Гильберта $L = \flatfrac{1}{2 \kappa} R \sqrt{-g}$ (после исключения высших производных и деления на константу $\kappa$) запишется в виде:
+    %
+    \begin{equation*}
+        L = e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
+    \end{equation*}
+
+    Вариации лагранжиана по $A$ и $B$ дают, соответственно,
+    %
+    \begin{equation*}
+        e^B + r B' - 1 = 0 , \qquad e^B - r A' - 1 = 0 .
+    \end{equation*}
+    %
+    Первое уравнение решается аналитически, для решения второго достаточно вычесть одно уравнение из другого. В итоге имеем пару уравнений,
+    %
+    \begin{equation*}
+        \qquad A' + B' = 0 , \qquad e^B + r B' - 1 = 0
+    \end{equation*}
+    %
+    решение которых:
+    %
+    \begin{equation*}
+        A = C_1 - B , \qquad B = - \log{\frac{e^{C_2}}{r} + 1} .
+    \end{equation*}
+
+    Подставляя полученное решение в обратную метрику $g^{\mu\nu}$, получим решение с пока еще не определенными константами:
+    %
+    \begin{equation*}
+        g^{\mu\nu} = \text{diag}^{\mu\nu}\ \{\
+            -\frac{e^{-C_1} r}{e^{C_2} + r},\
+            \frac{e^{C_2} + r}{r},\
+            r^{-2},\
+            \qty(r^2 \sin^2\theta)^{-1}
+        \ \} .
+    \end{equation*}
+    %
+    Константа $e^{C_1} = c^2$ определяется из требования $g^{\mu\nu} \to \gamma^{\mu\nu}$ при $r \to \infty$, где $\gamma^{\mu\nu}$~--- метрика Минковского. Теперь можно записать окончательный вид $g_{\mu\nu}$:
+    %
+    \begin{equation*}
+        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
+            - c^2 \qty(1 - \frac{r_s}{r}),\
+            \qty(1 - \frac{r_s}{r})^{-1},\
+            r^2,\
+            r^2 \sin^2\theta
+        \ \} , \qquad r_s = - e^{C_2} = \frac{2 G m}{c^2} .
+    \end{equation*}
+    %
+    Здесь $r_s$~--- Шварцшильдовский радиус~--- определяется из приближения слабого гравитационного поля.
+
+\subsection{Внутреннее решение Шварцшильда для жидкой несжимаемой сферы через лагранжиан Гильберта}
+
+    Проделаем аналогичные предыдущему пункту шаги, однако теперь действие $\mathcal{L} = \mathcal{L}_g + \mathcal{L}_f$ состоит из двух слагаемых: лагранжиана пространства $\mathcal{L}_g = \flatfrac{1}{2 \kappa} R$ и лагранжиана идеальной жидкости $\mathcal{L}_f = p$.
+
+    Ранее был получен краткий вид лагранжиана пространства в метрике Шварцшильда:
+    %
+    \begin{equation*}
+        L_g = \frac{1}{\kappa} e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
+    \end{equation*}
+    %
+    Лагранжиан жидкости получим из уравнения динамики жидкости
+    %
+    \begin{equation*}
+        \vb{u} \nabla_u p + (\varepsilon + p) \nabla_u \vb{u} + \nabla p = 0 .
+    \end{equation*}
+    %
+    Здесь мы, следуя Шварцшильду, полагаем жидкость несжимаемой, следовательно $\varepsilon = \rho c^2 = const$.
+    %
+    Выражение для $\vb{u}$ в шварцшильдовской метрике было получено ранее. Окончательно имеем уравнение
+    %
+    \begin{equation*}
+        \frac{1}{2} (\varepsilon + p) A' + p' = 0 ,
+    \end{equation*}
+    %
+    решение которого
+    %
+    \begin{equation*}
+        p = \gamma e^{-\frac{A}{2}} - \varepsilon \equiv \mathcal{L}_f
+    \end{equation*}
+    %
+    и является искомым лагранжианом жидкости.
+
+    Вариации $L$ по неизвестным функциям $A$ и $B$ дают два уравнения, первое из которых,
+    %
+    \begin{equation*}
+        e^B (1 - \varepsilon r^2 \kappa) + r B' - 1 = 0 ,
+    \end{equation*}
+    %
+    решается независимо:
+    %
+    \begin{equation*}
+        B = - \log\qty(1 - \frac{1}{3} \varepsilon r^2 \kappa - \frac{const}{r}) .
+    \end{equation*}
+    %
+    Выбор константы $const = 0$ следует из того, что при $r \to 0$ сингулярность в решении должна отсутствовать. Окончательно,
+    %
+    \begin{equation*}
+        B = - \log\qty(1 - \frac{1}{3} \varepsilon r^2 \kappa) .
+    \end{equation*}
+
+    Второе вариационное уравнение можно упростить, переформулировав его относительно $p$. Применив замену
+    %
+    \begin{equation*}
+        A = 2 \log{\frac{\gamma}{\varepsilon + p}} ,
+    \end{equation*}
+    %
+    получим уравнение
+    %
+    \begin{equation*}
+        \kappa r (\varepsilon + p) (\varepsilon + 3 p) - 2 (\kappa \varepsilon r^2 - 3) p' = 0 ,
+    \end{equation*}
+    %
+    которое также решается аналитически:
+    %
+    \begin{equation*}
+        p = \frac{\varepsilon - \varepsilon e^{2 \varepsilon C} \sqrt{\kappa \varepsilon r^2 - 3}}{e^{2 \varepsilon C} \sqrt{\kappa \varepsilon r^2 - 3} - 3} .
+    \end{equation*}
+
+    Дальнейшая процедура определения констант совпадает с описанной ранее для решения через уравнения Эйнштейна.
+
 \onlyinsubfile{
     \nocite{*}
     \clearpage
