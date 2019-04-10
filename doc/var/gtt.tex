@@ -185,6 +185,134 @@
         \frac{w'(r)}{2} &= \frac{r^4 c_0 + w(r)}{r - m(r)} .
     \end{align*}
 
+\subsection{Решение ТГВ для идеальной шварцшильдовой жидкости}
+
+    Выберем метрику ТГВ в том же виде, что и ранее. Однако будем полагать жидкость несжимаемой, т.е. $\varepsilon = const$, в то время как все еще $p = p(r)$.
+
+    Лагранжиан пространства $\mathcal{L}_g$ останется тем же. Лагранжиан жидкости $\mathcal{L}_f$ получим из уравнения динамики жидкости:
+    %
+    \begin{equation*}
+        \vb{u} \nabla_u p + (\varepsilon + p) \nabla_u \vb{u} + \nabla p = 0 ,
+    \end{equation*}
+    %
+    откуда
+    %
+    \begin{equation*}
+        p = \frac{\gamma}{\sqrt{V}} - \varepsilon \equiv \mathcal{L}_f .
+    \end{equation*}
+
+    Вариации суммарного лагранжиана дают два уравнения:
+    %
+    \begin{gather*}
+        \varepsilon r - \frac{1}{r} - \frac{\gamma r}{\sqrt{V}} + \frac{B^2 V}{r} + B^2 V' = 0 , \\
+        \frac{\gamma r}{2 B V \sqrt{V}} + B' = 0 .
+    \end{gather*}
+
+    Уравнения достаточно сложно завязаны. Связность их можно уменьшить с помощью замены переменных:
+    %
+    \begin{equation*}
+        V = \frac{1}{r w} , \qquad B = \sqrt{b w} .
+    \end{equation*}
+    %
+    Применяя замену в отношении обратной метрики $g^{\mu\nu}$, из необходимости $g^{rr} > 0$ можно усмотреть необходимость $b(r) > 0$. Требование действительности коэффициентов метрики также определяет $w(r) > 0$.
+
+    Вариационные уравнения с применением указанной замены по отдельности остаются завязанными, однако их разность дает простое уравнение:
+    %
+    \begin{equation*}
+        b' = 1 - \varepsilon r^2 ,
+    \end{equation*}
+    %
+    откуда сразу же
+    %
+    \begin{equation*}
+        b = r \qty(1 - \frac{\varepsilon r^2}{3}) + const .
+    \end{equation*}
+    %
+    Константа $const = 0$, поскольку иначе нарушается требование $g^{rr} \neq \infty$ в центре сферы. Из необходимости $b(r) > 0$ вытекает важное условие на $r$:
+    %
+    \begin{equation*}
+        r < \frac{\varepsilon}{\sqrt{3}} ,
+    \end{equation*}
+    %
+    которое определяет при $r \to R$ критический радиус при заданной массе звезды (поскольку $\varepsilon = \flatfrac{\rho}{c^2} \sim M$).
+
+    Подстановка решения $b(r)$ в вариационные уравнения дает уравнение на $w(r)$:
+    %
+    \begin{equation*}
+        (1 - \varepsilon r^2) w + \gamma r^\frac{5}{2} w^\frac{3}{2} + \frac{r}{3} (3 - \varepsilon r^2) w' = 0 .
+    \end{equation*}
+    %
+    Его решение:
+    %
+    \begin{equation*}
+        w(r) = - \frac{4 \varepsilon^2}{
+            r \qty(
+                12 \sqrt{C} \varepsilon \gamma \sqrt{3 - \varepsilon r^2} - 4 C \varepsilon^2 (3 - \varepsilon r^2) - 9 \gamma^2
+            )
+        } .
+    \end{equation*}
+    %
+    Константа $C$ сугубо положительна.
+
+    Давление $p$ определяется лишь функцией $w(r)$. Имеем:
+    %
+    \begin{equation*}
+        p(r) = \gamma \sqrt{r w} - \varepsilon .
+    \end{equation*}
+    %
+    Условие $p(R) = 0$ определяет константу $\gamma$:
+    %
+    \begin{equation*}
+        \gamma = 2 \sqrt{C} \varepsilon \sqrt{3 - \varepsilon R^2} .
+    \end{equation*}
+    %
+    (Второе решение $\gamma_1 = \flatfrac{\gamma}{5}$ приводит к отрицательному давлению, его следует отбросить.)
+
+    Дальнейшие выкладки существенно упрощаются, если ввести
+    %
+    \begin{align*}
+        3 - \varepsilon r^2 &= 3 \sinh^2\chi , \\
+        3 - \varepsilon R^2 &= 3 \sinh^2\xi .
+    \end{align*}
+    %
+    Тогда
+    %
+    \begin{equation*}
+        \gamma = 2 \sqrt{3} \sqrt{C} \varepsilon \sinh\xi ,
+    \end{equation*}
+    %
+    а компонента $g^{rr}$~--- просто $\sinh^2\chi$.
+
+    Константа $C$ определится из условий сшивки с метрикой свободного пространства: $g^{\mu\nu} = \gamma^{\mu\nu}$ на границе сферы. Компонента $\gamma^{0r}$ в новых переменных выглядит просто:
+    %
+    \begin{equation*}
+        \gamma^{0r} = - \sqrt{1 - \sinh\chi} .
+    \end{equation*}
+    %
+    Компонента $g^{0r}$:
+    %
+    \begin{equation*}
+        g^{0r} = - \sqrt{
+            \frac{1}{3 C (1 - 3 \cosh\chi \sinh\xi)^2} - \sinh\chi^2
+        } .
+    \end{equation*}
+    %
+    Сшивка дает $C = \flatfrac{1}{12}$. Тогда $\gamma = e \sinh\xi$.
+
+    Учет констант определяет давление:
+    %
+    \begin{equation*}
+        p(r) = \varepsilon \frac{\sinh\chi - \sinh\xi}{3\sinh\xi - \sinh\chi} .
+    \end{equation*}
+    %
+    Следует отметить, что знаменатель полученного выражения всегда отрицателен, тогда как числитель всегда положителен, что обеспечивает положительность давления при $r < R$. Применяя обратную замену $(\chi,\xi) \mapsto (r,R)$, получаем
+    %
+    \begin{equation*}
+        p(r) = \varepsilon \frac{\sqrt{3 - \varepsilon r^2} - \sqrt{3 - \varepsilon R^2}}{3 \sqrt{3 - \varepsilon R^2} - \sqrt{3 - \varepsilon R^2}} .
+    \end{equation*}
+
+    Мы пришли к такому же результату, что и при решении данной задачи в метрике Шварцшильда. Отличен лишь вид метрики, но не выражение для давления жидкости.
+
 \onlyinsubfile{
     \nocite{*}
     \clearpage
