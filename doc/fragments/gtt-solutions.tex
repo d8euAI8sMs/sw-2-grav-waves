@@ -26,7 +26,7 @@
         - \dd{s}^2 = \qty(1 - V^2) \dd{t}^2 + 2 \frac{V}{B} \dd{t} \dd{r} - \frac{1}{B^2} \dd{r}^2 - r^2 \dd{\Omega}^2
     \end{equation*}
     %
-    с метрикой в виде
+    с метрикой
     %
     \begin{equation*}
         g_{ij} = \text{diag} \begin{pmatrix}B^{-2}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
@@ -36,13 +36,13 @@
     Введем замену переменных
     %
     \begin{equation*}
-        V \mapsto \sqrt{1 - U} .
+        V = \sqrt{1 - U} .
     \end{equation*}
     %
-    После соответствующей замены и устранения не влияющих членов лагранжиан пространства $L_g = \flatfrac{1}{2} R^{(4)} \sqrt{-g}$ примет вид
+    После соответствующей замены и устранения не влияющих членов лагранжиан пространства $\mathfrak{L}_g = \flatfrac{1}{2} R^{(4)} \sqrt{-g}$ примет вид
     %
     \begin{equation*}
-        L_g = \frac{1}{B} - r U B' .
+        \mathfrak{L}_g = \frac{1}{B} - r U B' .
     \end{equation*}
 
     Вариации лагранжиана по $B$ и $U$ дают уравнения:
@@ -250,12 +250,10 @@
 
     Неизвестные функции $U(r)$ и $B(r)$ определяются из вариационных уравнений:
     %
-    \begin{align*}
-        \fdv{(\mathcal{L}\sqrt{-g})}{B} = 0 \quad\Longrightarrow\quad&
-            r \epsilon - \frac{1}{r} - \frac{r c_0}{U^2} + \frac{B^2 U}{r} + B^2 U' = 0 \\
-        \fdv{(\mathcal{L}\sqrt{-g})}{U} = 0 \quad\Longrightarrow\quad&
-            \frac{2 r c_0}{B U^3} + B' = 0
-    \end{align*}
+    \begin{gather*}
+        r \epsilon - \frac{1}{r} - \frac{r c_0}{U^2} + \frac{B^2 U}{r} + B^2 U' = 0 \\
+        \frac{2 r c_0}{B U^3} + B' = 0
+    \end{gather*}
 
     Коэффициент метрики $g^{rr} = B^2 U$. В то же время в метрике свободного пространства $\gamma^{rr} = 1 - \flatfrac{2 G M}{r}$. Это подталкивает нас к замене $1 - \flatfrac{m(r)}{r} = B^2 U$, где $m(r)$~--- некоторая функция, значение которой при $r = R$ пропорционально массе жидкой сферы.
 

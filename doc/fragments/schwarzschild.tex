@@ -24,15 +24,17 @@
     Эти положения приводят к наиболее общему виду статической сферически симметричной метрики:
     %
     \begin{equation*}
-        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\ -e^{A(r)},\ e^{B(r)},\ r^2,\ r^2 \sin\theta \ \}
+        g_{\mu\nu} = \text{diag} \begin{pmatrix}
+            -e^{A(r)},& e^{B(r)},& r^2,& r^2 \sin\theta
+        \end{pmatrix} .
     \end{equation*}
     %
     Компоненты $g_{\theta\theta}$ и $g_{\phi\phi}$ являются компонентами обычной сферической метрики.
 
-    В выбранной метрике плотность действия Гильберта $L = \flatfrac{1}{2} R \sqrt{-g}$ (после исключения высших производных) запишется в виде:
+    В выбранной метрике лагранжиан Гильберта $\mathfrak{L}_g = \flatfrac{1}{2} R \sqrt{-g}$ (после исключения высших производных) запишется в виде:
     %
     \begin{equation*}
-        L = e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
+        \mathfrak{L}_g = e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
     \end{equation*}
 
     Вариации лагранжиана по $A$ и $B$ дают, соответственно,
@@ -56,23 +58,23 @@
     Подставляя полученное решение в обратную метрику $g^{\mu\nu}$, получим решение с пока еще не определенными константами:
     %
     \begin{equation*}
-        g^{\mu\nu} = \text{diag}^{\mu\nu}\ \{\
-            -\frac{e^{-C_1} r}{e^{C_2} + r},\
-            \frac{e^{C_2} + r}{r},\
-            r^{-2},\
+        g^{\mu\nu} = \text{diag} \begin{pmatrix}
+            -\frac{e^{-C_1} r}{e^{C_2} + r},&
+            \frac{e^{C_2} + r}{r},&
+            r^{-2},&
             \qty(r^2 \sin^2\theta)^{-1}
-        \ \} .
+        \end{pmatrix} .
     \end{equation*}
     %
     Константа $e^{C_1} = 1$ определяется из требования $g^{\mu\nu} \to \gamma^{\mu\nu}$ при $r \to \infty$, где $\gamma^{\mu\nu}$~--- метрика Минковского. Теперь можно записать окончательный вид $g_{\mu\nu}$:
     %
     \begin{equation*}
-        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
-            - \qty(1 - \frac{r_s}{r}),\
-            \qty(1 - \frac{r_s}{r})^{-1},\
-            r^2,\
+        g_{\mu\nu} = \text{diag} \begin{pmatrix}
+            - \qty(1 - \frac{r_s}{r}),&
+            \qty(1 - \frac{r_s}{r})^{-1},&
+            r^2,&
             r^2 \sin^2\theta
-        \ \} , \qquad r_s = - e^{C_2} = \frac{2 G m}{c^2} = \frac{m}{4 \pi} .
+        \end{pmatrix} , \qquad r_s = - e^{C_2} = \frac{2 G m}{c^2} = \frac{m}{4 \pi} .
     \end{equation*}
     %
     Здесь $r_s$~--- шварцшильдов радиус~--- определяется из приближения слабого гравитационного поля.
@@ -86,7 +88,7 @@
     Ранее был получен краткий вид лагранжиана пространства в метрике Шварцшильда:
     %
     \begin{equation*}
-        L_g = e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
+        \mathfrak{L}_g = e^{\frac{1}{2} (A - B)} \qty(e^B + r B' - 1) .
     \end{equation*}
     %
     Лагранжиан жидкости получим из уравнения динамики жидкости
@@ -135,7 +137,7 @@
     %
     и является искомым лагранжианом жидкости.
 
-    Вариации $L$ по неизвестным функциям $A$ и $B$ дают два уравнения, первое из которых,
+    Вариации $\mathfrak{L}$ по неизвестным функциям $A$ и $B$ дают два уравнения, первое из которых,
     %
     \begin{equation*}
         e^B (1 - \varepsilon r^2) + r B' - 1 = 0 ,
@@ -195,12 +197,12 @@
     Окончательно имеем:
     %
     \begin{equation}
-        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
-            \frac{1}{12} \qty(\sqrt{\varepsilon r^2 - 3} - 3 \sqrt{\varepsilon R^2 - 3})^2,\
-            \frac{3}{3 - \varepsilon r^2},\
-            r^2,\
+        g_{\mu\nu} = \text{diag} \begin{pmatrix}
+            - \frac{1}{12} \qty(\sqrt{\varepsilon r^2 - 3} - 3 \sqrt{\varepsilon R^2 - 3})^2,&
+            \frac{3}{3 - \varepsilon r^2},&
+            r^2,&
             r^2 \sin\theta
-        \ \}
+        \end{pmatrix} .
     \end{equation}
 
     В таком виде решение не является, однако, математически однородным. Вынося $i$ из под корня, пользуясь определением шварцшильдова радиуса $r_s$, массы $m$, плотности жидкости $\rho$ и вводя параметр
@@ -212,12 +214,12 @@
     можно придти к более компактному результату:
     %
     \begin{equation}
-        g_{\mu\nu} = \text{diag}_{\mu\nu}\ \{\
-            - \frac{1}{4} \qty(\sqrt{1 - \frac{r^2}{\mathcal{R}^2}} - 3 \sqrt{1 - \frac{R^2}{\mathcal{R}^2}})^2,\
-            \qty(1 - \frac{r^2}{\mathcal{R}^2})^{-1},\
-            r^2,\
+        g_{\mu\nu} = \text{diag} \begin{pmatrix}
+            - \frac{1}{4} \qty(\sqrt{1 - \frac{r^2}{\mathcal{R}^2}} - 3 \sqrt{1 - \frac{R^2}{\mathcal{R}^2}})^2,&
+            \qty(1 - \frac{r^2}{\mathcal{R}^2})^{-1},&
+            r^2,&
             r^2 \sin\theta
-        \ \}
+        \end{pmatrix} .
     \end{equation}
 
 \onlyinsubfile{
