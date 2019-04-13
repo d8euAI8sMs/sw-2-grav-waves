@@ -1,0 +1,35 @@
+\providecommand{\docroot}{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+    В работе применяется следующая система единиц: скорость света $c = 1$, ньютоновская гравитационная постоянная $G = \flatfrac{1}{(8 \pi)}$. В этих обозначениях коэффициент $\kappa$, входящий в уравнения Эйнштейна и в лагранжиан Гильберта, становится равным единице: $\kappa = 1$. Уравнения Эйнштейна принимают вид:
+    %
+    \begin{equation*}
+        G_{\mu\nu} = T_{\mu\nu} .
+    \end{equation*}
+
+    Метрика четырехмерного пространства выбирается с отрицательной сигнатурой $(\mathrel{-}\mathrel{+}\mathrel{+}\mathrel{+})$. Так, квадрат дифференциала собственного времени записывается в форме
+    %
+    \begin{equation*}
+        \dd{\tau}^2 = - \dd{s}^2 = - g_{\mu\nu} \dd{x}^\mu \dd{x}^\nu >= 0 .
+    \end{equation*}
+    %
+    Аналогично, для 4-скорости справедливо $u_s u^s = -1$.
+
+    Лагранжиан без учета множителя $\sqrt{-g}$ обозначается стилизованным курсивным шрифтом, с учетом указанного множителя~--- стилизованным готическим шрифтом:
+    %
+    \begin{equation*}
+        S_g = \int \mathfrak{L}_g \dd[4]{x} = \int \mathcal{L}_g \sqrt{-g} \dd[4]{x} .
+    \end{equation*}
+
+\onlyinsubfile{
+    \clearpage
+    \nocite{*}
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
