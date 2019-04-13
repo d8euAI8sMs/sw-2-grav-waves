@@ -1,0 +1,20 @@
+\providecommand{\docroot}{../..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+1. В работе описан лагранжев подход в формулировке Б.~Шютца к описанию динамики идеальной жидкости.
+
+2. Получены и проанализированы решения для трех статических сферически симметричных моделей: несжимаемая жидкость в рамках ОТО (решение Шварцшильда), несжимаемая жидкость в рамках ТГВ (новое решение, впервые полученное в данной работе), сжимаемая жидкость в рамках ТГВ.
+
+\onlyinsubfile{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}

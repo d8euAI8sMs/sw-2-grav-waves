@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper,final]{article}
+
+\providecommand{\docroot}{../..}
+
+\input{\docroot/../lib/doc/pkg/common}
+\input{\docroot/../lib/doc/math/operators}
+
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+
+\titlelabel{\thetitle. }
+\patchcmd{\appendices}{\quad}{. }{}{}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+    \makedocroot
+
+    \input{title}
+    \tableofcontents
+
+    \newpage
+
+    \section{Введение}
+    \subfile{intro.tex}
+
+    \section{Лагранжев подход к описанию идеальной жидкости}
+    \subfile{\docroot/fragments/perfect-fluid.tex}
+
+    \section{Решения Шварцшильда}
+    \subfile{\docroot/fragments/schwarzschild.tex}
+
+    \section{Решения ТГВ}
+    \subfile{\docroot/fragments/gtt-solutions.tex}
+
+    \section{Заключение}
+    \subfile{outro.tex}
+
+    \clearpage
+
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+
+\end{document}
