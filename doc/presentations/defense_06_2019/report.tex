@@ -1,0 +1,261 @@
+\documentclass[compress]{beamer}
+
+\providecommand{\docroot}{../..}
+
+\input{\docroot/../lib/doc/pkg/beamer}
+\input{\docroot/../lib/doc/pkg/beamer_flat_style}
+\input{\docroot/../lib/doc/math/operators}
+
+\usepackage{array} %% for fixed-width columns in `tabular`
+
+\graphicspath{{\docroot/img/}}
+
+\deftranslation[to=russian]{Theorem}{Теорема}
+\deftranslation[to=russian]{theorem}{Теорема}
+
+\title{Идеальная жидкость в ОТО и ТГВ}
+\author[Василевский~А.В.]{
+    Василевский~А.В. \\[\baselineskip]
+    {\footnotesize Научный руководитель: Бурланков~Д.Е.}
+}
+\institute[ННГУ]{Нижегородский университет им. Н.И.~Лобачевского}
+\date{2019}
+
+\begin{document}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \frame[plain]{\titlepage}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Введение}
+
+        \begin{itemize}
+            \item Идеальная жидкость~--- одна из наиболее простых моделей вещества в ОТО.
+            \item Большинство реальных звезд неплохо описывается в приближении идеальной жидкости.
+            \item Квадрупольные колебания идеальной жидкой сферы~--- по-видимому простейший источник гравитационных волн.
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Постановка задачи}
+
+        \begin{itemize}
+            \item Исследование аппарата описания идеальной жидкости в ОТО и ТГВ.
+            \item Исследование взаимодействия гравитационного поля с жидкостью на примере некоторых статических сферически симметричных задач.
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Лагранжиан жидкости}
+
+        Лагранжиан жидкости (Б.Шютц \cite{schutz_vel_pot}):
+        %
+        \begin{equation*}
+            S_f = \int p(\mu) \sqrt{-g} \dd[4]{x} , \quad
+            \mu = \sqrt{- g^{ab} \phi_{,a} \phi_{,b}} ,
+        \end{equation*}
+        %
+        $p$~--- давление жидкости, $\mu$~--- энтальпия, $u_a = \mu^{-1} \phi_{,a}$~--- \mbox{4-скорость}, $\rho$~--- плотность вещества, $\varepsilon$~--- плотность энергии.
+
+        \begin{align*}
+            \fdv{S_f}{\phi} = 0 \quad&\Longrightarrow\quad \nabla_u \rho + \rho\ \nabla \cdot \vb{u} = 0 \quad\text{(ур-е неразрывности)}, \\
+            \fdv{S_f}{g^{ab}} = \mathfrak{T}^f_{ab} \quad&\Longrightarrow\quad T^f_{ab} = (p + \varepsilon) u_a u_b + p g_{ab} ,
+        \end{align*}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Скорость звука}
+
+        Скорость звука $a$ в жидкости определяется зависимостью $p(\varepsilon)$:
+        %
+        \begin{equation*}
+            \frac{a^2}{c^2} \equiv q^{-1} = \dv{p}{\varepsilon} .
+        \end{equation*}
+
+        \begin{itemize}
+            \item Две крайности: $a = \infty$~--- несжимаемая жидкость, $q = 3$~--- ультрарелятивистская жидкость.
+            \item Первая противоречит принципу относительности ($a < c$), однако это самая простая модель.
+            \item Вторая~--- предел, к которому стремится жидкость при высоких температуре и давлении (например, в звезде \cite{oppenheimer_volkoff,burlankov_new_phys}).
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Лагранжиан пространства-материи}
+
+        Действие Гильберта:
+        %
+        \begin{equation*}
+            S_g = \int R^{(4)} \sqrt{-g} \dd[4]{x} .
+        \end{equation*}
+
+        Суммарное действие:
+        %
+        \begin{equation*}
+            S = S_f + S_f = \int \qty(R + p) \sqrt{-g} \dd[4]{x} .
+        \end{equation*}
+
+        \begin{equation*}
+            \fdv{S}{g_{ab}} = 0 \quad\Longrightarrow\quad \text{неизвестные коэффициенты метрики}
+        \end{equation*}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Статика жидкой сферы}
+
+        Наиболее общий вид диагональной сферически симметричной статической метрики~--- метрика Шварцшильда:
+        %
+        \begin{equation*}
+            g_{\mu\nu} = \text{diag} \begin{pmatrix}
+                -e^{A(r)},& e^{B(r)},& r^2,& r^2 \sin\theta
+            \end{pmatrix} .
+        \end{equation*}
+
+        В ТГВ метрика в общем случае не диагональна:
+        %
+        \begin{equation*}
+            {}^{(4)} g_{\mu\nu} = \begin{pmatrix}
+                1 - V_s V^s  & -V_k   \\
+                -V_i         & {}^{(3)} g_{ik} \\
+            \end{pmatrix} .
+        \end{equation*}
+
+        Сферически симметричная метрика в ТГВ:
+        %
+        \begin{equation*}
+            g_{ij} = \text{diag} \begin{pmatrix}B^{-1}, & r^2, & r^2 \sin\theta\end{pmatrix} , \quad
+            V^i = \begin{pmatrix}V(r), & 0, & 0\end{pmatrix} .
+        \end{equation*}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Решения}
+
+        {\footnotesize{
+        \begin{tabular}{|m{4em}|m{13em}|m{13em}|}\hline
+            {} & Шварцшильд & ТГВ \\\hline\hline
+            Вакуум & К.Шварцшильд, 1916 г. \cite{schwarzschild_free_space_rus} & Д.Е.Бурланков, 2006 г. \cite{burlankov_space_dynamics,burlankov_new_phys} \\\hline
+            Несж.ж. & К.Шварцшильд, 1916 г. \cite{schwarzschild_fluid} & Наст. работа, 2019 г. \\\hline
+            Ультр.ж. & Попытки Толмана (1934 г.), Оппенгеймера (1939 г.) и др. \cite{tolman,oppenheimer_volkoff,oppenheimer_snyder} & Попытки Д.Е.Бурланкова, 2006 г. \cite{burlankov_space_dynamics,burlankov_new_phys} \\\hline
+        \end{tabular}
+        }}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Заключение}
+
+        \begin{itemize}
+            \item Исследован и практически применен лагранжев подход к описанию динамики жидкости в ОТО и ТГВ.
+            \item Исследованы некоторые модельные статические задачи.
+            \item В рамках ТГВ получено решение новой задачи о равновесии несжимаемой жидкой сферы.
+        \end{itemize}
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Литература}
+
+        {\tiny{
+        \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+        \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+        }}
+
+    \end{frame}
+
+\end{document}
