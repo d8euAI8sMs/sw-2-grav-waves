@@ -174,7 +174,7 @@
         %
         \begin{equation*}
             g_{\mu\nu} = \text{diag} \begin{pmatrix}
-                -e^{A(r)},& e^{B(r)},& r^2,& r^2 \sin\theta
+                -P(r),& Q(r),& r^2,& r^2 \sin\theta
             \end{pmatrix} .
         \end{equation*}
 
@@ -212,10 +212,77 @@
         \begin{tabular}{|m{4em}|m{13em}|m{13em}|}\hline
             {} & Шварцшильд & ТГВ \\\hline\hline
             Вакуум & К.Шварцшильд, 1916 г. \cite{schwarzschild_free_space_rus} & Д.Е.Бурланков, 2006 г. \cite{burlankov_space_dynamics,burlankov_new_phys} \\\hline
-            Несж.ж. & К.Шварцшильд, 1916 г. \cite{schwarzschild_fluid} & Наст. работа, 2019 г. \\\hline
+            Несж.ж. & К.Шварцшильд, 1916 г. \cite{schwarzschild_fluid} & Наст. работа\footnotemark{}, 2019 г. \\\hline
             Ультр.ж. & Попытки Толмана (1934 г.), Оппенгеймера (1939 г.) и др. \cite{tolman,oppenheimer_volkoff,oppenheimer_snyder} & Попытки Д.Е.Бурланкова, 2006 г. \cite{burlankov_space_dynamics,burlankov_new_phys} \\\hline
         \end{tabular}
         }}
+
+        \footnotetext{
+            Из первых принципов, а также через преобразование метрик (см. далее).
+        }
+
+        \vfill
+
+        Рассмотрим далее одно из решений (несжимаемая жидкость в метрике Шварцшильда; выглядит компактнее).
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Несжимаемая жидкость}
+
+        В шварцшильдовой метрике (внутреннее решение):
+        %
+        \begin{gather}
+            \begin{aligned}
+                g_{\mu\nu} = \text{diag} \left(
+                    - \frac{1}{4} \qty(\sqrt{1 - \frac{r^2}{\mathcal{R}^2}} - 3 \sqrt{1 - \frac{R^2}{\mathcal{R}^2}})^2\right.&, \\
+                    \left.\qty(1 - \frac{r^2}{\mathcal{R}^2})^{-1},\,
+                    r^2,\,
+                    r^2 \sin\theta
+                \right)& ,
+            \end{aligned}\\
+            p = \varepsilon \frac{\sqrt{\varepsilon R^2 - 3} - \sqrt{\varepsilon r^2 - 3}}{
+                \sqrt{\varepsilon r^2 - 3} - 3 \sqrt{\varepsilon R^2 - 3}
+            } .
+        \end{gather}
+        %
+        Давление $p(r)$ уменьшается к границе сферы (радиуса $R$; константа $\mathcal{R}\sim R^3/M$).
+
+    \end{frame}
+
+    %
+    %
+    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                            FRAME                                    %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    %
+    %
+
+    \begin{frame}\frametitle{Координатные преобразования}
+
+        Преобразованием дифференциала времени по формуле
+        %
+        \begin{equation*}
+            \dd{t}_\text{шв} = \dd{t}_\text{гв} + w(r) \dd{r}, \quad
+            w(r) = \frac{V(r)}{B(r) - V^2(r)}
+        \end{equation*}
+        %
+        можно перейти от сферически-симметричной метрики в глобальном времени к метрике Шварцшильда (и наоборот).
+
+        Давление жидкости $p(r)$ не затронуто преобразованием дифференциала времени и не должно отличаться по форме в разных метриках.
+
+        Вопрос выбора метрики с математической точки зрения~--- вопрос удобства. С физической~--- принципиальный.
 
     \end{frame}
 
