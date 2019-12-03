@@ -59,7 +59,11 @@
         \pdv{\mathcal{L}}{h_{ij}} - \frac{1}{\sqrt{-\gamma}}\qty(\sqrt{-\gamma}\pdv{\mathcal{L}}{h_{ij,k}})_{,k} = 0 .
     \end{equation}
 
-    Известно, что $\nabla_\mu = {\sqrt{-\gamma}}^{-1}(\sqrt{-\gamma}\ \partial_\mu)$, поэтому уравнение упрощается до
+    Известно\footnote{
+        К сожалению, \enquote{очевидность} этого утверждения не выдержала непосредственной проверки. В одном из источников утверждение доказывается для \textit{скалярного} поля $\phi$. Разумеется, $\phi_{,s} = \phi_{;s}$. Для тензорного поля же формулировка лагранжевых уравнений требует непосредственного вывода.
+    }\footnote{
+        В первом случае независимыми переменными выступают $h_{ij}$ и $h_{ij,k}$. Во втором~--- $h_{ij}$ и $h_{ij;k}$. Данное замечание существенно, потому как считая $\pdv*{h_{ij;k}}{h_{lm}} \neq 0$, можно придти к некорректному результату.
+    }, что $\nabla_\mu = {\sqrt{-\gamma}}^{-1}(\sqrt{-\gamma}\ \partial_\mu)$, поэтому уравнение упрощается до
     %
     \begin{equation}
         \pdv{\mathcal{L}}{h_{ij}} - \qty(\pdv{\mathcal{L}}{h_{ij,k}})_{;k} = 0 .
@@ -72,6 +76,124 @@
     \begin{equation}
         \pdv{\mathcal{L}}{h_{ij}} - \qty(\pdv{\mathcal{L}}{h_{ij;k}})_{;k} = 0 .
     \end{equation}
+
+\subsection{Уравнения Эйлера-Лагранжа в ковариантной форме}
+
+    Попробуем доказать, что
+    %
+    \begin{equation*}
+        \pdv{\mathcal{L}}{h_{ij}} - \qty(\pdv{\mathcal{L}}{h_{ij;k}})_{;k} = 0
+    \end{equation*}
+    %
+    действительно выражает уравнение Эйлера-лагранжа для лагранжиана $\mathcal{L}$, если полагать переменные $h_{ij}$ и $h_{ij;k}$ независимыми.
+
+    Пусть изначально задан лагранжиан вида $\mathcal{L} = \mathcal{L}(h_{ij}, h_{ij,k})$. Его вариации на метрике $h_{\alpha\beta}$ имеют вид:
+    %
+    \begin{gather*}
+        \fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} =
+            \pdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} - \qty(\pdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta,\chi}})_{,\chi} = \\
+            \sqrt{\gamma}\pdv{\mathcal{L}}{h_{\alpha\beta}} - \qty(\sqrt{\gamma}\pdv{\mathcal{L}}{h_{\alpha\beta,\chi}})_{,\chi}
+        .
+    \end{gather*}
+
+    В то же время мы можем записать $\mathcal{L} = \Phi(h_{ij}, h_{ij;k})$. Подставляя $\Phi$ в выражение для вариации, получим:
+    %
+    \begin{equation*}
+        \sqrt{\gamma}^{-1}\fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} = \pdv{\Phi}{h_{\alpha\beta}} - \sqrt{\gamma}^{-1}\qty(\sqrt{\gamma}\pdv{\Phi}{h_{\alpha\beta,\chi}})_{,\chi} .
+    \end{equation*}
+    %
+    Пользуясь тем, что
+    %
+    \begin{equation*}
+        h_{ij;k} = h_{ij,k} - \Gamma^s_{ik} h_{sj} - \Gamma^s_{jk} h_{is},
+    \end{equation*}
+    %
+    запишем
+    %
+    \begin{gather*}
+        \pdv{\Phi(h_{ij}, h_{ij;k})}{h_{\alpha\beta}} =
+            \pdv{\Phi}{h_{ij}} \pdv{h_{ij}}{h_{\alpha\beta}} +
+            \pdv{\Phi}{h_{ij;k}} \pdv{h_{ij;k}}{h_{\alpha\beta}} \\
+        \pdv{\Phi(h_{ij}, h_{ij;k})}{h_{\alpha\beta,\chi}} =
+            \pdv{\Phi}{h_{ij;k}} \pdv{h_{ij;k}}{h_{\alpha\beta,\chi}} .
+    \end{gather*}
+    %
+    Частная производная $\pdv*{h_{ij;k}}{h_{\alpha\beta,\chi}}$, очевидно, есть $\delta_i^\alpha \delta_j^\beta \delta_k^\chi$. Другая частная производная также не сложно вычисляется:
+    %
+    \begin{equation*}
+        \pdv{h_{ij;k}}{h_{\alpha\beta}} =
+            - \Gamma^s_{ik} \delta_s^\alpha \delta_j^\beta - \Gamma^s_{jk} \delta_i^\alpha \delta_s^\beta =
+            - \Gamma^\alpha_{ik} \delta_j^\beta - \Gamma^\beta_{jk} \delta_i^\alpha .
+    \end{equation*}
+
+    Введем обозначения:
+    %
+    \begin{equation*}
+        \tau^{ijk} \equiv \pdv{\Phi}{h_{ij;k}} , \qquad
+        \varkappa^{ij} \equiv \pdv{\Phi}{h_{ij}}
+    \end{equation*}
+    %
+    Выпишем для наглядности имеющийся на текущий момент результат:
+    %
+    \begin{equation*}
+        \sqrt{\gamma}^{-1}\fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} =
+            \qty(
+                \varkappa^{\alpha\beta}
+                - \Gamma^\alpha_{ik} \tau^{\beta i k}
+                - \Gamma^\beta_{ik} \tau^{\alpha i k}
+            )
+            - \sqrt{\gamma}^{-1}\qty(
+                \sqrt{\gamma} \tau^{\alpha\beta\chi}
+            )_{,\chi} .
+    \end{equation*}
+    %
+    Здесь произведены небольшие преобразования (правило подстановки для $\delta^i_j$, перестановка симметричных индексов и т.д.).
+
+    Осталось преобразовать вторую часть. Раскроем скобки и получим:
+    %
+    \begin{equation*}
+        \qty(\sqrt{\gamma} \tau^{\alpha\beta\chi})_{,\chi} =
+            \sqrt{\gamma}_{,\chi} \tau^{\alpha\beta\chi} +
+            \sqrt{\gamma} \tau^{\alpha\beta\chi}_{,\chi} =
+        \sqrt{\gamma} \Gamma^s_{s \chi} \tau^{\alpha\beta\chi} +
+            \sqrt{\gamma} \tau^{\alpha\beta\chi}_{,\chi}
+    \end{equation*}
+    %
+    Также, поскольку:
+    %
+    \begin{equation*}
+        \tau^{\alpha\beta\chi}_{;\rho}
+            = \tau^{\alpha\beta\chi}_{,\rho}
+            + \Gamma^\alpha_{s \rho} \tau^{s \beta\chi}
+            + \Gamma^\beta_{s \rho} \tau^{\alpha s \chi}
+            + \Gamma^\chi_{s \rho} \tau^{\alpha\beta s} ,
+    \end{equation*}
+    %
+    имеем
+    %
+    \begin{equation*}
+        \tau^{\alpha\beta\chi}_{,\chi}
+            = \tau^{\alpha\beta\chi}_{;\chi}
+            - \Gamma^\alpha_{s \chi} \tau^{s \beta\chi}
+            - \Gamma^\beta_{s \chi} \tau^{\alpha s \chi}
+            - \Gamma^\chi_{s \chi} \tau^{\alpha\beta s} .
+    \end{equation*}
+    %
+    Замечаем, что слагаемые вида $\Gamma^s_{s \chi} \tau^{\alpha\beta\chi}$ взаимно уничтожаются.
+
+    Наконец, имеем:
+    %
+    \begin{gather*}
+        \sqrt{\gamma}^{-1}\fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} =
+            \varkappa^{\alpha\beta}
+                - \Gamma^\alpha_{ik} \tau^{\beta ik}
+                - \Gamma^\beta_{ik} \tau^{\alpha ik}
+            - \tau^{\alpha\beta k}_{; k}
+                + \Gamma^\alpha_{ik} \tau^{i \beta k}
+                + \Gamma^\beta_{ik} \tau^{\alpha ik} \\
+            = \varkappa^{\alpha\beta} - \tau^{\alpha\beta k}_{; k}
+            = \pdv{\Phi}{h_{ij}} - \qty(\pdv{\Phi}{h_{ij;k}})_{;k}.
+    \end{gather*}
 
     \vspace{1cm}
 
