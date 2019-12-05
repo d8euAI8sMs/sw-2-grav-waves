@@ -325,6 +325,251 @@
 
     Мы пришли к такому же результату, что и при решении данной задачи в метрике Шварцшильда. Отличен лишь вид метрики, но не выражение для давления жидкости.
 
+\subsection{Получение бироторных соотношений. Вариации $EB$-лагранжиана}
+
+    Предметом многих перипетий является лагранжиан в трехмерной форме, выраженный через тензоры $E$, $B$ и поле скоростей $V$. Переход от \enquote{четырехмерного} квадратичного лагранжиана довольно сложный. Этой темы мы, возможно, коснемся в одной из последующих тем, если необходимость того встанет остро.
+
+    \paragraph{Введение.}
+
+    Сам лагранжиан окончательно дается следующим выражением:
+    %
+    \begin{equation}
+        \mathcal{L} = \gamma^{ij}\gamma^{kl} (E_{ik}E_{jl} - E_{ij}E_{kl}) - B^i_j B_i^j .
+    \end{equation}
+    %
+    Здесь все тензорные поля~--- трехмерные, в т.ч. фоновая метрика $\gamma$ есть ${}^{(3)}\gamma$, в отличие от ${}^{(4)}\gamma$:
+    %
+    \begin{equation}
+        {}^{(4)}\gamma_{ij} = \begin{pmatrix}
+            1 - {}^{(3)}\gamma_{ij} V^i V^j   & - {}^{(3)}\gamma_{ij} V^i \\
+            - {}^{(3)}\gamma_{ij} V^j         & {}^{(3)}\gamma_{ij}
+        \end{pmatrix} , \qquad
+        {}^{(4)}\gamma^{ij} = \begin{pmatrix}
+            - 1   & - V^j                           \\
+            - V^i & {}^{(3)}\gamma^{ij} + V^i V^j
+        \end{pmatrix} .
+    \end{equation}
+    %
+    Отсюда видно, что ${}^{(3)}\gamma^{ij} \neq {}^{(4)}\gamma^{ij}$ (при $i,j > 0$).
+
+    В приведенном выше лагранжиане поля $E_{ij}$ и $B^i_j$ задаются через поле возмущений
+    %
+    \begin{equation}
+        {}^{(4)}h_{ij} = \begin{pmatrix}
+            0    & - v_j          \\
+            -v_i & {}^{(3)}h_{ij}
+        \end{pmatrix} .
+    \end{equation}
+    %
+    Через поле ${}^{(3)}h_{ij}$, а также поле возмущений абсолютных скоростей $v^i$, поля $E_{ij}$ и $B^i_j$ выражаются следующим образом:
+    %
+    \begin{equation}
+        E_{ij} = D_t{h}_{ij} + v_{i;j} + v_{j;i}, \qquad
+        B^i_j = \Opsr(h)^i_j = \varepsilon^{ikl} h_{jk;l} ,
+    \end{equation}
+    %
+    где под $D_t{h}_{ij}$ понимается инвариантная производная по времени:
+    %
+    \begin{gather}
+        D_t{h}_{ij} =
+            \dot{h}_{ij} - \delta_{V} h_{ij}\\
+        -\delta_{V} h_{ij} =
+            V^s h_{ij,s} + V^s_{,i} h_{sj} + V^s_{,j} h_{is} =
+            V^s h_{ij;s} + V^s_{;i} h_{sj} + V^s_{;j} h_{is} .
+    \end{gather}
+
+    Поскольку поле $v^i$ является чисто калибровочным, далее будем работать в глобальной калибровке, где
+    %
+    \begin{equation}
+        E_{ij} = D_t{h}_{ij} .
+    \end{equation}
+
+    \paragraph{Вариационные уравнения.}
+
+    Имея это под рукой, приступим к выводу в общем виде вариационных уравнений. С математической точки зрения запись
+    %
+    \begin{equation*}
+        0 = \fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} =
+            \pdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} -
+            \qty(\pdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta,\chi}})_{,\chi} -
+            \qty(\pdv{\sqrt{\gamma}\mathcal{L}}{\dot{h}_{\alpha\beta}})_{,t}
+    \end{equation*}
+    %
+    эквивалентна записи
+    %
+    \begin{equation*}
+        0 =
+            \pdv{\mathcal{L}}{h_{\alpha\beta}} -
+            \qty(\pdv{\mathcal{L}}{h_{\alpha\beta;\chi}})_{;\chi} -
+            \qty(\pdv{\mathcal{L}}{\dot{h}_{\alpha\beta}})_{,t} ,
+    \end{equation*}
+    %
+    лишь только теперь $h_{\alpha\beta}$ и $h_{\alpha\beta;\chi}$ считаются независимыми переменными: $\pdv*{h_{\alpha\beta;\chi}}{h_{\alpha\beta}} = 0$. Нам остается лишь найти частные производные различных входящих сюда полей по $h_{\alpha\beta}$ и его производным.
+
+    \begin{gather*}
+        \pdv{E_{ij}}{\dot{h}_{\alpha\beta}} =
+            \pdv{\qty(\dot{h}_{ij} + \dots)}{\dot{h}_{\alpha\beta}} =
+            \delta_i^\alpha \delta_j^\beta + 0 , \qquad
+        \pdv{B^i_j}{\dot{h}_{\alpha\beta}} = 0 , \\
+        \pdv{E_{ij}}{h_{\alpha\beta;\chi}} =
+            \pdv{\qty(V^s h_{ij;s} + \dots)}{h_{\alpha\beta;\chi}} =
+            V^s \delta_i^\alpha \delta_j^\beta \delta_s^\chi , \qquad
+        \pdv{B^i_j}{h_{\alpha\beta;\chi}} =
+            \pdv{\qty(\varepsilon^{ipq}h_{jp;q})}{h_{\alpha\beta;\chi}} =
+            \varepsilon^{ipq} \delta_j^\alpha \delta_p^\beta \delta_q^\chi , \\
+        \pdv{E_{ij}}{h_{\alpha\beta}} =
+            \pdv{\qty(V^s_{;i}h_{sj} + V^s_{;j}h_{is} + \dots)}{h_{\alpha\beta}} =
+            V^s_{;i} \delta_s^\alpha \delta_j^\beta +
+                V^s_{;j} \delta_i^\alpha \delta_s^\beta, \quad
+        \pdv{B_{ij}}{h_{\alpha\beta}} = 0 .
+    \end{gather*}
+
+    Таким образом, окончательно вариация лагранжиана собирается из компонент:
+    %
+    \begin{gather*}
+        \frac{1}{2}\pdv{\mathcal{L}}{h_{\alpha\beta}} =
+            \gamma^{ij}\gamma^{kl} \qty[
+                \qty(V^\alpha_{;i} \delta_k^\beta + V^\beta_{;k} \delta_i^\alpha) E_{jl} -
+                \qty(V^\alpha_{;i} \delta_j^\beta + V^\beta_{;j} \delta_i^\alpha) E_{kl}
+            ] \\ =
+                E^{\alpha s} V^\beta_{_;s} + E^{\beta s} V^\alpha_{_;s} -
+                \qty(V^{\alpha;\beta} + V^{\beta;\alpha}) E, \\
+        \frac{1}{2}\qty(\pdv{\mathcal{L}}{\dot{h}_{\alpha\beta}})_{,t} =
+            \qty(\gamma^{ij}\gamma^{kl} \qty[
+                \delta_i^\alpha \delta_k^\beta E_{jl} -
+                \delta_i^\alpha \delta_j^\beta E_{kl}
+            ] )_{,t} =
+            \qty(
+                \gamma^{\alpha j}\gamma^{\beta l} E_{jl} -
+                \gamma^{\alpha \beta}\gamma^{kl} E_{kl}
+            )_{,t} \\ =
+            \qty(
+                E^{\alpha\beta} - \gamma^{\alpha\beta} E
+            )_{,t} , \\
+        \frac{1}{2}\qty(\pdv{\mathcal{L}_B}{h_{\alpha\beta;\chi}})_{;\chi} =
+            -\qty(
+                \varepsilon^{ipq} \delta_j^\alpha \delta_p^\beta \delta_q^\chi B^j_i
+            )_{;\chi} =
+            -\qty(
+                \varepsilon^{i\beta\chi} B^\alpha_i
+            )_{;\chi} =
+            -\varepsilon^{i\beta\chi} B^\alpha_{i;\chi} =
+            \varepsilon^{\beta i\chi} B^\alpha_{i;\chi} \\ =
+            \gamma^{\alpha m} \varepsilon^{\beta i\chi} B_{mi;\chi} =
+            \gamma^{\alpha m} \Opsr(B)^\beta_m =
+            \Opsr(B)^{\beta\alpha} , \\
+        \frac{1}{2}\qty(\pdv{\mathcal{L}_E}{h_{\alpha\beta;\chi}})_{;\chi} =
+            \gamma^{ij}\gamma^{kl} \qty(
+                V^s \delta_i^\alpha \delta_k^\beta \delta_s^\chi E_{jl} -
+                V^s \delta_i^\alpha \delta_j^\beta \delta_s^\chi E_{kl}
+            )_{;\chi} \\ =
+            \qty(V^\chi \qty[
+                E^{\alpha\beta} - \gamma^{\alpha\beta} E
+            ])_{;\chi} =
+            V^\chi_{;\chi} \qty(E^{\alpha\beta} - \gamma^{\alpha\beta} E) +
+                V^\chi \qty(E^{\alpha\beta} - \gamma^{\alpha\beta} E)_{;\chi}.
+    \end{gather*}
+
+    Введем поле
+    %
+    \begin{equation}
+        e_{ij} = E_{ij} - \gamma_{ij} \tr E .
+    \end{equation}
+    %
+    Тогда в конечном счете получаем:
+    %
+    \begin{equation*}
+        0 = \frac{1}{2}\fdv{\sqrt{\gamma}\mathcal{L}}{h_{\alpha\beta}} =
+            \qty(e^{\alpha s} V^\beta_{_;s} + e^{\beta s} V^\alpha_{_;s})
+                - \dot{e}^{\alpha\beta}
+                - \Opsr(B)^{\beta\alpha}
+                - \qty(e^{\alpha\beta} V^s_{;s} + V^s e^{\alpha\beta}_{;s}) = 0 .
+    \end{equation*}
+    %
+    Распишем инвариантную производную по времени для $e^{ij}$
+    %
+    \begin{equation}
+        D_t{e^{ij}} = \dot{e}^{ij} - \delta_V e^{ij} =
+            \dot{e}^{ij} + V^s e^{ij}_{;s} - V^i_{;s} e^{sj} - V^j_{;s} e^{is} .
+    \end{equation}
+    %
+    Отсюда
+    %
+    \begin{equation}\label{eq:breq_eBV}
+        D_t{e^{\alpha\beta}} + e^{\alpha\beta} \Opdiv{V} + \Opsr(B)^{\alpha\beta} = 0 .
+    \end{equation}
+
+    К сожалению, $D_t{\tau^{\alpha\beta}} \neq \gamma^{\alpha i}\gamma^{\beta j} D_t{\tau_{ij}}$ (операторы $D_t$ и $\gamma^{ij}$ не коммутируют: это является следствием того, что $\delta_V{\gamma^{ij}} \neq 0$), поэтому мы не можем напрямую переписать полученное выражение в обозначениях, где $e_{\alpha\beta}$ фигурировали бы исключительно с нижними индексами. Потому мы не можем записать тождество $D_t{e^{\alpha\beta}} = D^2_t{h^{\alpha\beta}}$. Иными словами, наиболее компактный явный вид полученного уравнения выглядит так:
+    %
+    \begin{equation}
+        \gamma_{\alpha i}\gamma_{\beta j} D_t\qty(\gamma^{ik}\gamma^{jl} D_t{h_{kl}}) + D_t{h_{\alpha\beta}} \Opdiv{V} + \Opbr(h)_{\alpha\beta} = 0 .
+    \end{equation}
+
+    \paragraph{Случай $V^i = 0$.}
+
+    Случай, когда фоновая метрика является метрикой Минковского, т.е. когда $V^i = 0$, является наиболее простым. Инвариантная производная по времени переходит в обычную, поскольку $\delta_V{h_{ij}} = 0$. Дивергенция $\Opdiv{V}$ исчезает. Уравнение (\ref{eq:breq_eBV}) записывается в простейшей форме
+    %
+    \begin{equation}
+        \dot{e}_{\alpha\beta} + \Opsr(B)_{\alpha\beta} = 0 .
+    \end{equation}
+
+    Рассмотрим, какие требования это уравнение накладывает на тензоры $h_{ij}$, $e_{ij}$ и $B_{ij}$.
+
+    Во-первых, если $a = \Opsr(b)$, то для $a$ верно:
+    %
+    \begin{enumerate}[nosep]
+        \item $\tr a = 0$,
+        \item $\Opsdiv(a) = 0$,
+        \item $a_{ij} = a_{ji}$, если также $\Opsdiv(b) = 0$.
+    \end{enumerate}
+
+    При выполнении всех трех условий тензор $a$ будем называть симтензором. Поскольку $B_{ij}$ сам является полуротором, для тензора $\Opsr(B)_{ij}$ справедливы все три свойства. Отсюда тривиально следует, что $\dot{e}_{ij}$ также должен быть симтензором:
+    %
+    \begin{align*}
+        \tr \dot{e} + \tr \Opsr(B) = 0
+            \quad&\Longrightarrow\quad \qty(\tr e)_{,t} = 0 \\
+        \Opsdiv(\dot{e})_i + \Opsdiv(\Opsr(B))_i = 0
+            \quad&\Longrightarrow\quad \qty(\Opsr(e)_i)_{,t} = 0
+    \end{align*}
+    %
+    Поскольку зависимость от времени для всех компонент $h_{ij}$ мы считаем определенной и одинаковой, данные условия выражают требования равенства нулю $\tr e$ и $\Opsdiv e$.
+
+    Рассмотрим более подробно, что означают эти условия для исходного тензора $E_{ij}$:
+    %
+    \begin{equation*}
+        e^{ij} = E^{ij} - \gamma^{ij} E , \quad
+        \tr e = \tr E - 3 \tr E = -2 \tr E \quad\Longrightarrow\quad
+        0 = e = -2E \quad\Longrightarrow\quad
+        E = 0
+    \end{equation*}
+    %
+    Отсюда $E_{ij} = e_{ij}$.
+
+    Распишем $\Opsdiv(E)_i$:
+    %
+    \begin{equation*}
+        \Opsdiv(E)_i
+            = \gamma^{jk} E_{ij;k}
+            = \gamma^{jk} \dot{h}_{ij;k}
+            = \qty(\Opsdiv(h)_i)_{,t} ,
+    \end{equation*}
+    %
+    откуда, следуя сделанному ранее замечанию, заключаем, что $h_{ij}$ также является симтензором.
+
+    Итого, лишь из структуры уравнения (\ref{eq:breq_eBV}) мы получили, что все введенные поля необходимо должны быть симтензорами.
+
+    Уравнение (\ref{eq:breq_eBV}) мы легко можем переписать теперь относительно $h_{ij}$:
+    %
+    \begin{equation}
+        \ddot{h}_{\alpha\beta} + \Opbr(h)_{\alpha\beta} = 0 .
+    \end{equation}
+    %
+    Представляя $h_{ij} \to h_{ij} \exp(-it)$, получаем простейшее уравнение вида
+    %
+    \begin{equation}
+        \ddot{h} = \Opbr(h) .
+    \end{equation}
+
 \onlyinsubfile{
     \nocite{*}
     \clearpage
