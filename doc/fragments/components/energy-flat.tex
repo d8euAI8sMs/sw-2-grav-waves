@@ -1,0 +1,44 @@
+\providecommand{\docroot}{../..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+    Плотность энергии отличается от квадратичного лагранжиана знаком перед потенциальной энергией:
+    %
+    \begin{equation}\label{eq:eps}
+        \varepsilon = \pdv{\mathfrak{L}^{(2)}}{\dot{h}_{ij}} \dot{h}_{ij} - \mathfrak{L}^{(2)}
+                    = \frac{1}{8} \qty(
+            \gamma^{ij} \gamma^{kl} \qty(
+                E_{ik} E_{jl} - E_{ij} E_{kl}
+            ) + B^i_j B^j_i
+        ) \sqrt{\gamma}
+    \end{equation}
+
+    Поток энергии (вектор Умова-Пойнтинга) описывается выражением:
+    %
+    \begin{equation}\label{eq:Uil}
+        U^i = \pdv{\mathfrak{L}^{(2)}}{h_{kl;i}} \dot{h}_{kl}
+            = -\frac{1}{4}\varepsilon^{ijk} E_{lk} B^l_j
+    \end{equation}
+
+    Если нас интересуют средние по времени величины плотности энергии и потока энергии, а метрика $h_{ij}$ представлена в виде
+    %
+    \begin{equation*}
+        h_{ij}(t,r,\theta,\varphi) = \Re{h_{ij}(r,\theta,\varphi)\exp(-i \omega t)},
+    \end{equation*}
+    %
+    где $h_{ij}(r,\theta,\varphi)$~--- не зависящая от времени комплексная величина (комплексная амплитуда), их можно вычислить из следующих соображений. Каждое произведение двух комплексных амплитуд $h_{ij} h_{kl}$ заменяется на $\flatfrac{1}{2} \Re{h_{ij} h^*_{kl}}$. Выражения для средней плотности энергии и среднего потока энергии примут вид:
+    %
+    \begin{equation}\label{eq:epsm}
+        \overline{\varepsilon} = \frac{1}{16} \Re{
+            \omega^2 \gamma^{ij} \gamma^{kl} \qty(
+                h_{ij} h^*_{kl} - h_{ik} h^*_{jl}
+            ) + B^i_j \qty(B^j_i)^*
+        } \sqrt{\gamma},
+    \end{equation}
+    %
+    \begin{equation}\label{eq:Uilm}
+        \overline{U}^i = \frac{1}{8} \omega \Im{\varepsilon^{ijk} h_{lk} (B^l_j)^*} .
+    \end{equation}
+
+\end{document}

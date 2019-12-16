@@ -1,0 +1,44 @@
+\providecommand{\docroot}{../..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+    Можно показать, что тензор $h_{ij}$ в конечном итоге составляется из скалярных, векторных и тензорных компонент, т.е. компонент, ведущих себя при преобразованиях координат как скаляр, вектор или тензор. Обозначим их части, зависящие от $\theta$, следующим образом:
+    %
+    \begin{equation}
+        f^S_m = f^0_m, \quad
+        f^V_m = (f^1_m,f^2_m), \quad
+        f^T_m = (f^3_m,f^4_m) ,
+    \end{equation}
+    %
+    где $f^i_m(\theta)$~--- скалярные функции.
+
+    Если ввести матрицу перестановки
+    %
+    \begin{equation}
+        R = \begin{pmatrix}0&-i\\i&0\end{pmatrix} ,
+    \end{equation}
+    %
+    то действие операторов повышения и понижения на скалярную, векторную и тензорную функции запишется в виде:
+    %
+    \begin{equation}\begin{aligned}
+        \Op{L}_{+} f^S_m &= f^S_{m+1} =
+            f^{'S}_m(\theta) - m \cot\theta f^S_m(\theta), \\
+        \Op{L}_{+} f^V_m &= f^V_{m+1} =
+            f^{'V}_m(\theta) - m \cot\theta f^V_m(\theta) + \cosec\theta R f^V_m, \\
+        \Op{L}_{+} f^T_m &= f^T_{m+1} =
+            f^{'T}_m(\theta) - m \cot\theta f^T_m(\theta) + 2\cosec\theta R f^T_m,
+    \end{aligned}\end{equation}
+    %
+    \begin{equation}\begin{aligned}
+        \Op{L}_{-} f^S_m &= f^S_{m+1} =
+            f^{'S}_m(\theta) + m \cot\theta f^S_m(\theta), \\
+        \Op{L}_{-} f^V_m &= f^V_{m+1} =
+            f^{'V}_m(\theta) + m \cot\theta f^V_m(\theta) - \cosec\theta R f^V_m, \\
+        \Op{L}_{-} f^T_m &= f^T_{m+1} =
+            f^{'T}_m(\theta) + m \cot\theta f^T_m(\theta) - 2\cosec\theta R f^T_m.
+    \end{aligned}\end{equation}
+    %
+    При этом весь тензор умножается на $i \exp(i\varphi)$ или $-i \exp(-i\varphi)$ каждый раз после применения оператора повышения или понижения соответственно.
+
+\end{document}

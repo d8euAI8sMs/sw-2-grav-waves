@@ -1,0 +1,52 @@
+\providecommand{\docroot}{../..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+    Определим операцию \textit{полуротора}:
+    %
+    \begin{equation}\label{eq:sr}
+        \Opsr(h)^i_m = \varepsilon^{ikl} h_{mk;l} .
+    \end{equation}
+    %
+    Здесь $\varepsilon_{ikl} = 0, \pm \sqrt{\gamma}$~--- тензор Леви-Чивиты.
+
+    \textit{Биротор} получается двухкратным применением полуротора:
+    %
+    \begin{equation}\label{eq:br}
+        \Opbr(h) = \Opsr(\Opsr(h)) .
+    \end{equation}
+
+    Операция \textit{симдивергенции} переводит тензор в вектор:
+    %
+    \begin{equation}\label{eq:sdiv}
+        \Opsdiv(h)_i = h^j_{i;j} .
+    \end{equation}
+
+    Операция \textit{биградиента} переводит векторное поле в тензор:
+    %
+    \begin{equation}\label{eq:bigr}
+        \Opbigr(\xi)_{ij} = \xi_{i;j} + \xi_{j;i}.
+    \end{equation}
+
+    Для введенных операций сохраняются тождества, справедливые для аналогичных векторных операций, например, симдивергенция биротора и биротор биградиента равны нулю тождественно:
+    %
+    \begin{equation}\label{eq:br-of-bigr}
+        \Opbr(\Opbigr(\xi)) = 0,
+    \end{equation}
+    %
+    \begin{equation}\label{eq:sdiv-of-br}
+        \Opsdiv(\Opbr(h)) = 0.
+    \end{equation}
+
+    \textit{Симтензором} будем называть тензор $h$, удовлетворяющий трем свойствам:
+    %
+    \begin{equation*}
+        h_{ij} = h_{ji}, \qquad
+        \tr h = h^i_i = 0 , \qquad
+        \Opsdiv(h) = 0 .
+    \end{equation*}
+    %
+    Введенные выше операции тесно связаны с симтензорами. Так, $\Opbigr(\xi)$ на самом деле симтензор. Можно показать, что $\Opsr(h)$ будет являться симтензором при условии, что и $h$ является симтензором (или, по крайней мере, имеет нулевую симдивергенцию).
+
+\end{document}

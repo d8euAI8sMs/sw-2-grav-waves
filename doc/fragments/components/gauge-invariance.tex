@@ -1,0 +1,25 @@
+\providecommand{\docroot}{../..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}\label{sec:gauge-invariance}
+
+    Тождество (\ref{eq:br-of-bigr}) определяет калибровочную инвариантность уравнений (\ref{eq:lagr2var}): добавление биградиента произвольного поля $\xi$ к метрике $h$ при соответствующем изменении поля скоростей не меняет уравнений динамики:
+    %
+    \begin{equation}\begin{aligned}\label{eq:calibr-inv}
+        \tilde{h}_{ij} &= h_{ij} + \xi_{i;j} + \xi_{j;i}, \\
+        \tilde{v}_i    &= v_i - D_t{\xi}_i, \\
+        \tilde{E}_{ij} &= E_{ij} + D_t{\xi}_{i;j} + D_t{\xi}_{j;i} \\
+                       &= D_t{h}_{ij} + \qty(\tilde{v}_{i;j} + D_t{\xi}_{i;j}) + \qty(\tilde{v}_{j;i} + D_t{\xi}_{j;i}), \\
+                       &= D_t{h}_{ij} + v_{i;j} + v_{j;i} \\
+                       &= E_{ij} .
+    \end{aligned}\end{equation}
+    %
+    Правая часть \autoref{eq:lagr2var} не меняется в силу \autoref{eq:br-of-bigr}, а левая~--- в силу инвариантности $E_{ij}$ (\autoref{eq:calibr-inv}) относительно калибровочных преобразований.
+
+    Наиболее простой является калибровка $\tilde{v}_i = 0$. Будем называть ее \textit{глобальной}. При этом:
+    %
+    \begin{equation}\label{eq:calibr-glob}
+        D_t{\xi}_i = v_i, \quad \tilde{E}_{ij} = D_t{h}_{ij} + v_{i;j} + v_{j;i} = D_t{\tilde{h}}_{ij} .
+    \end{equation}
+
+\end{document}
