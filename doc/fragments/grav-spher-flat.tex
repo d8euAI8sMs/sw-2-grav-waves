@@ -1,0 +1,32 @@
+\def\docroot{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Инструменты вращений}
+\subfile{\docroot/fragments/components/killing.tex}
+
+\subsection{Метод Ли-генерации}
+\subfile{\docroot/fragments/components/lie-generation-flat.tex}
+
+\subsection{Операторы повышения и понижения}
+\subfile{\docroot/fragments/components/lup-ldn-func.tex}
+
+\subsection{Диаграмма направленности}
+\subfile{\docroot/fragments/components/rad-diagram.tex}
+
+\subsection{Поляризации сферических мод}
+\subfile{\docroot/fragments/components/polarization.tex}
+\subfile{\docroot/fragments/components/polarization-flat.tex}
+
+\onlyinsubfile{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}

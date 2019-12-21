@@ -9,10 +9,6 @@
 *.sav
 *.synctex
 *.toc
-*.upa
-*.upb
-*.pyg
-*.tdo
-*.fdb_latexmk
-*.fls
+*.nav
+*.snm
 .vscode

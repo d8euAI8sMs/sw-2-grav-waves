@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper,final]{article}
 
-\providecommand{\docroot}{../..}
+\def\docroot{../..}
 
 \input{\docroot/../lib/doc/pkg/common}
 \input{\docroot/../lib/doc/math/operators}
@@ -37,14 +37,14 @@
     \subfile{problem.tex}
 
     \section{Математические инструменты описания гравитационных волн}
-    \subfile{\docroot/fragments/grav-generic.tex}
+    \subfile{\docroot/fragments/grav-generic-flat.tex}
 
     \section{Сферические гравитационные волны}\label{sec:grav-spher}
-    \subfile{\docroot/fragments/grav-spher.tex}
+    \subfile{\docroot/fragments/grav-spher-flat.tex}
 
     \section{Волны в плоском пространстве}
     \subfile{grav-spher-flat-intro.tex}
-    \subfile{\docroot/fragments/components/grav-spher-odd-flat.tex}
+    \subfile{\docroot/fragments/grav-spher-odd-flat.tex}
 
     \section{Заключение}
     \subfile{outro.tex}

@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper,final]{article}
+
+\def\docroot{../..}
+
+\input{\docroot/../lib/doc/pkg/common}
+\input{\docroot/../lib/doc/math/operators}
+
+\geometry{left=3cm,right=2cm,top=2cm,bottom=2cm}
+
+\titlelabel{\thetitle. }
+\patchcmd{\appendices}{\quad}{. }{}{}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+
+    \makedocroot
+
+    \input{title}
+    \tableofcontents
+
+    \newpage
+
+    \section{Введение}
+    \subfile{intro.tex}
+
+    \section{Математические инструменты описания гравитационных волн}
+    \subfile{\docroot/fragments/grav-generic-sw.tex}
+
+    \section{Сферические гравитационные волны}\label{sec:grav-spher}
+    \subfile{\docroot/fragments/grav-spher-sw.tex}
+
+    \section{Обсуждение вариационных уравнений}
+    \subfile{breq-sw-disq.tex}
+
+    \section{Заключение}
+    \subfile{outro.tex}
+
+    \clearpage
+
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+
+\end{document}

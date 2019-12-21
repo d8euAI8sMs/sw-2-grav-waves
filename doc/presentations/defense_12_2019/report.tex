@@ -1,0 +1,154 @@
+\documentclass[compress]{beamer}
+
+\def\docroot{../..}
+
+\input{\docroot/../lib/doc/pkg/beamer}
+\input{\docroot/../lib/doc/pkg/beamer_flat_style}
+\input{\docroot/../lib/doc/math/operators}
+
+\usepackage{array} %% for fixed-width columns in `tabular`
+
+\graphicspath{{\docroot/img/}}
+
+\deftranslation[to=russian]{Theorem}{Теорема}
+\deftranslation[to=russian]{theorem}{Теорема}
+
+\title{Гравитационные волны на фоне метрики Шварцшильда}
+\author[Василевский~А.В.]{
+    Василевский~А.В. \\[\baselineskip]
+    {\footnotesize Научный руководитель: Бурланков~Д.Е.}
+}
+\institute[ННГУ]{Нижегородский университет им. Н.И.~Лобачевского}
+\date{2019}
+
+\begin{document}
+
+    \frame[plain]{\titlepage}
+
+    \begin{frame}\frametitle{Введение}
+
+        \begin{itemize}
+            \item Гравитационные волны очень слабы~--- достаточно линеаризованных уравнений относительно возмущений некоторой фоновой метрики.
+            \item Наиболее простая фоновая метрика~--- плоская метрика Минковского.
+            \item Наиболее естественная фоновая метрика для статической сферически симметричной задачи~--- метрика Шварцшильда (внешняя метрика тяготеющей массы~--- звезды).
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Введение}
+
+        \begin{itemize}
+            \item Сферические гармоники гравитационных волн на фоне метрики Шварцшильда в общем виде были получены в работе Т.~Редже и Дж.~Уилера \cite{regge_wheeler_1957}.
+            \item Работа \cite{regge_wheeler_1957} (и проч., напр. \cite{thorne_multipole}) исходят из ОТО, данная работа базируется на ТГВ (теории глобального времени) \cite{burlankov_space_dynamics}, где время~--- выделенная переменная.
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Постановка задачи}
+
+        Исследование аппарата описания сферических гармоник гравитационных волн на фоне неплоской метрики (Шварцшильда) в рамках ТГВ.
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Общий вид метрики}
+
+        Сравнение 4-метрик ОТО и ТГВ в АДМ-представлении:
+        %
+        \begin{equation*}\begin{aligned}
+            {}^{(4)}g^{ij}_\text{ото} &= \begin{pmatrix}
+                - 1/N^2   & - V^j/N^2                   \\
+                - V^i/N^2 & ({}^{(3)}g^{ij} + V^i V^j / N^2)
+            \end{pmatrix}, \\
+            {}^{(4)}g^{ij}_\text{тгв} &= \begin{pmatrix}
+                - 1   & - V^j                           \\
+                - V^i & {}^{(3)}g^{ij} + V^i V^j
+            \end{pmatrix} .
+        \end{aligned}\end{equation*}
+
+        В ТГВ ${}^{(4)}g^{00} = -1$~--- следствие глобального времени.
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Лагранжиан Гильберта}
+
+        Для слабых ГВ истинное решение~--- фон плюс малые поправки:
+        %
+        \begin{equation*}
+            {}^{(4)}g_{ij} = {}^{(4)}\gamma_{ij} + {}^{(4)}h_{ij}, \qquad
+            {}^{(4)}h_{ij} = \begin{pmatrix}
+                0    & - v_j          \\
+                -v_i & {}^{(3)}h_{ij}
+            \end{pmatrix}
+        \end{equation*}
+
+        Для получения линейных вариационных уравнений достаточно квадратичной вырезки из лагранжиана Гильберта:
+        %
+        \begin{equation}
+            \mathcal{L} = \gamma^{ij}\gamma^{kl} (E_{ik}E_{jl} - E_{ij}E_{kl}) - B^i_j B_i^j .
+        \end{equation}
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Основное вариационное уравнение}
+
+        Вариацией $\sqrt{\gamma} \mathcal{L}$ по $h_{ij}$ можно прийти к вариационному уравнению:
+        %
+        \begin{equation}
+            D_t{e^{\alpha\beta}} + e^{\alpha\beta} \Opdiv{V} + \Opsr(B)^{\alpha\beta} = 0,
+        \end{equation}
+        \begin{gather*}
+            e^{ij} = E^{ij} - \gamma^{ij} \tr E, \quad
+            E_{ij} = D_t{h_{ij}} + v_{i;j} + v_{j;i}, \\
+            B^i_j = \Opsr(h)^i_j = \varepsilon^{ikl} h_{jk;l} \\
+            D_t{h_{ij}} = \dot{h}_{ij} - \delta_V h_{ij} ,
+        \end{gather*}
+        %
+        $\delta_V h_{ij}$~--- Ли-вариация тензора $h_{ij}$. Поле $v^i$~--- калибровочное: полагаем $v^i = 0$.
+
+    \end{frame}
+
+    \begin{frame}\frametitle{В плоском пространстве}
+
+        Метрика Минковского: $V^i = 0$. Приходим к упрощенному варианту
+        %
+        \begin{equation}
+            \ddot{h} + \Opsr^2(h) = 0 .
+        \end{equation}
+
+        Метрика Шварцшильда в глобальном времени~--- метрика Пенлеве с $V^i = \qty{ V^r(r), 0, 0 }$. Упростить уравнение не удается.
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Угловые и радиальные части гармоник}
+
+        \begin{equation*}
+            h_{ij}(t,r,\theta,\phi) = f^r_{ij}(r) f^\Omega_{ij}(\theta,\phi) \exp(-i \omega t) .
+        \end{equation*}
+
+        \begin{enumerate}
+            \item Угловые части $f^\Omega_{ij}(\theta,\phi)$ те же, что и для плоского фона (получение методом Ли-генерации).
+            \item Для радиальных частей $f^r_{ij}(r)$ не найдено аналитического выражения (сложная система ДУ 2-го порядка).
+        \end{enumerate}
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Заключение}
+
+        \begin{itemize}
+            \item Исследован аппарат описания сферических гармоник на фоне метрики Шварцшильда.
+            \item Показано, что угловые части мод не меняются при переходе от плоского фона к шварцшильдовскому.
+            \item Радиальные части мод удовлетворяют сложным уравнениям, для которых аналитического решения не найдено. Ищется возможность использования $v^i \neq 0$.
+        \end{itemize}
+
+    \end{frame}
+
+    \begin{frame}\frametitle{Литература}
+
+        {\tiny{
+        \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+        \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+        }}
+
+    \end{frame}
+
+\end{document}

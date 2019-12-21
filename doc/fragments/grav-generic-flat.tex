@@ -1,0 +1,31 @@
+\def\docroot{..}
+\documentclass[\docroot/reports/draft/report.tex]{subfiles}
+
+\begin{document}
+
+\onlyinsubfile{\tableofcontents}
+
+\subsection{Симтензорный анализ}
+\subfile{\docroot/fragments/components/symtensor-analysis.tex}
+
+\subsection{Квадратичный лагранжиан}
+\subfile{\docroot/fragments/components/sqr-lagrangian.tex}
+
+\subsection{Вариационные уравнения}
+\subfile{\docroot/fragments/components/breq-flat.tex}
+
+\subsection{Плотность и поток энергии}
+\subfile{\docroot/fragments/components/energy-flat.tex}
+
+\subsection{Калибровочная инвариантность}
+\subfile{\docroot/fragments/components/gauge-invariance.tex}
+
+\onlyinsubfile{
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{section}{Список литературы}
+    \bibliographystyle{\docroot/../lib/doc/bib/utf8gosttu}
+    \bibliography{\docroot/../lib/doc/bib/math,\docroot/../lib/doc/bib/physics}
+}
+
+\end{document}
